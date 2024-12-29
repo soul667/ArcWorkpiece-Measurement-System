@@ -235,6 +235,6 @@ if __name__ == "__main__":
     selector.show_touying_and_choose()
     from PointCloud.segment import  PointsSegment
     PointsSegment_=PointsSegment(points=points,x_range=selector.x_regions,y_range=selector.y_regions,use_axis=selector.axis,model=[1,1,1])
-    points_=PointsSegment_.get_points()
+    points_=PointsSegment_.get_points(show=True)
     visualize_point_cloud(points)
     visualize_point_cloud(points_)
