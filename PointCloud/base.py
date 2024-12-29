@@ -22,9 +22,8 @@ from UserInterface.RegionSelector import CoordinateSelector
 from PointCloud.segment import  PointsSegment
 
 class PointCloudBase:
-    def __init__(self, path):
-        self.pcd = o3d.io.read_point_cloud(path)
-        self.points = np.asarray(self.pcd.points)
+    def __init__(self, path=None):
+
         # load data/info.yml
         info_path = os.path.join(absolute_path, "data/info.yml")
             
@@ -38,9 +37,16 @@ class PointCloudBase:
             print(f"错误：文件 {info_path} 不存在，请检查路径是否正确。")
             self.info = None  # 设置为默认值或空值
         # 转换固有坐标倍率系数
+        if(path is not None):
+            self.pcd = o3d.io.read_point_cloud(path)
+            self.points = np.asarray(self.pcd.points)
+            self.points[:,1]/=self.info["collection_speed"]/self.info["collection_speed"]
+            self.pcd.points = o3d.utility.Vector3dVector(self.points)
+    def read(self,path):
+        self.pcd = o3d.io.read_point_cloud(path)
+        self.points = np.asarray(self.pcd.points)
         self.points[:,1]/=self.info["collection_speed"]/self.info["collection_speed"]
         self.pcd.points = o3d.utility.Vector3dVector(self.points)
-
     def show_points(self,points):
                 # 创建Open3D点云对象
         point_cloud = o3d.geometry.PointCloud()

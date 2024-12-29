@@ -88,11 +88,12 @@ class CoordinateSelector:
                         k = (n * sum_xy - sum_x * sum_y) / (n * sum_x2 - sum_x ** 2)
                         b = (sum_y - k * sum_x) / n
                         print(f"y = {k:.3f}x + {b:.3f}")
-                        self.axis = np.array([1, -k, 0])
+                        self.axis = np.array([np.sqrt(1-k**2), k, 0])
                         self.axis = self.axis / np.linalg.norm(self.axis)
+                        print("axis",self.axis)
                         self.points=align_to_x_axis(self.points,self.axis)
-                        # self.ii=1
-                        # self.jj=2
+                        self.ii=0
+                        self.jj=2
 
                         self.redraw_image()
                         self.pointsuse=[]
