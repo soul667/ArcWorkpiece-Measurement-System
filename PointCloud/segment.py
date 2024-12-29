@@ -14,8 +14,6 @@ class PointsSegment():
     # [0,0,0] [1,1,1] 0 is < | >  1 is >= & <= 默认000
 
     def get_points(self,show=False):
-
-
         if self.use_axis is not None:
             # 先对齐到(1,0,0)
             self.points = align_to_x_axis(self.points, self.use_axis)
@@ -51,6 +49,8 @@ class PointsSegment():
                 y_range_=[temp1,temp2] # 保证x_range_是从小到大的
                 if show:
                     print("yranges",y_range_)
+                    print("y_mode",self.model[1])
+
                 filtered_points = filtered_points[
                     (filtered_points[:, 1] < y_range_[0]) | (filtered_points[:, 1] > y_range_[1])
                 ] if self.model[1]==0 else filtered_points[

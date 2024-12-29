@@ -77,8 +77,9 @@ class PointCloudBase:
     def seg_xy_self(self,model=[1,1,1]):
         selector = CoordinateSelector(self.points,0,1)
         selector.show_touying_and_choose()
+        # print ("Axis_____",selector.axis)
         PointsSegment_=PointsSegment(points=self.points,x_range=selector.x_regions,y_range=selector.y_regions,use_axis=selector.axis,model=model)
-        self.points=PointsSegment_.get_points(show=False)
+        self.points=PointsSegment_.get_points(show=True)
         self.pcd.points = o3d.utility.Vector3dVector(self.points)
 
     def seg_xz_self(self,model=[1,1,1]):
@@ -95,9 +96,9 @@ class PointCloudBase:
         self.points=PointsSegment_.get_points(show=True)
         self.pcd.points = o3d.utility.Vector3dVector(self.points)
     
-    def denoise(self):
+    def denoise(self,nb_neighbors=100,std_ratio=0.5):
         # 50 20 的参数
-        cl, ind = self.pcd.remove_statistical_outlier(nb_neighbors=100, std_ratio=0.5)
+        cl, ind = self.pcd.remove_statistical_outlier(nb_neighbors=nb_neighbors, std_ratio=std_ratio)
         self.pcd=cl
         self.points = np.asarray(cl.points)
 

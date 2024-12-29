@@ -74,8 +74,8 @@ class CoordinateSelector:
                     if self.mode == "Mode 3":
                         print("points",self.pointsuse)
                         self.pointsuse=np.array(self.pointsuse)
-                        xx=self.pointsuse[:,0]
-                        yy=self.pointsuse[:,1]
+                        xx=self.pointsuse[:,self.ii]
+                        yy=self.pointsuse[:,self.jj]
                         xx = xx / 1279 * (self.points[:, self.ii].max() - self.points[:, self.ii].min()) + self.points[:, self.ii].min()
                         yy = yy / 719 * (self.points[:, self.jj].max() - self.points[:, self.jj].min()) + self.points[:, self.jj].min()
                         n = len(xx)
@@ -92,9 +92,12 @@ class CoordinateSelector:
                         self.axis = self.axis / np.linalg.norm(self.axis)
                         print("axis",self.axis)
                         self.points=align_to_x_axis(self.points,self.axis)
+                        # y_=self.points[:,1]
+                        # z_=self.points[:,2]
+                        # self.points[:,1]=z_
+                        # self.points[:,2]=y_
                         self.ii=0
                         self.jj=2
-
                         self.redraw_image()
                         self.pointsuse=[]
                         # 将点旋转
