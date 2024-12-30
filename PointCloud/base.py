@@ -43,6 +43,7 @@ class PointCloudBase:
             self.points[:,1]/=self.info["collection_speed"]/self.info["collection_speed"]
             self.pcd.points = o3d.utility.Vector3dVector(self.points)
     def read(self,path):
+        print("read",path)
         self.pcd = o3d.io.read_point_cloud(path)
         self.points = np.asarray(self.pcd.points)
         self.points[:,1]/=self.info["collection_speed"]/self.info["collection_speed"]
@@ -79,22 +80,28 @@ class PointCloudBase:
         selector.show_touying_and_choose()
         # print ("Axis_____",selector.axis)
         PointsSegment_=PointsSegment(points=self.points,x_range=selector.x_regions,y_range=selector.y_regions,use_axis=selector.axis,model=model)
-        self.points=PointsSegment_.get_points(show=True)
+        points_use=PointsSegment_.get_points(show=True)
+        self.points=points_use
         self.pcd.points = o3d.utility.Vector3dVector(self.points)
+        return (selector.x_regions,selector.y_regions,selector.axis),points_use
 
     def seg_xz_self(self,model=[1,1,1]):
         selector = CoordinateSelector(self.points,0,2)
         selector.show_touying_and_choose()
         PointsSegment_=PointsSegment(points=self.points,x_range=selector.x_regions,z_range=selector.y_regions,use_axis=selector.axis,model=model)
-        self.points=PointsSegment_.get_points(show=False)
+        points_use=PointsSegment_.get_points(show=True)
+        self.points=points_use
         self.pcd.points = o3d.utility.Vector3dVector(self.points)
-    
+        return (selector.x_regions,selector.y_regions,selector.axis),points_use
+
     def seg_yz_self(self,model=[1,1,1]):
         selector = CoordinateSelector(self.points,1,2)
         selector.show_touying_and_choose()
         PointsSegment_=PointsSegment(points=self.points,y_range=selector.x_regions,z_range=selector.y_regions,use_axis=selector.axis,model=model)
-        self.points=PointsSegment_.get_points(show=True)
+        points_use=PointsSegment_.get_points(show=True)
+        self.points=points_use
         self.pcd.points = o3d.utility.Vector3dVector(self.points)
+        return (selector.x_regions,selector.y_regions,selector.axis),points_use
     
     def denoise(self,nb_neighbors=100,std_ratio=0.5):
         # 50 20 的参数
@@ -104,7 +111,7 @@ class PointCloudBase:
 
     def down_sample(self,voxel_size=0.1):
         self.down_sample_pcd = self.pcd.voxel_down_sample(voxel_size=voxel_size)
-        self.down_sample_points = np.asarray(self.pcd.points)
+        self.down_sample_points = np.asarray(self.down_sample_pcd.points)
 
     def save(self,path):
         path1=os.path.join(self.info['save_path'], path)
