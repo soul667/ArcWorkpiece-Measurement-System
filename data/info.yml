@@ -1,6 +1,8 @@
 # hk_path: data/points.yml  # 海康相机存储点云的文件夹
 calibrate_points_path: data/biaoding.ply
+example_points_path: data/example/50-20-2.ply
 
+save_path: data/save  # 保存点云的文件夹
 # 点云采集信息
 true_speed: 2.5
 collection_speed: 2 # mm/s

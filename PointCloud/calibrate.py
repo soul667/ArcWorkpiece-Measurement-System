@@ -139,17 +139,34 @@ slope = coefficients[0]
 # 恢复到原始的斜率
 xbeilv= 1280/(x.max() - x.min())
 ybeilv= 720/(y.max() - y.min())
-
+print((ybeilv / xbeilv))
 slope = slope / (ybeilv / xbeilv)
 
 print(slope)
-vect=np.array([np.sqrt(1 - slope ** 2),slope,0])
+# vect=np.array([np.sqrt(1 - slope ** 2),slope,0])
+vect=np.array([0.951,-0.309,0])
+
 print(vect)
 print(np.arctan(vect[1]/vect[0])/np.pi*180)
 
-from PointCloud.transformation import align_to_x_axis,align_to_axis
-PointCloudCalibrate.points /= vect[0]
-points_=align_to_x_axis(PointCloudCalibrate.points,vect)
+# from PointCloud.transformation import align _to_x_axis,align_to_axis
+PointCloudCalibrate.points[:,1] /= vect[0]
+def align_to_x_axis1(points, target_vector):
+    # 定义目标 x 轴方向
+    target_x = np.array([1, 0, 0])
+    
+    # 归一化目标向量
+    target_vector = target_vector / np.linalg.norm(target_vector)
+    a1=target_vector
+    # 计算旋转轴（叉积）
+    a2 = np.cross(target_vector, np.array([0,0,1]))
+    a3=np.cross(a2, target_vector)
+    A=np.vstack([a1,a2,a3])
+    # axis_norm = np.linalg.norm(rotation_axis)
+    print(a1,a2,a3)
+    print(A)
+    return (A@points.T).T
+points_=align_to_x_axis1(PointCloudCalibrate.points,vect)
 # PointCloudCalibrate.show_points(points_)
 # plt show points_[:,0] and points_[:,1]
 plt.figure(figsize=(8, 6))

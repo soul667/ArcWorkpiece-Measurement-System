@@ -11,7 +11,7 @@ def align_to_x_axis(points, target_vector):
         a2 = np.cross(target_vector, target_x)
         a3 = np.cross(a2, target_vector)
         A = np.vstack([a1, a2, a3])
-        
+        print(a1, a2, a3,A)
         # 对点云进行旋转
         return (A @ points.T).T
 

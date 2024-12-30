@@ -106,6 +106,10 @@ class PointCloudBase:
         self.down_sample_pcd = self.pcd.voxel_down_sample(voxel_size=voxel_size)
         self.down_sample_points = np.asarray(self.pcd.points)
 
+    def save(self,path):
+        path1=os.path.join(self.info['save_path'], path)
+        o3d.io.write_point_cloud(path1,self.pcd,write_ascii=True)
+
 # test
 if __name__ == "__main__":
     PointCloud=PointCloudBase("data/example/pian2.ply")
