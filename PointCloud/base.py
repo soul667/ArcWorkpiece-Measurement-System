@@ -38,16 +38,21 @@ class PointCloudBase:
             self.info = None  # 设置为默认值或空值
         # 转换固有坐标倍率系数
         if(path is not None):
-            self.pcd = o3d.io.read_point_cloud(path)
-            self.points = np.asarray(self.pcd.points)
-            self.points[:,1]/=self.info["collection_speed"]/self.info["collection_speed"]
-            self.pcd.points = o3d.utility.Vector3dVector(self.points)
+            self.read(path)
+            # self.pcd = o3d.io.read_point_cloud(path)
+            # self.points = np.asarray(self.pcd.points)
+            # self.points[:,1]/=self.info["collection_speed"]/self.info["collection_speed"]
+            # self.pcd.points = o3d.utility.Vector3dVector(self.points)
     def read(self,path):
         print("read",path)
         self.pcd = o3d.io.read_point_cloud(path)
         self.points = np.asarray(self.pcd.points)
         self.points[:,1]/=self.info["collection_speed"]/self.info["collection_speed"]
         self.pcd.points = o3d.utility.Vector3dVector(self.points)
+        # 给出 xyz min max
+        self.x_minax = [np.min(self.points[:,0]),np.max(self.points[:,0])]
+        self.y_minax = [np.min(self.points[:,1]),np.max(self.points[:,1])]
+        self.z_minax = [np.min(self.points[:,2]),np.max(self.points[:,2])]
     def show_points(self,points):
                 # 创建Open3D点云对象
         point_cloud = o3d.geometry.PointCloud()
@@ -56,6 +61,9 @@ class PointCloudBase:
         # 可视化
         o3d.visualization.draw_geometries([point_cloud])
     
+    def show_points_2d(self,points,ii,jj):
+        plt.scatter(points[:,ii],points[:,jj],s=0.1)
+        plt.show()
     @ staticmethod
     def seg_xy(points,model=[1,1,1]):
         selector = CoordinateSelector(points,0,1)
@@ -103,6 +111,54 @@ class PointCloudBase:
         self.pcd.points = o3d.utility.Vector3dVector(self.points)
         return (selector.x_regions,selector.y_regions,selector.axis),points_use
     
+    def seg_z_self_scale(self,model=[1,1,1],ranges=None): 
+        for i in range(len(ranges)):
+            # 确保 ranges[i] 是一个范围列表
+            # range_ =self.z_minax
+            if isinstance(ranges[i], (list, tuple)) and len(ranges[i]) == 2:
+                # print(i,ranges[i],self.z_minax,self.z_minax[1] - self.z_minax[0])
+                # ranges=float(ranges)
+                # 0 [0, 0.5] [-65.580002, 0.0] 65.580002
+                ranges[i][0] = ranges[i][0] * (self.z_minax[1] - self.z_minax[0]) + self.z_minax[0]
+                ranges[i][1] = ranges[i][1] * (self.z_minax[1] - self.z_minax[0]) + self.z_minax[0]
+            else:
+                raise TypeError(f"ranges[{i}] must be a list or tuple of two elements")
+
+        PointsSegment_=PointsSegment(points=self.points,z_range=ranges,use_axis=None,model=model)
+        points_use=PointsSegment_.get_points(show=True)
+        self.points=points_use
+        self.pcd.points = o3d.utility.Vector3dVector(self.points)
+
+    def seg_y_self_scale(self,model=[1,1,1],ranges=None): 
+        for i in range(len(ranges)):
+            # 确保 ranges[i] 是一个范围列表
+            # range_ =self.z_minax
+            if isinstance(ranges[i], (list, tuple)) and len(ranges[i]) == 2:
+                ranges[i][0] = ranges[i][0] * (self.y_minax[1] - self.y_minax[0]) + self.y_minax[0]
+                ranges[i][1] = ranges[i][1] * (self.y_minax[1] - self.y_minax[0]) + self.y_minax[0]
+            else:
+                raise TypeError(f"ranges[{i}] must be a list or tuple of two elements")
+
+        PointsSegment_=PointsSegment(points=self.points,y_range=ranges,use_axis=None,model=model)
+        points_use=PointsSegment_.get_points(show=True)
+        self.points=points_use
+        self.pcd.points = o3d.utility.Vector3dVector(self.points)
+
+    def seg_x_self_scale(self,model=[1,1,1],ranges=None): 
+        for i in range(len(ranges)):
+            # 确保 ranges[i] 是一个范围列表
+            # range_ =self.z_minax
+            if isinstance(ranges[i], (list, tuple)) and len(ranges[i]) == 2:
+                ranges[i][0] = ranges[i][0] * (self.x_minax[1] - self.x_minax[0]) + self.x_minax[0]
+                ranges[i][1] = ranges[i][1] * (self.x_minax[1] - self.x_minax[0]) + self.x_minax[0]
+            else:
+                raise TypeError(f"ranges[{i}] must be a list or tuple of two elements")
+
+        PointsSegment_=PointsSegment(points=self.points,x_range=ranges,use_axis=None,model=model)
+        points_use=PointsSegment_.get_points(show=True)
+        self.points=points_use
+        self.pcd.points = o3d.utility.Vector3dVector(self.points)
+
     def denoise(self,nb_neighbors=100,std_ratio=0.5):
         # 50 20 的参数
         cl, ind = self.pcd.remove_statistical_outlier(nb_neighbors=nb_neighbors, std_ratio=std_ratio)

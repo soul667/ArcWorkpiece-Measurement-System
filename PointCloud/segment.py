@@ -4,6 +4,8 @@ from .transformation import align_to_x_axis,align_to_axis
 class PointsSegment():
     def __init__(self, points, x_range=None, y_range=None, z_range=None,use_axis=None,model=None):
         self.points = np.array(points)
+        self.points_source=self.points
+        # self.temp_points=
         self.x_range = x_range
         self.y_range = y_range
         self.z_range = z_range
@@ -12,7 +14,7 @@ class PointsSegment():
         # print("model",model)
     # model like
     # [0,0,0] [1,1,1] 0 is < | >  1 is >= & <= 默认000
-
+    
     def get_points(self,show=False):
         if self.use_axis is not None:
             # 先对齐到(1,0,0)
@@ -27,7 +29,8 @@ class PointsSegment():
         ]
         if show:
             print(f"Initial number of points: {len(self.points)}")
-
+        temp_points=[]
+        
         if self.x_range is not None:
             for x_range_ in self.x_range:
                 temp1=min(x_range_[0],x_range_[1])
@@ -35,13 +38,22 @@ class PointsSegment():
                 x_range_=[temp1,temp2] # 保证x_range_是从小到大的
                 if show:
                     print("xranges",x_range_)
-                filtered_points = filtered_points[
-                    (filtered_points[:, 0] < x_range_[0]) | (filtered_points[:, 0] > x_range_[1])
-                ] if self.model[0]==0 else filtered_points[
+                if self.model[0]==0:
+                    filtered_points = filtered_points[
+                        (filtered_points[:, 0] < x_range_[0]) | (filtered_points[:, 0] > x_range_[1])
+                    ] 
+                else:
+                    temp_points.append(filtered_points[
                     (filtered_points[:, 0] >= x_range_[0]) & (filtered_points[:, 0] <= x_range_[1])
-                ]
+                ])
+                # 将 temp_points 展开并继续赋值给 filtered_points
+        if temp_points:
+            filtered_points = np.vstack(temp_points)
+
         if show:
             print(f"number of x_else points: {len(filtered_points)}")
+        
+        temp_points=[]    
         if self.y_range is not None:
             for y_range_ in self.y_range:
                 temp1=min(y_range_[0],y_range_[1])
@@ -50,14 +62,19 @@ class PointsSegment():
                 if show:
                     print("yranges",y_range_)
                     print("y_mode",self.model[1])
-
-                filtered_points = filtered_points[
-                    (filtered_points[:, 1] < y_range_[0]) | (filtered_points[:, 1] > y_range_[1])
-                ] if self.model[1]==0 else filtered_points[
-                    (filtered_points[:, 1] >= y_range_[0]) & (filtered_points[:, 1] <= y_range_[1])
-                ]
+                if self.model[1]==0:
+                    filtered_points = filtered_points[
+                        (filtered_points[:, 1] < y_range_[0]) | (filtered_points[:, 1] > y_range_[1])
+                    ] 
+                else: 
+                     temp_points.append(filtered_points[
+                        (filtered_points[:, 1] >= y_range_[0]) & (filtered_points[:, 1] <= y_range_[1])
+                    ])
         if show:
             print(f"number of y_else points: {len(filtered_points)}")
+        if temp_points:
+            filtered_points = np.vstack(temp_points)
+        temp_points=[]
         if self.z_range is not None:
             for z_range_ in self.z_range:
                 temp1=min(z_range_[0],z_range_[1])
@@ -65,11 +82,16 @@ class PointsSegment():
                 z_range_=[temp1,temp2] # 保证x_ra
                 if show:
                     print("zranges",z_range_)
-                filtered_points = filtered_points[
-                    (filtered_points[:, 2] < z_range_[0]) | (filtered_points[:, 2] > z_range_[1])
-                ] if self.model[2]==0 else filtered_points[
-                    (filtered_points[:, 2] >= z_range_[0]) & (filtered_points[:, 2] <= z_range_[1])
-                ]
+                if self.model[2]==0:
+                    filtered_points = filtered_points[
+                        (filtered_points[:, 2] < z_range_[0]) | (filtered_points[:, 2] > z_range_[1])
+                    ] 
+                else:
+                    temp_points.append(filtered_points[
+                        (filtered_points[:, 2] >= z_range_[0]) & (filtered_points[:, 2] <= z_range_[1])
+                    ])
+        if temp_points:
+            filtered_points = np.vstack(temp_points)
 
         if self.use_axis is not None:
             # 先对齐到(1,0,0)
