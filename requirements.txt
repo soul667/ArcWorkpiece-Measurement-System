@@ -1,0 +1,13 @@
+numpy
+opencv-python-headless
+pyyaml
+open3d
+matplotlib
+scikit-learn
+scipy
+robpy
+py_cylinder_fitting
+skspatial
+fastapi
+uvicorn
+pyblind

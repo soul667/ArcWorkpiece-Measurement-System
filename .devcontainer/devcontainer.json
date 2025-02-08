@@ -1,0 +1,25 @@
+{
+    "name": "ArcWorkpiece Measurement System Dev Container",
+    "build": { "dockerfile": "Dockerfile" },
+    "customizations": {
+        "vscode": {
+          "extensions": [
+            "ms-python.python",
+            "ms-vscode.cpptools",
+            "streetsidesoftware.code-spell-checker",
+            "ms-azuretools.vscode-docker",
+            "ms-python.vscode-pylance",
+            "ms-toolsai.jupyter",
+            "GitHub.copilot",
+            "eamodio.gitlens",
+            "usernamehw.errorlens",
+            "dbaeumer.vscode-eslint",
+            "esbenp.prettier-vscode",
+            "dsznajder.es7-react-js-snippets",
+            "formulahendry.auto-rename-tag",
+            "formulahendry.auto-close-tag",
+            "myriad-dreamin.tinymist"
+          ]
+        }
+      }
+}
