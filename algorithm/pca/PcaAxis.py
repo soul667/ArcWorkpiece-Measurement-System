@@ -3,6 +3,7 @@ from sklearn.decomposition import PCA
 from enum import Enum
 # from r_pca import R_pca
 from robpy.pca.robpca import ROBPCA
+from robpy.preprocessing import RobustScaler
 from scipy.spatial import ConvexHull
 import cv2
 # import numpy as np
@@ -36,7 +37,7 @@ class PcaAxis:
         # 对点云进行旋转
         return (A @ points.T).T
     
-    def fit(self,points, model=PCAMethod.ORDINARY_PCA):
+    def fit(self,points, model=PCAMethod.ORDINARY_PCA,alpha=0.5,final_MCD_step=False):
         """
         计算给定点集的主要轴
 
@@ -44,7 +45,7 @@ class PcaAxis:
         :return: 主轴的方向向量
         :model: PCA方法
         """
-        print(points)
+        # print(points)
         center = np.mean(points, axis=0)
         centered_points = points - center
 
@@ -53,14 +54,16 @@ class PcaAxis:
             pca = PCA(n_components=3)
             pca.fit(centered_points)
             # 返回PCA的特征向量
-            return pca.components_    
+            return pca    
         elif model==PCAMethod.ROBUST_PCA:
               # 拟合数据
-           pca_model = ROBPCA(n_components=3,alpha=0.5,final_MCD_step=True)
-            # print(pca_model.components_)
+        #    scaled_data = RobustScaler(with_centering=True).fit_transform( centered_points)
+           pca_model = ROBPCA(n_components=3,alpha=alpha,final_MCD_step=final_MCD_step)
            pca_model.fit(centered_points)
-           pca_model.plot_outlier_map(centered_points)
+           print(pca_model.components_)
+        #    pca_model.plot_outlier_map(centered_points)
             # print(pca_model.components_)
+           return pca_model
 
 
     def map_points_to_image_and_find_contours(self,points,show=True):
@@ -120,7 +123,7 @@ class PcaAxis:
         min_counters_num=1000000000
         ans_axis=None
         for ax in axis_list:
-            print(ax)
+            print(ax/np.linalg.norm(ax))
             points_touying_3d=self.align_to_x_axis(points, ax)
             points_touying_2d=np.stack([points_touying_3d[:,1],points_touying_3d[:,2]],axis=1)
             counters_num=self.map_points_to_image_and_find_contours(points_touying_2d,show=True)

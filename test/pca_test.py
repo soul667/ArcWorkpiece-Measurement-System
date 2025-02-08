@@ -18,41 +18,43 @@ from UserInterface.RegionSelector import CoordinateSelector
 from PointCloud.segment import  PointsSegment
 
 PointCloudCalibrate = PointCloudBase()
-PointCloudCalibrate.read(PointCloudCalibrate.info['example_points_path'])
+# PointCloudCalibrate.read(PointCloudCalibrate.info['example_points_path'])
+PointCloudCalibrate.read("../data/example/1.ply")
+
 # print(PointCloudCalibrate.z_minax[1]-PointCloudCalibrate.z_minax[0])
-PointCloudCalibrate.seg_z_self_scale(model=[1,1,1],ranges=[[0,0.5]])
-
-PointCloudCalibrate.seg_y_self_scale(model=[1,0,1],ranges=[[0.1,0.4]])
-PointCloudCalibrate.seg_x_self_scale(model=[1,0,1],ranges=[[0.2,0.9]])
 
 
-PointCloudCalibrate.denoise(std_ratio=0.5)
 # PointCloudCalibrate.show_points(PointCloudCalibrate.points)
 
 PointCloudCalibrate.seg_yz_self(model=[1,1,1])
-# PointCloudCalibrate.show_points_2d(PointCloudCalibrate.points,1,2)
+PointCloudCalibrate.denoise(nb_neighbors=120,std_ratio=0.5)
+# o3d.draw_geometries([PointCloudCalibrate.points])
+PointCloudCalibrate.show_points(PointCloudCalibrate.points)
 
-PointCloudCalibrate.seg_xy_self(model=[1,1,1])
+# # PointCloudCalibrate.show_points_2d(PointCloudCalibrate.points,1,2)
+
+# PointCloudCalibrate.seg_xy_self(model=[1,1,1])
 
 # PointCloudCalibrate.seg_yz_self(model=[1,1,1])
+# PointCloudCalibrate.seg_xy_self(model=[1,1,1])
 
 
-# # PCA
-# PointCloudCalibrate.down_sample(voxel_size=0.1)
-# PointCloudCalibrate.show_points(PointCloudCalibrate.down_sample_points)
+# # # PCA
+# # PointCloudCalibrate.down_sample(voxel_size=0.1)
+# # PointCloudCalibrate.show_points(PointCloudCalibrate.down_sample_points)
 
-from algorithm.pca.PcaAxis import *
-PcaAxis_=PcaAxis()
-# class PCAMethod(Enum):
-#             ORDINARY_PCA = "Ordinary PCA"
-#             ROBUST_PCA = "Robust PCA"
-# ax1=PcaAxis_.get_axis(PointCloudCalibrate.down_sample_points, model=PCAMethod.ORDINARY_PCA)
-# ax1=np.array([0.99933844,0.0085073,-0.03535967])
-# 将点集的轴对齐到 x 轴
-# points = PcaAxis_.align_to_x_axis(PointCloudCalibrate.points, ax1)
-points =PointCloudCalibrate.points
-PointCloudCalibrate.show_points_2d(points,1,2)
+# from algorithm.pca.PcaAxis import *
+# PcaAxis_=PcaAxis()
+# # class PCAMethod(Enum):
+# #             ORDINARY_PCA = "Ordinary PCA"
+# #             ROBUST_PCA = "Robust PCA"
+# # ax1=PcaAxis_.get_axis(PointCloudCalibrate.down_sample_points, model=PCAMethod.ORDINARY_PCA)
+# # ax1=np.array([0.99933844,0.0085073,-0.03535967])
+# # 将点集的轴对齐到 x 轴
+# # points = PcaAxis_.align_to_x_axis(PointCloudCalibrate.points, ax1)
+# points =PointCloudCalibrate.points
+# PointCloudCalibrate.show_points_2d(points,1,2)
 
-PointCloudCalibrate.points=points
-# save points to ply
-PointCloudCalibrate.save("ans.ply")
+# PointCloudCalibrate.points=points
+# # save points to ply
+# PointCloudCalibrate.save("ans.ply")

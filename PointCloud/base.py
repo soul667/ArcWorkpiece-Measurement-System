@@ -47,7 +47,7 @@ class PointCloudBase:
         print("read",path)
         self.pcd = o3d.io.read_point_cloud(path)
         self.points = np.asarray(self.pcd.points)
-        self.points[:,1]/=self.info["collection_speed"]/self.info["collection_speed"]
+        self.points[:,1]/=self.info["collection_speed"]/self.info["true_speed"]
         self.pcd.points = o3d.utility.Vector3dVector(self.points)
         # 给出 xyz min max
         self.x_minax = [np.min(self.points[:,0]),np.max(self.points[:,0])]
@@ -63,6 +63,8 @@ class PointCloudBase:
     
     def show_points_2d(self,points,ii,jj):
         plt.scatter(points[:,ii],points[:,jj],s=0.1)
+        # 设置xy比例相同
+        plt.axis('equal')
         plt.show()
     @ staticmethod
     def seg_xy(points,model=[1,1,1]):

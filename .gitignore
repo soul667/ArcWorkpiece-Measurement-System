@@ -2,3 +2,6 @@
 *.pcd
 *.pyc
 */*.pyc
+
+data/temp/*
+PointCloud/__pycache__/*
