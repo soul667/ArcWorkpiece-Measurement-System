@@ -1,18 +1,29 @@
-# 使用官方的python运行时作为父映像
-FROM python:3.11-slim
+# Dockerfile for ArcWorkpiece Measurement System
+FROM ascendai/python:3.10-ubuntu22.04
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && \
+    apt-get install -y \
     build-essential \
     cmake \
     libpcl-dev \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /workspace
 
-# 将当前目录内容复制到 /工作区的容器中
-COPY .. /workspace
 
-# 安装其他任何python依赖性
-RUN pip install --no-cache-dir -r requirements.txt
+RUN python -m venv /workspace/venv
+
+# Copy current directory contents into the container
+
+# Install Python dependencies
+RUN pip install --no-cache-dir  pybind11
+
+COPY ./requirements.txt /tmp/requirements.txt
+# 安装依赖，这一层只有在 requirements.txt 变化时才会重建
+RUN . /workspace/venv/bin/activate && pip install --no-cache-dir -r /tmp/requirements.txt
+
+RUN echo "source /workspace/venv/bin/activate" >> /root/.bashrc

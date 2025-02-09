@@ -18,8 +18,10 @@
             "dsznajder.es7-react-js-snippets",
             "formulahendry.auto-rename-tag",
             "formulahendry.auto-close-tag",
-            "myriad-dreamin.tinymist"
+            "myriad-dreamin.tinymist",
+            "saoudrizwan.claude-dev"
           ]
         }
-      }
+      },
+      "forwardPorts": [8990]
 }
