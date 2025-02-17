@@ -1,0 +1,1165 @@
+2025-02-16 12:20:33,670 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 2253447 个点。
+2025-02-16 12:20:37,659 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 2304209 个点。
+2025-02-16 12:23:08,180 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 2001659 个点，总大小为 22.91 MB。
+2025-02-16 12:24:29,188 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 2001659 个点，文件大小为 1.75 MB。
+2025-02-16 12:24:40,083 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.50 MB。
+2025-02-16 12:25:51,590 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 12:25:52,067 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 12:28:45,174 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 12:28:46,285 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 12:29:06,356 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 12:30:24,472 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 12:30:24,473 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:30:24,473 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:30:24,473 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:34:43,705 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 12:34:43,745 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:34:43,745 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:34:43,745 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:34:48,017 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-21.329533604405544, 25.136077376082255]], 'y_regions': [], 'z_regions': []}}
+2025-02-16 12:38:55,963 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 2253447 个点，文件大小为 2.25 MB。
+2025-02-16 12:39:00,454 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 2304209 个点，文件大小为 2.50 MB。
+2025-02-16 12:39:04,975 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:39:04,975 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:39:04,975 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:39:04,980 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:39:04,980 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:39:04,980 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:39:05,059 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 12:39:07,587 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 12:39:07,591 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:39:07,591 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:39:07,591 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:39:08,231 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:39:08,231 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:39:08,231 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:39:08,232 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 12:39:12,811 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-61.185593713610196, -51.237005044180634]], 'z_regions': []}}
+2025-02-16 12:51:13,333 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 2253447 个点，文件大小为 2.25 MB。
+2025-02-16 12:51:16,917 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 2304209 个点，文件大小为 2.50 MB。
+2025-02-16 12:51:55,753 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 12:51:55,754 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:51:55,754 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:51:55,754 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:51:57,263 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 12:51:59,000 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 12:51:59,000 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:51:59,000 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:51:59,000 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:52:05,222 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-60.91302964047514, -48.92021042253265]], 'z_regions': []}}
+2025-02-16 12:52:05,361 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 12:52:28,003 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 12:52:28,004 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:52:28,004 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:52:28,004 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:52:28,791 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 12:52:29,918 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 12:52:46,465 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.50 MB。
+2025-02-16 12:52:49,810 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:52:49,810 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:52:49,810 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:52:49,817 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:52:49,817 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:52:49,817 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:52:49,934 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 12:53:08,799 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:53:08,799 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:53:08,799 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:53:08,799 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 12:53:16,197 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.941470659464933, 25.34937952802104]], 'y_regions': [], 'z_regions': []}}
+2025-02-16 12:53:16,343 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 12:55:52,193 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:55:52,193 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:55:52,193 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:55:53,034 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 12:55:59,529 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.812166608661894, 24.832163324808903]], 'y_regions': [], 'z_regions': []}}
+2025-02-16 12:56:00,807 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to assets/temp/temp.ply
+2025-02-16 12:56:00,885 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 12:56:07,812 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 12:56:11,080 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:56:11,080 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:56:11,080 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:57:59,170 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 12:57:59,173 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 12:57:59,173 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 12:57:59,173 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 12:58:00,986 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 12:58:09,468 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.50 MB。
+2025-02-16 12:58:17,923 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-21.063937514617034, 24.50278395673086]], 'y_regions': [], 'z_regions': []}}
+2025-02-16 12:58:17,986 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to assets/temp/temp.ply
+2025-02-16 12:58:23,360 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 13:00:40,918 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 13:00:40,957 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:00:40,957 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:00:40,957 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:00:42,494 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 13:00:48,280 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.68286255785886, 23.927034969187673]], 'y_regions': [], 'z_regions': []}}
+2025-02-16 13:00:49,741 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 13:00:49,986 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 13:01:05,517 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 13:01:05,557 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:05,557 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:05,558 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:05,624 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:05,624 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:05,624 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:06,968 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:06,968 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:06,968 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:06,968 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 13:01:07,776 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:07,776 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:07,777 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:07,777 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 13:01:09,842 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:09,842 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:09,842 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:11,217 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:11,218 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:11,218 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:12,726 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:12,726 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:12,726 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:13,485 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 13:01:14,218 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 13:01:14,592 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:14,592 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:14,592 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:15,507 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:15,507 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:15,507 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:16,956 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:16,956 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:16,956 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:18,089 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 13:01:18,486 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 13:01:19,296 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:19,297 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:19,297 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:20,991 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:20,991 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:20,991 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:22,776 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 13:01:23,263 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 13:01:23,263 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:23,263 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:23,264 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:25,416 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:25,416 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:25,416 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:30,372 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-29.992754215677273, -23.656855726328637]], 'y_regions': [], 'z_regions': []}}
+2025-02-16 13:01:30,518 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 13:01:30,711 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 13:01:32,165 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:32,165 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:32,165 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:32,166 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 13:01:32,525 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:32,526 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:32,526 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:33,246 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 13:01:33,247 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:33,247 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:33,247 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:35,165 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:35,165 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:35,165 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:39,292 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:39,292 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:39,292 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:39,299 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:39,299 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:39,299 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:39,418 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 13:01:40,341 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:40,341 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:40,342 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:40,342 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 13:01:41,309 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:41,309 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:41,309 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:41,909 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:01:41,909 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:01:41,909 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:20,275 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[26.35724355149501, 29.536317142519295]], 'y_regions': [], 'z_regions': []}}
+2025-02-16 13:36:20,823 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 13:36:20,991 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 13:36:24,782 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:36:24,782 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:24,782 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:24,782 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 13:36:25,695 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 13:36:25,696 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:36:25,696 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:25,696 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:26,520 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:36:26,521 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:26,521 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:27,930 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:36:27,930 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:27,930 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:36,122 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-35.16491624779861, -34.00117979057131]], 'y_regions': [], 'z_regions': []}}
+2025-02-16 13:36:36,374 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 13:36:36,534 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 13:36:54,577 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 13:36:54,577 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:36:54,577 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:54,577 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:56,039 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 13:36:56,040 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:36:56,040 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:56,040 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:57,558 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:36:57,558 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:36:57,558 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:37:05,613 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-19.69144944924223, -15.496679969830462]], 'z_regions': []}}
+2025-02-16 13:37:05,774 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 13:37:05,904 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 13:37:48,664 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 13:37:48,703 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 13:37:48,703 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 13:37:48,703 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 13:37:50,837 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:35:38,445 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 14:35:38,445 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 14:35:38,446 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 14:35:38,448 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 14:35:47,148 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[32.47556105441119, 34.26669524397454]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 14:35:47,203 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 14:35:47,285 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 14:35:50,565 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:35:51,667 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:36:00,495 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[33.04546738745405, 34.103864863105144]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 14:36:00,499 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 14:36:00,583 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 14:36:03,059 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:36:04,657 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:36:55,051 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:36:55,575 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:37:01,052 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:37:01,644 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:37:59,453 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:37:59,964 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:38:06,443 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.14 MB。
+2025-02-16 14:38:10,738 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:38:11,267 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:38:11,821 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:38:16,561 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:38:26,408 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.85138868031598, -19.467330442926116]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'remove', 'z_mode': 'remove'}}
+2025-02-16 14:38:27,018 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 14:38:27,640 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:38:45,261 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.85138868031598, -19.467330442926116], [-10.511659495109342, -9.290431638588874], [-6.60373035424384, -5.870993640331559], [-3.102877165551824, -2.7772164038130356], [-0.33476069077209303, 1.5377886892259554], [3.2475076883546166, 4.550150735309778], [6.5855304961772205, 7.643927971828305], [10.412044446608029, 11.470441922259106]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'remove', 'z_mode': 'remove'}}
+2025-02-16 14:38:46,269 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 14:38:46,793 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:39:03,109 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:39:04,647 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:39:18,638 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-12.101619666437934, -2.063995306092533]], 'z_regions': [[5.9686626922809545, 14.900334492293808]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 14:39:18,901 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 14:39:19,167 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:39:21,881 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:39:27,761 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:39:30,217 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:39:45,851 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.769973489881284, 25.39243948659246]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 14:39:45,983 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 14:39:46,161 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:40:41,193 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-34.77338624464933, -33.877819149867655], [-29.318568485524573, -28.66724696204699], [-22.23827554086719, -20.528639489852434], [-11.736225513205106, -10.433645664812918], [-1.55982044764108, -0.5828855613469344], [8.45376213687392, 9.674930744741616], [18.87440092401149, 19.932747050830145], [29.132217230100025, 30.27197459744319], [39.308622295664065, 40.366968422482714], [49.077971158605536, 50.54337348804674], [69.34937004920907, 70.73336113812579], [79.6071863552976, 81.31682240631238], [89.5393576992881, 90.67911506663125], [99.71576276485214, 101.01834261324433]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 14:40:41,198 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 14:40:49,165 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:40:53,219 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:40:54,055 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:41:04,765 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 7552000 个点，文件大小为 225.09 MB。
+2025-02-16 14:41:18,052 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:41:19,004 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:41:25,113 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:41:57,213 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 14:41:57,213 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 14:41:57,213 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 14:41:57,213 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 14:41:58,552 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:41:59,099 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:42:01,449 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 14:42:01,449 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 14:42:01,449 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 14:42:19,724 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.01557833494833, 23.638195030921253]], 'y_regions': [], 'z_regions': [[-58.80211687932138, -46.6175395549233]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 14:42:20,155 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 14:42:20,507 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:42:22,934 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 14:42:22,934 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 14:42:22,934 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 14:42:22,934 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 14:42:23,810 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 14:42:23,811 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 14:42:23,811 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 14:42:26,032 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 14:42:26,032 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 14:42:26,032 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 14:42:26,032 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 14:42:26,715 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:42:26,715 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 14:42:26,715 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 14:42:26,715 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 14:43:01,517 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-15.53724167192252, -14.929285269132968], [-9.551209398302333, -8.84972124123747], [2.4208551489380383, 3.2626409374158776], [8.500419176833539, 8.827780316797142], [20.19188846124796, 21.033674249725802], [26.084388980592838, 26.972940646208333], [38.10321940497086, 38.80470756203573], [44.41661281855464, 44.88427158993123]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 14:43:01,534 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 14:43:22,838 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 14:43:22,838 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 14:43:22,838 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 14:43:22,880 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 14:43:24,329 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 14:43:24,772 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 14:43:33,728 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 14:43:33,728 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 14:43:33,728 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 14:43:55,099 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 14:43:55,099 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 14:43:55,100 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 14:43:55,139 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 14:44:02,762 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 14:44:08,049 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 14:44:08,050 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 14:44:08,050 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 14:46:55,386 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 14:46:55,386 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 14:46:55,386 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 14:46:55,428 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:38:39,554 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 188.00 MB。
+2025-02-16 15:38:42,206 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:38:42,206 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:38:42,206 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:38:42,212 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:38:42,212 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:38:42,212 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:38:42,340 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:38:43,562 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 15:38:43,563 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:38:43,563 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:38:43,563 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:39:00,748 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-19.990536285295267, -18.777997089848956], [-16.65605349781791, -15.367730602656202]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 15:39:00,779 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 15:39:04,074 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:39:04,074 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:39:04,074 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:39:04,145 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 15:39:05,469 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:39:05,469 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:39:05,469 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:39:05,469 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:39:06,045 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 15:39:13,626 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.77 MB。
+2025-02-16 15:39:15,399 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:39:15,399 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:39:15,399 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:39:15,405 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:39:15,405 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:39:15,405 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:39:15,491 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:39:16,760 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:39:16,760 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:39:16,760 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:39:16,761 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 15:39:30,068 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-19.607139121833704, -18.799959554142653], [-16.216984937531272, -15.490523326609328], [-13.391856450612579, -12.66539483969063]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'remove', 'z_mode': 'remove'}}
+2025-02-16 15:39:30,873 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 15:39:31,510 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 15:46:36,745 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:46:36,745 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:46:36,745 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:46:36,793 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:46:39,443 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 15:46:48,251 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-9.678830439233728, -8.79093291477357], [-6.692266038776825, -5.400778730471131]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 15:46:48,612 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 15:48:48,760 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:48:48,760 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:48:48,760 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:48:48,801 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:48:49,697 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 15:48:50,203 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 15:49:55,630 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 2304209 个点，文件大小为 2.50 MB。
+2025-02-16 15:49:57,227 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:49:57,228 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:49:57,228 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:49:57,232 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:49:57,232 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:49:57,232 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:49:57,302 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:49:58,846 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 15:49:58,846 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:49:58,846 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:49:58,846 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:49:59,625 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:49:59,625 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:49:59,625 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:49:59,625 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 15:50:06,523 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-60.601012334390646, -52.19174802036097]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 15:50:06,527 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 15:50:06,532 - UserInterface.fastapi_test - WARNING - All points were filtered out
+2025-02-16 15:50:06,603 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 15:50:09,402 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:50:09,405 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:50:09,406 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:50:10,062 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:50:10,062 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:50:10,062 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:50:10,062 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:50:10,881 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 15:50:10,882 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:50:10,882 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:50:10,882 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:51:26,896 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 2304209 个点，文件大小为 2.50 MB。
+2025-02-16 15:51:28,038 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:51:28,038 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:51:28,038 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:51:28,042 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:51:28,042 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:51:28,042 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:51:28,124 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:51:28,950 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:51:28,950 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:51:28,950 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:51:28,950 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 15:51:43,290 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-38.89138099306913, -35.3732193923016]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'remove', 'z_mode': 'remove'}}
+2025-02-16 15:51:43,292 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 15:51:43,297 - UserInterface.fastapi_test - WARNING - All points were filtered out
+2025-02-16 15:51:43,368 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 15:51:45,823 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:51:45,823 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:51:45,823 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:51:45,824 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 15:51:46,618 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:51:46,618 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:51:46,618 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:51:46,618 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:33,950 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 2304209 个点，文件大小为 2.50 MB。
+2025-02-16 15:57:35,152 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:57:35,152 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:35,152 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:35,157 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:57:35,157 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:35,157 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:35,276 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:57:36,938 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:57:36,938 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:36,938 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:36,939 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 15:57:37,558 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:57:37,558 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:37,558 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:37,558 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 15:57:38,085 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:57:38,085 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:38,085 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:41,666 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-60.00035059767424, -48.931012878186195]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 15:57:47,906 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:57:47,906 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:47,906 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:47,947 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:57:48,760 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 15:57:48,760 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:57:48,760 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:57:48,760 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:59:51,324 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.50 MB。
+2025-02-16 15:59:53,285 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:59:53,285 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:59:53,285 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:59:53,288 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:59:53,288 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:59:53,288 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 15:59:53,398 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 15:59:55,137 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 15:59:55,138 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 15:59:55,138 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 15:59:55,138 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:00:02,313 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.200067156838397, 24.903948343984275]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:00:43,557 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.549603245255657, 25.627475437710537]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:00:44,948 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterfaceassets/temp/temp.ply
+2025-02-16 16:01:09,414 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:01:09,414 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:01:09,414 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:01:09,423 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:01:14,381 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.814988754927874, 24.919780745251288]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:01:15,942 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:01:16,171 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:01:22,453 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:01:22,453 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:01:22,453 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:01:22,453 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:01:42,684 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-29.926557920340745, -28.33424486230743], [-25.591927929027825, -23.557305688207478]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:01:42,850 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:01:43,065 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:03:08,245 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[26.24670829361237, 28.104406861317926], [30.050567265580852, 31.112109304269737]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'remove', 'z_mode': 'remove'}}
+2025-02-16 16:03:08,388 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:03:08,580 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:04:44,130 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:04:44,130 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:04:44,130 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:04:44,140 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:04:53,726 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-32.315027507390724, -30.899638122472215], [-27.715012006405583, -26.299622621487078]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:05:53,446 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:05:53,486 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:05:53,486 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:05:53,486 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:06:20,444 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-31.78425648804628, -30.722714449357404]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'remove', 'z_mode': 'remove'}}
+2025-02-16 16:07:22,259 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:07:22,259 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:07:22,259 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:07:22,303 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:07:26,562 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[32.08518950640122, 34.29673542033636]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:07:26,635 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:07:40,656 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 188.00 MB。
+2025-02-16 16:07:50,535 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:07:50,535 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:07:50,535 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:07:50,535 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:07:50,611 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:07:50,611 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:07:50,611 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:07:55,197 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-19.413049786756176, 20.358584994121827]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:07:55,272 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:09:36,065 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:09:36,065 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:09:36,065 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:09:36,105 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:09:38,032 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:09:43,290 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 189.20 MB。
+2025-02-16 16:09:47,785 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:09:47,785 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:09:47,785 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:09:52,642 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:09:52,642 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:09:52,642 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:09:52,703 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:09:54,404 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:09:54,404 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:09:54,404 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:09:54,404 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:09:56,570 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:09:56,570 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:09:56,570 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:09:56,570 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:09:57,500 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:09:57,500 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:09:57,500 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:10:02,991 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-19.624170562887585, 21.98144639754436]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:10:03,075 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:14:27,750 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:14:27,750 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:14:27,750 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:14:27,758 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:14:35,614 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.77 MB。
+2025-02-16 16:14:41,450 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:14:44,139 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:14:48,601 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:14:49,576 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:14:50,131 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:14:56,893 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-17.333953115524356, 21.294381163335395]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:14:57,324 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:14:57,753 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:15:31,404 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-25.044351854980555, -23.212177897089973], [-19.77685172604513, -17.715656023418227], [-14.280329852373388, -13.058880547113002]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:15:31,457 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:15:31,581 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:15:34,712 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:15:34,713 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:15:34,713 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:34,713 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:35,966 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:15:35,966 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:35,966 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:35,966 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:15:37,420 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:15:37,421 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:15:37,421 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:37,421 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:37,923 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:15:37,923 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:37,923 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:39,432 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:15:39,432 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:39,432 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:40,246 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:15:40,247 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:40,247 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:41,206 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:15:41,207 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:41,207 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:41,927 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:15:42,796 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:15:42,796 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:42,796 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:43,779 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:15:43,779 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:43,779 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:45,437 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:15:45,437 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:45,437 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:15:45,437 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:15:45,913 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:24:33,492 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.50 MB。
+2025-02-16 16:24:35,710 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:24:35,710 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:24:35,710 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:24:35,716 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:24:35,716 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:24:35,716 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:24:35,836 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:24:49,147 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.284217735583436, -18.95729018722234], [-16.92266794640199, -16.038049580827927]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:24:49,215 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:24:49,304 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:25:07,535 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:25:07,535 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:25:07,535 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:25:07,573 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:25:09,718 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:25:09,719 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:25:09,719 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:25:09,719 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:26:01,099 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 7552000 个点，文件大小为 225.09 MB。
+2025-02-16 16:26:06,477 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:26:06,477 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:26:06,477 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:26:06,481 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:26:06,481 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:26:06,481 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:26:14,667 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-16.041459173579085, -14.801944522370917], [-13.06662401067948, -11.579206429229679]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:27:00,599 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:27:00,690 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:27:02,853 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:27:02,853 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:27:02,853 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:27:02,854 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:27:03,415 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:27:03,415 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:27:03,416 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:27:03,416 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:27:04,549 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:27:04,549 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:27:04,549 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:27:04,549 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:28:21,510 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:28:21,510 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:28:21,510 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:28:27,374 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-15.753026993572291, -3.751325427477507]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:28:37,563 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:28:48,872 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 188.00 MB。
+2025-02-16 16:28:50,160 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:28:50,160 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:28:50,160 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:28:50,168 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:28:50,169 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:28:50,169 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:28:50,281 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:28:58,552 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.977565440662353, 24.475731451769647]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:29:16,438 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:29:16,984 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:29:21,152 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:29:21,152 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:29:21,152 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:29:21,152 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:29:22,030 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:29:22,031 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:29:22,031 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:29:22,031 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:29:23,529 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:29:23,529 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:29:23,529 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:29:23,529 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:29:31,027 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:29:31,027 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:29:31,027 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:29:31,028 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:29:37,636 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-14.669952898557167, -13.663481002032736], [-10.220287671817562, -9.266787980373362], [-6.936010956843095, -5.982511265398889]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:30:17,619 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:30:17,804 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:30:22,511 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:30:22,511 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:30:22,511 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:30:22,512 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:30:28,200 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:30:28,200 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:30:28,200 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:30:28,200 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:30:30,206 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:30:30,206 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:30:30,206 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:30:30,207 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:31:13,416 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.50 MB。
+2025-02-16 16:31:20,210 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:31:20,249 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:31:20,249 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:31:20,249 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:31:20,321 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:31:20,321 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:31:20,321 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:31:26,624 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-21.080374264600096, 24.83131890869388]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:31:35,093 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:31:35,603 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:31:43,441 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-35.67657729657217, 32.615960525745635]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:31:51,682 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:31:52,220 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:31:58,349 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:31:58,350 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:31:58,350 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:31:58,350 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:31:58,993 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:31:58,993 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:31:58,994 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:31:58,994 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:32:04,667 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-16.900891484442067, 19.904827581772693]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:32:10,979 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:32:11,472 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:32:12,240 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:32:12,241 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:32:12,241 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:32:12,241 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:32:15,838 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:32:15,838 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:32:15,839 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:32:15,842 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:32:15,842 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:32:15,842 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:32:15,847 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:32:16,802 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:32:16,802 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:32:16,802 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:32:16,803 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:32:38,225 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-13.490152045982818, -11.51986573821308]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:32:53,915 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:32:54,000 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:32:58,644 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:32:58,648 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:32:58,648 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:32:58,648 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:32:59,500 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:32:59,500 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:32:59,500 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:32:59,500 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:33:01,014 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:33:01,014 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:33:01,014 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:38:10,147 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.50 MB。
+2025-02-16 16:38:11,801 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:38:11,801 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:38:11,801 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:38:11,805 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:38:11,806 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:38:11,806 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:38:11,920 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:38:18,209 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-10.553415714268727, -9.314950002465032]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:39:10,672 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:39:10,794 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:39:14,825 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:39:14,826 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:39:14,826 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:14,826 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:15,875 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:39:15,875 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:15,875 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:15,875 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:39:17,331 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:39:17,331 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:17,331 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:18,350 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:39:18,350 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:18,350 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:18,350 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:39:19,086 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:39:19,086 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:19,086 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:19,086 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:39:19,790 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:39:23,674 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:39:23,674 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:23,675 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:25,264 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:39:25,264 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:25,264 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:39:25,369 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:39:25,917 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:48:19,316 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 188.00 MB。
+2025-02-16 16:48:21,048 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:48:21,048 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:48:21,048 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:48:21,055 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:48:21,055 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:48:21,055 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:48:21,169 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:48:22,923 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:48:22,923 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:48:22,923 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:48:22,924 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:52:24,971 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.40116493659166, 25.052131955840352]], 'y_regions': [], 'z_regions': [[6.99973401186022, 18.4057279721302]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:52:32,891 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:52:33,247 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:52:56,789 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-29.54123007256983, 32.05128093384165]], 'y_regions': [], 'z_regions': [[-40.05616333726398, 10.999238199182535]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:53:06,463 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:53:06,562 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:53:31,575 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-9.202526571789566, -7.143953342965659], [-4.17960789345922, -3.026806885317825], [1.2550254306359108, 2.819541084542081], [6.442629967272175, 7.183716329648782]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:53:35,164 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:53:35,244 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:53:49,186 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.14 MB。
+2025-02-16 16:53:58,994 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:53:58,994 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:53:58,994 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:53:58,996 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:53:59,058 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:53:59,059 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:53:59,059 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:54:00,282 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:54:00,282 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:54:00,282 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:54:00,283 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:54:06,884 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-16.87119052261883, 19.621938482159784]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:54:14,228 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:54:14,671 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:54:19,181 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:54:19,181 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:54:19,181 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:54:19,181 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:54:22,944 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:54:22,944 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:54:22,944 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:54:22,950 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:54:22,950 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:54:22,950 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:54:22,955 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:54:24,656 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:54:24,656 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:54:24,656 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:54:24,657 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:55:22,543 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-14.833450626994594, -14.287024527616378], [-11.71101577340478, -11.359741852375926], [-8.861793969504074, -8.432459177135474], [-5.778389551584132, -5.270993887875788], [-2.85110687634368, -2.382741648305206], [0.07617579889677373, 0.5055105912653701], [5.663809041386855, 6.405627428168714], [11.364097697710605, 12.457303741389133], [17.728118594839174, 18.079506251735843], [29.636255856337428, 30.45616038909632], [35.8050613885234, 36.156449045420075], [41.349177752893084, 42.24716843162902], [47.90841401496425, 48.22075859887241]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:56:11,105 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:56:11,245 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:56:13,299 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:56:13,299 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:13,299 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:13,303 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:56:14,249 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:56:14,250 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:14,250 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:16,011 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:56:16,011 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:16,011 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:22,369 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 188.00 MB。
+2025-02-16 16:56:36,197 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:56:36,197 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:36,197 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:39,133 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:56:39,134 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:39,134 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:39,249 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:56:40,657 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:56:40,657 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:40,657 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:40,657 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 16:56:42,831 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:56:42,831 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:42,832 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:56:48,157 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-19.460050387287506, 23.585091051056544]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:57:06,602 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 16:57:07,110 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 16:58:21,424 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 16:58:21,426 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 16:58:21,426 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 16:58:21,426 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 16:58:31,944 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-8.283890743058702, -5.281182601075033]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 16:58:39,224 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:00:03,082 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:00:03,082 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:00:03,082 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:00:03,082 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:00:04,422 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:00:12,805 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 7552000 个点，文件大小为 225.09 MB。
+2025-02-16 17:00:23,962 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:00:23,962 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:00:23,962 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:00:24,002 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:00:25,361 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:00:25,361 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:00:25,361 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:00:25,362 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:00:26,175 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:00:26,175 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:00:26,175 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:00:32,785 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-7.876380352360917, -4.1658910054811]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:00:35,727 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:03:17,682 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.14 MB。
+2025-02-16 17:03:19,724 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:03:19,725 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:19,725 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:19,729 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:03:19,729 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:19,729 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:19,800 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:03:21,766 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:03:21,766 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:21,766 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:29,279 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-8.155203251259401, -4.487609734979348]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:03:48,468 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:03:48,628 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 17:03:50,117 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:03:50,117 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:50,117 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:51,519 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:03:51,519 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:03:51,519 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:51,519 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:53,265 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:03:53,265 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:53,265 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:53,275 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:03:55,997 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:03:55,998 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:03:55,998 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:55,998 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:58,608 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:03:58,608 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:58,608 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:03:58,623 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:04:00,828 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:04:00,829 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:04:00,829 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:04:00,829 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:04:52,606 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-2.7865713488891437, -2.3405793537687174], [2.9369925884897228, 3.903308577917322], [8.95788452261555, 9.998532511229882], [20.925336391680467, 21.817320381921327], [26.797564327432816, 27.615216318486937], [32.81845626155864, 34.23076424610667], [45.08323612737051, 45.60356012167766], [57.0506879964354, 57.49667999155585], [62.92291593218776, 63.7405679232419], [69.01813986550033, 69.61279585899425]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:05:53,741 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:05:53,832 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:06:06,117 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 7552000 个点，文件大小为 225.09 MB。
+2025-02-16 17:06:07,843 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:06:07,844 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:06:07,844 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:06:07,848 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:06:07,848 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:06:07,848 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:06:07,956 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:06:13,828 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-19.559267115096034, 22.64952072124128]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:06:18,440 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:06:19,018 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:08:38,181 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:08:38,221 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:08:38,221 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:08:38,221 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:08:42,268 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:09:04,076 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-0.6299007881670846, 0.183929334179318]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:09:19,926 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:09:20,192 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:10:22,601 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.14 MB。
+2025-02-16 17:10:26,553 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:10:26,553 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:10:26,553 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:10:26,558 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:10:26,558 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:10:26,558 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:10:26,684 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:10:32,534 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.41738540400146, 23.602594793879632]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:10:46,093 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:10:46,528 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:10:46,528 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:10:46,528 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:10:46,528 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:10:46,537 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:10:46,537 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:10:46,537 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:10:46,606 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:10:46,609 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 17:10:47,361 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:10:47,361 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:10:47,361 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:10:47,968 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:10:47,969 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:10:47,969 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:10:47,969 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:10:55,961 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-3.967829051327463, -1.9406551766302407]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:11:43,159 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:11:43,250 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:12:07,932 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 189.20 MB。
+2025-02-16 17:16:24,760 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:16:24,760 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:16:24,760 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:16:24,799 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:33:35,393 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-20.639869380716654, 23.27230809749274]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:33:48,841 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:33:49,361 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:33:50,578 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:33:50,578 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:33:50,578 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:33:50,578 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:33:52,742 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:33:52,742 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:33:52,742 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:33:52,742 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 17:33:55,123 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:33:55,123 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:33:55,123 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:33:55,123 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:34:03,937 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [], 'z_regions': [[13.114799026372765, 22.862323171374065]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:34:10,735 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:34:10,933 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:34:22,633 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 189.80 MB。
+2025-02-16 17:34:25,157 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:34:25,158 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:34:25,158 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:34:25,162 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:34:25,162 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:34:25,162 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:34:25,285 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:34:30,968 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-19.56642066835608, 23.317500570228162]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:34:45,446 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:34:45,910 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:34:45,911 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:34:45,911 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:34:45,911 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:34:45,989 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:34:47,995 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 17:34:47,996 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:34:47,996 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:34:47,996 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:35:13,196 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-9.270494846853335, -4.4018180737798165]], 'z_regions': [[-41.78134092125796, -32.0336681805077]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:35:55,647 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:35:55,836 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 17:36:09,884 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:36:09,885 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:36:09,885 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:36:09,885 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:36:11,874 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:36:11,874 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:36:11,874 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:36:11,874 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:36:37,315 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-0.3334400786873317, 0.5388501863576742]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:36:43,251 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:36:43,326 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:42:38,184 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.14 MB。
+2025-02-16 17:42:40,349 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:42:40,349 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:42:40,349 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:42:40,352 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:42:40,352 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:42:40,352 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:42:40,468 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:42:47,018 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-19.808112321677847, 23.45027652329872]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:42:54,601 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:42:55,084 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:42:55,757 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-19.808112321677847, 23.45027652329872]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:43:02,569 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:43:02,971 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 17:43:02,972 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:43:02,972 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:43:02,972 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:43:03,039 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:43:03,421 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:43:03,421 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:43:03,421 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:43:03,421 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:43:04,095 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 17:43:04,095 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:43:04,095 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:43:04,095 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:43:15,978 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-10.428682273047034, -5.795932568272235]], 'z_regions': [[10.923446680353129, 13.897879001828358]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:43:26,309 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:43:26,451 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 17:43:29,625 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:43:29,625 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:43:29,625 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:43:29,625 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:43:33,525 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:43:33,525 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:43:33,525 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:43:33,525 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:46:02,149 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-3.369781173384226, -2.5356777616801303]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:46:08,622 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:46:08,733 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:47:47,200 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-17.642217329209867, -17.456861015497843], [-14.398481839249493, -13.888751976541435], [-11.386441741429147, -11.062068192433108], [-8.28172348675279, -7.818332702472738], [-4.759953526224386, -4.389240898800342], [-1.5625571146920159, -1.3772008009799954], [1.4494829831283305, 1.9128737674083816], [7.890614884621069, 8.307666590473115], [10.948994060869417, 11.227028531437451], [14.470764021397827, 14.702459413537852], [17.343786883934158, 17.760838589786204], [20.77287868760655, 21.32894762874262]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:48:38,532 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:48:38,662 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:48:40,586 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 17:48:40,586 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:48:40,586 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:48:40,586 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:48:43,785 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:48:43,786 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:48:43,786 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:48:43,786 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:48:44,363 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:48:44,363 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:48:44,363 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:54:23,936 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [], 'y_regions': [[-9.323515490873028, -7.021578810122191]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 17:54:30,838 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 17:54:30,955 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 17:54:34,014 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:54:34,014 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:54:34,014 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:54:34,015 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 17:54:36,038 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 17:54:36,039 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:54:36,039 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:54:36,039 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:54:37,515 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:54:37,515 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:54:37,515 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:54:37,515 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 17:54:57,891 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 17:54:57,891 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 17:54:57,891 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 17:55:03,495 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-15.409577790896996, 18.59955311217194]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 18:09:04,712 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 18:09:04,822 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 18:09:14,469 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 18:09:14,470 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 18:09:14,470 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 18:09:14,470 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 18:09:14,538 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 18:09:14,538 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 18:09:14,538 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 18:09:15,903 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 18:09:15,903 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 18:09:15,903 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 18:29:50,523 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 18:29:50,562 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 18:29:50,562 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 18:29:50,562 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 18:29:54,127 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 18:29:55,050 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 18:33:51,633 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 18:33:51,633 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 18:33:51,633 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 18:33:51,680 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 18:49:27,373 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 18:49:27,408 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 18:49:27,408 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 18:49:27,408 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 18:54:56,088 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 18:54:56,088 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 18:54:56,088 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 18:54:56,097 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 19:00:46,959 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 19:00:46,959 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 19:00:46,959 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 19:00:46,959 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 19:07:53,526 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 19:07:53,526 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 19:07:53,526 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 19:07:53,596 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 19:14:08,117 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 19:14:08,117 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 19:14:08,117 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 19:14:08,118 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 19:22:01,643 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-16 19:22:01,643 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-16 19:22:01,643 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-16 19:22:01,646 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-16 19:25:13,919 - UserInterface.fastapi_test - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 188.00 MB。
+2025-02-16 19:25:17,367 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 19:25:23,734 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 19:25:25,576 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 19:25:29,740 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 19:25:30,257 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 19:25:46,049 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 19:25:46,564 - UserInterface.fastapi_test - INFO - Requested image: yz
+2025-02-16 19:25:54,383 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-7.799312148496328, 12.427555321383196]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 19:25:58,177 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 19:25:58,515 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 19:26:07,289 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-16 19:26:10,761 - UserInterface.fastapi_test - INFO - Crop Received data: {'regions': {'x_regions': [[-3.6224446786168105, -1.3793121484963269]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}}
+2025-02-16 19:26:12,826 - UserInterface.fastapi_test - INFO - Cropped success and point cloud saved to UserInterface/assets/temp/temp.ply
+2025-02-16 19:26:12,922 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-17 04:24:47,170 - UserInterface.fastapi_test - INFO - Requested image: xy
+2025-02-17 04:24:50,790 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-17 04:24:50,790 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-17 04:24:50,790 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-17 04:24:51,730 - UserInterface.fastapi_test - INFO - Requested image: xz
+2025-02-17 04:24:52,738 - UserInterface.fastapi_test - INFO - Requested image: yz

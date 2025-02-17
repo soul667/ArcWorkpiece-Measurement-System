@@ -72,3 +72,10 @@
 ### 许可证
 
 该项目根据 MIT 许可证授权。
+
+
+``` shell
+uvicorn UserInterface.fastapi_test:app --reload --host 0.0.0.0 --port 9304
+```
+
+<!-- pip install python-multipart -->

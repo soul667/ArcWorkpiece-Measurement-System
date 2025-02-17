@@ -1,0 +1,452 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- three.js 显示点云用-->
+    <!-- <script src="https://threejs.org/build/three.js"></script>
+    <script src="https://threejs.org/examples/js/loaders/PLYLoader.js"></script> -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./assets/three.js-dev/build/three.module.js",
+                "three/examples/jsm/loaders/PLYLoader": "/assets/three.js-dev/examples/jsm/loaders/PLYLoader.js"
+            }
+        }
+    </script>
+    <!-- three.js 显示点云用-->
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+    <script type="text/javascript">
+        window.tailwind.config = {
+            darkMode: ['class'],
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'hsl(var(--border))',
+                        input: 'hsl(var(--input))',
+                        ring: 'hsl(var(--ring))',
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: {
+                            DEFAULT: 'hsl(var(--primary))',
+                            foreground: 'hsl(var(--primary-foreground))'
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(var(--secondary))',
+                            foreground: 'hsl(var(--secondary-foreground))'
+                        },
+                        destructive: {
+                            DEFAULT: 'hsl(var(--destructive))',
+                            foreground: 'hsl(var(--destructive-foreground))'
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(var(--muted))',
+                            foreground: 'hsl(var(--muted-foreground))'
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(var(--accent))',
+                            foreground: 'hsl(var(--accent-foreground))'
+                        },
+                        popover: {
+                            DEFAULT: 'hsl(var(--popover))',
+                            foreground: 'hsl(var(--popover-foreground))'
+                        },
+                        card: {
+                            DEFAULT: 'hsl(var(--card))',
+                            foreground: 'hsl(var(--card-foreground))'
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+				:root {
+					--background: 0 0% 100%;
+--foreground: 240 10% 3.9%;
+--card: 0 0% 100%;
+--card-foreground: 240 10% 3.9%;
+--popover: 0 0% 100%;
+--popover-foreground: 240 10% 3.9%;
+--primary: 240 5.9% 10%;
+--primary-foreground: 240 5.9% 10%;
+--secondary: 240 4.8% 95.9%;
+--secondary-foreground: 240 5.9% 10%;
+--muted: 240 4.8% 95.9%;
+--muted-foreground: 240 3.8% 46.1%;
+--accent: 240 4.8% 95.9%;
+--accent-foreground: 240 5.9% 10%;
+--destructive: 0 84.2% 60.2%;
+--destructive-foreground: 0 0% 98%;
+--border: 240 5.9% 90%;
+--input: 240 5.9% 90%;
+--ring: 240 5.9% 10%;
+--radius: 0.5rem;
+				}
+				.dark {
+					--background: 240 10% 3.9%;
+--foreground: 0 0% 98%;
+--card: 240 10% 3.9%;
+--card-foreground: 0 0% 98%;
+--popover: 240 10% 3.9%;
+--popover-foreground: 0 0% 98%;
+--primary: 0 0% 98%;
+--primary-foreground:0 0% 98% ;
+--secondary: 240 3.7% 15.9%;
+--secondary-foreground: 0 0% 98%;
+--muted: 240 3.7% 15.9%;
+--muted-foreground: 240 5% 64.9%;
+--accent: 240 3.7% 15.9%;
+--accent-foreground: 0 0% 98%;
+--destructive: 0 62.8% 30.6%;
+--destructive-foreground: 0 0% 98%;
+--border: 240 3.7% 15.9%;
+--input: 240 3.7% 15.9%;
+--ring: 240 4.9% 83.9%;
+				}
+			}
+		</style>
+</head>
+
+<body>
+    <div class="container mx-auto p-6 bg-card rounded-lg shadow-lg text-black dark:bg-zinc-800">
+        <center>
+            <h1 class="text-3xl font-bold mb-6 text-primary-foreground">圆弧测量系统</h1>
+        </center>
+        <!--     
+    <div class="mb-6">
+        <label for="point-cloud" class="block text-lg font-medium text-muted-foreground">上传点云</label>
+        <input type="file" id="point-cloud" class="mt-1 block w-full border border-border rounded-md bg-input p-3 focus:outline-none focus:ring focus:ring-ring transition duration-200" />
+    </div> -->
+        <div class="mb-6">
+            <label for="point-cloud" class="block text-lg font-medium text-muted-foreground">上传点云</label>
+            <input type="file" id="point-cloud"
+                class="mt-1 block w-full border border-border rounded-md bg-input p-3 focus:outline-none focus:ring focus:ring-ring transition duration-200" />
+        </div>
+
+        <div class="mb-6" id="quzao_img">
+            <label for="point-cloud" class="block text-lg font-medium text-muted-foreground">点云预处理</label>
+            <div class="flex flex-col items-center space-y-4">
+                <h3 class="text-lg font-semibold text-gray-800">选择视图</h3>
+                <div class="flex space-x-4">
+                    <button id="btn-xy"
+                        class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
+                        XY
+                    </button>
+                    <button id="btn-xz"
+                        class="px-4 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 focus:ring-2 focus:ring-green-400 focus:ring-opacity-50">
+                        XZ
+                    </button>
+                    <button id="btn-yz"
+                        class="px-4 py-2 bg-purple-500 text-white rounded-lg shadow-md hover:bg-purple-600 focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50">
+                        YZ
+                    </button>
+                </div>
+            </div>
+            <p mt-2 text-muted-foreground>按键说明: M切换模式，Enter确认区域，R撤回上一操作</p>
+            <canvas id="point-cloud-canvas" width="1280" height="720"></canvas>
+            <div id="selected-regions" class="mt-4 font-medium"></div>
+            <!-- <button id="submit-btn" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                去噪
+            </button> -->
+            <!-- style="display: none;" -->
+            <div class="mt-6 p-4 bg-gray-100 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">已选择区域</h3>
+                <div id="regions-display" class="space-y-6">
+                    <div>
+                        <h4 class="text-md font-medium text-blue-600 mb-2">垂直区域 (X):</h4>
+                        <ul id="x-regions-list" class="list-disc list-inside text-gray-700 space-y-2"></ul>
+                    </div>
+                    <div>
+                        <h4 class="text-md font-medium text-green-600 mb-2">水平区域 (Y):</h4>
+                        <ul id="y-regions-list" class="list-disc list-inside text-gray-700 space-y-2"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-lg font-semibold mb-2">参数设置</h3>
+                <form id="parameter-form" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- 下采样 -->
+                    <div class="flex flex-col">
+                        <label for="downsample-rate" class="text-sm font-medium">下采样倍数</label>
+                        <input type="number" id="downsample-rate" class="mt-1 w-full rounded-md border-gray-300 text-sm"
+                            value="5" min="1" max="10" step="1">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="ransc-downsample-rate" class="text-sm font-medium">RANSC 下采样倍数</label>
+                        <input type="number" id="ransc-downsample-rate"
+                            class="mt-1 w-full rounded-md border-gray-300 text-sm" value="5" min="1" max="10" step="1">
+                    </div>
+
+                    <!-- 去噪参数 -->
+                    <div class="flex flex-col">
+                        <label for="nb-neighbors" class="text-sm font-medium">邻域点数</label>
+                        <input type="number" id="nb-neighbors" class="mt-1 w-full rounded-md border-gray-300 text-sm"
+                            value="100" min="10" max="500" step="10">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="std-ratio" class="text-sm font-medium">标准差比</label>
+                        <input type="number" id="std-ratio" class="mt-1 w-full rounded-md border-gray-300 text-sm"
+                            value="0.5" min="0.1" max="2.0" step="0.1">
+                    </div>
+
+                    <!-- RANSC 参数 -->
+                    <div class="flex flex-col">
+                        <label for="normal-distance-weight" class="text-sm font-medium">权重</label>
+                        <input type="number" id="normal-distance-weight"
+                            class="mt-1 w-full rounded-md border-gray-300 text-sm" value="0.1" min="0.01" max="1.0"
+                            step="0.01">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="max-iterations" class="text-sm font-medium">最大迭代</label>
+                        <input type="number" id="max-iterations" class="mt-1 w-full rounded-md border-gray-300 text-sm"
+                            value="10000" min="100" max="50000" step="100">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="distance-threshold" class="text-sm font-medium">距离阈值</label>
+                        <input type="number" id="distance-threshold"
+                            class="mt-1 w-full rounded-md border-gray-300 text-sm" value="0.1" min="0.01" max="1.0"
+                            step="0.01">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="radius-min" class="text-sm font-medium">最小半径</label>
+                        <input type="number" id="radius-min" class="mt-1 w-full rounded-md border-gray-300 text-sm"
+                            value="20" min="10" max="100" step="5">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="radius-max" class="text-sm font-medium">最大半径</label>
+                        <input type="number" id="radius-max" class="mt-1 w-full rounded-md border-gray-300 text-sm"
+                            value="55" min="20" max="200" step="5">
+                    </div>
+
+                    <!-- <div class="col-span-1 md:col-span-2 lg:col-span-4 flex justify-end">
+                        <button type="submit"
+                            class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">
+                            应用参数
+                        </button>
+                    </div> -->
+                </form>
+            </div>
+
+
+            <div class="mt-6 flex justify-center space-x-4">
+                <button id="refresh-btn"
+                    class="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 focus:ring-2 focus:ring-red-400 focus:ring-opacity-50">
+                    重新获取图像
+                </button>
+                <button id="submit-btn"
+                    class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
+                    点云预处理
+                </button>
+            </div>
+
+            <!-- <h3>已选择区域</h3> -->
+
+
+
+
+        </div>
+        <div class="mb-6" id="pointCloudCanvas_div">
+            <label for="point-cloud" class="block text-lg font-medium text-muted-foreground">点云显示</label>
+            <button id="showPointCloudButton"
+                class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Show Point
+                Cloud</button>
+            <canvas id="pointCloudCanvas" width="800" height="600" style="display:none;"></canvas>
+        </div>
+
+        <script>
+            // Initialize Three.js scene
+            import * as THREE from 'three';
+            // const scene = new THREE.Scene();
+            // const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            // const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('pointCloudCanvas') });
+            // renderer.setSize(window.innerWidth, window.innerHeight);
+
+            // Button to show/hide point cloud
+            const button = document.getElementById('showPointCloudButton');
+            // console.log(button1);
+            button.addEventListener('click', () => {
+                console.log('Button clicked');
+                const canvas = document.getElementById('pointCloudCanvas');
+                if (canvas.style.display === 'none') {
+                    canvas.style.display = 'block';
+                    loadPointCloud();
+                } else {
+                    canvas.style.display = 'none';
+                }
+            });
+
+            // Function to load and display point cloud
+            function loadPointCloud() {
+                const loader = new THREE.PLYLoader();
+                loader.load(
+                    '/get_ply',
+                    function (geometry) {
+                        const material = new THREE.PointsMaterial({ color: 0x00ff00, size: 0.01 });
+                        const points = new THREE.Points(geometry, material);
+                        scene.add(points);
+                    },
+                    undefined,
+                    function (error) {
+                        console.error(error);
+                    }
+                );
+            }
+
+            // Set up camera position
+            camera.position.z = 5;
+
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                renderer.render(scene, camera);
+            }
+
+            animate();
+        </script>
+        <script src="assets/js/my_choose.js">
+        </script>
+
+        <div class="mb-6">
+            <label class="block text-lg font-medium text-muted-foreground">调节滤除部分</label>
+            <div class="flex items-center justify-between">
+                <span class="text-muted-foreground">滤除区域最小值: <span id="minValue">0</span></span>
+                <span class="text-muted-foreground">滤除区域最大值: <span id="maxValue">100</span></span>
+            </div>
+            <input type="range" id="min-filter" min="0" max="100" value="0"
+                class="mt-1 w-full accent-primary shadow-md" />
+            <input type="range" id="max-filter" min="0" max="100" value="100"
+                class="mt-2 w-full accent-primary shadow-md" />
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-lg font-medium text-muted-foreground">选取检测部分</label>
+            <div class="flex flex-col">
+                <div class="flex items-center justify-between">
+                    <label for="detection-area" class="text-muted-foreground">检测区域:</label>
+                    <button id="add-area"
+                        class="bg-secondary text-secondary-foreground hover:bg-secondary/80 transition duration-200 px-2 py-1 rounded-md">添加区域</button>
+                </div>
+                <div id="detection-areas" class="mt-2"></div>
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <h2 class="text-lg font-bold text-primary-foreground">历史测量值</h2>
+            <ul id="history" class="list-disc pl-5"></ul>
+        </div>
+
+        <div class="mb-6 flex space-x-2">
+            <button id="save-config"
+                class="bg-secondary text-secondary-foreground hover:bg-secondary/80 transition duration-200 px-4 py-2 rounded-lg shadow-md">保存配置文件</button>
+            <button id="load-config"
+                class="bg-primary text-primary-foreground hover:bg-primary/80 transition duration-200 px-4 py-2 rounded-lg shadow-md">导入配置文件</button>
+        </div>
+
+        <div class="flex items-center justify-between mb-6">
+            <button
+                class="bg-secondary text-secondary-foreground hover:bg-secondary/80 transition duration-200 px-4 py-2 rounded-lg shadow-md">上传</button>
+            <button
+                class="bg-primary text-primary-foreground hover:bg-primary/80 transition duration-200 px-4 py-2 rounded-lg shadow-md">开始测量</button>
+        </div>
+
+        <div class="mt-6">
+            <img aria-hidden="true" alt="Point Cloud Sample"
+                src="https://openui.fly.dev/openui/600x400.svg?text=Point+Cloud+Sample"
+                class="w-full h-auto rounded-lg shadow-lg border-2 border-primary" />
+        </div>
+    </div>
+
+    <script>
+        // JavaScript remains the same as provided
+        const minFilter = document.getElementById('min-filter');
+        const maxFilter = document.getElementById('max-filter');
+        const minValueDisplay = document.getElementById('minValue');
+        const maxValueDisplay = document.getElementById('maxValue');
+        const detectionAreasContainer = document.getElementById('detection-areas');
+        const historyList = document.getElementById('history');
+        const saveConfigBtn = document.getElementById('save-config');
+        const loadConfigBtn = document.getElementById('load-config');
+        minFilter.addEventListener('input', function () {
+            minValueDisplay.textContent = minFilter.value;
+            if (parseInt(minFilter.value) > parseInt(maxFilter.value)) {
+                maxFilter.value = minFilter.value;
+                maxValueDisplay.textContent = minFilter.value;
+            }
+        });
+        maxFilter.addEventListener('input', function () {
+            maxValueDisplay.textContent = maxFilter.value;
+        });
+        document.getElementById("add-area").addEventListener("click", function () {
+            const newArea = document.createElement("div");
+            newArea.className = "flex items-center justify-between mt-2";
+            const areaLabel = document.createElement("span");
+            areaLabel.className = "text-muted-foreground";
+            areaLabel.textContent = "检测区域 " + (detectionAreasContainer.children.length + 1) + ": ";
+
+            const areaRangeMin = document.createElement("input");
+            areaRangeMin.type = "range";
+            areaRangeMin.min = "0";
+            areaRangeMin.max = "100";
+            areaRangeMin.value = "0";
+            areaRangeMin.className = "ml-2 w-1/2 accent-primary shadow-md";
+            const areaRangeMax = document.createElement("input");
+            areaRangeMax.type = "range";
+            areaRangeMax.min = "0";
+            areaRangeMax.max = "100";
+            areaRangeMax.value = "100";
+            areaRangeMax.className = "ml-2 w-1/2 accent-primary shadow-md";
+            newArea.appendChild(areaLabel);
+            newArea.appendChild(areaRangeMin);
+            newArea.appendChild(areaRangeMax);
+            detectionAreasContainer.appendChild(newArea);
+        });
+        saveConfigBtn.addEventListener('click', function () {
+            const historyData = Array.from(historyList.children).map(item => item.textContent);
+            localStorage.setItem('configData', JSON.stringify(historyData));
+            alert("配置文件已保存！");
+        });
+        loadConfigBtn.addEventListener('click', function () {
+            const historyData = JSON.parse(localStorage.getItem('configData'));
+            if (historyData) {
+                historyList.innerHTML = '';
+                historyData.forEach(record => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = record;
+                    historyList.appendChild(listItem);
+                });
+            } else {
+                alert("没有可导入的配置文件！");
+            }
+        });
+    </script>
+    <script>
+        document.getElementById("point-cloud").addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const formData = new FormData();
+                formData.append("file", file);
+
+                fetch("/upload", {
+                    method: "POST",
+                    body: formData,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert(data.message);
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                        alert("文件上传失败，请重试。");
+                    });
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

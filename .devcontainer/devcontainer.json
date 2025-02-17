@@ -22,6 +22,5 @@
             "saoudrizwan.claude-dev"
           ]
         }
-      },
-      "forwardPorts": [8990]
+      }
 }

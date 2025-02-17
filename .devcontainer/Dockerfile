@@ -9,8 +9,7 @@ RUN apt-get update && \
     cmake \
     libpcl-dev \
     git \
-    && rm -rf /var/lib/apt/lists/*
-
+    curl 
 # Set the working directory
 WORKDIR /workspace
 
@@ -26,4 +25,8 @@ COPY ./requirements.txt /tmp/requirements.txt
 # 安装依赖，这一层只有在 requirements.txt 变化时才会重建
 RUN . /workspace/venv/bin/activate && pip install --no-cache-dir -r /tmp/requirements.txt
 
-RUN echo "source /workspace/venv/bin/activate" >> /root/.bashrc
+# RUN apt install nodejs npm -y && npm install -D vite
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
+    rm -rf /var/lib/apt/lists/*
+RUN echo "source /workspace/venv/bin/activate" >> /root/.bashrc && pip install python-multipart
