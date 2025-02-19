@@ -1,5 +1,13 @@
 {
     "mist.isDebugging": false,
-    "github.copilot.advanced.debug.useNodeFetcher": false
+    "github.copilot.advanced.debug.useNodeFetcher": false,
+    "cSpell.words": [
+        "denoise",
+        "imwrite"
+    ],
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "core": "cpp"
+    }
 }
 

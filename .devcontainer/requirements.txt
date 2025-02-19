@@ -11,3 +11,5 @@ scikit-spatial
 fastapi
 uvicorn
 # pyblind
+python-multipart 
+typst  

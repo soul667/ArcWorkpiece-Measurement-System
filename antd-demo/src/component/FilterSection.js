@@ -356,6 +356,9 @@ const FilterSection = () => {
         body: JSON.stringify({
           nb_neighbors: nbNeighbors,
           std_ratio: stdRatio,
+          settings:{
+            show: showPointCloud
+          }
         })
       });
 
@@ -497,6 +500,9 @@ const FilterSection = () => {
         // Refresh image with cache busting
         const timestamp = new Date().getTime();
         imageRef.current.src = `http://localhost:9304/img/${currentView}?t=${timestamp}`;
+        // 成功之后删除现有的所有区域
+        setXRegions([]);
+        setYRegions([]);
       } else {
         const errorData = await response.json();
         message.error(`裁剪失败: ${errorData.error || '未知错误'}`);
@@ -678,7 +684,7 @@ const FilterSection = () => {
   }, [lines, xRegions, yRegions, drawMode, xMode, yMode, zMode]);
 
   return (
-    <Card title="点云预处理" bordered={false}>
+    <Card bordered={false}>
       <Row gutter={[16, 16]}>
         {!isFullscreen && (
           <>

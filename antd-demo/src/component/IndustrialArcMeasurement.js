@@ -13,36 +13,99 @@ import {
   List,
   message,
 } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { 
+  UploadOutlined, 
+  FilterOutlined, 
+  SettingOutlined, 
+  EyeOutlined, 
+  HistoryOutlined,
+  RadarChartOutlined 
+} from '@ant-design/icons';
 import * as THREE from 'three';
 import { PLYLoader } from 'three/examples/jsm/loaders/PLYLoader';
 import FilterSection from './FilterSection';
+import ParamsSettingComponent from './ParamsSettingComponent';
 
 const { Header, Sider, Content } = Layout;
 const { Title, Text } = Typography;
 
 const IndustrialArcMeasurement = () => {
-  // 用于切换左侧菜单的不同功能模块
   const [selectedKey, setSelectedKey] = useState('upload');
+  const [collapsed, setCollapsed] = useState(false);
+  const [logoHovered, setLogoHovered] = useState(false);
 
   return (
     <Layout style={{ height: '100vh', background: '#f0f2f5' }}>
-      <Header style={{ background: '#001529', color: '#fff', textAlign: 'center', fontSize: 22 }}>
-        圆弧测量系统
+      <Header 
+        style={{ 
+          background: 'linear-gradient(135deg, #1a365d 0%, #004599 100%)',
+          padding: '0 12px',
+          display: 'flex',
+          alignItems: 'center',
+          boxShadow: '0 1px 2px rgba(0,0,0,0.08)',
+          height: '42px',
+          lineHeight: '42px'
+        }}
+      >
+        <div 
+          onMouseEnter={() => setLogoHovered(true)}
+          onMouseLeave={() => setLogoHovered(false)}
+          style={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            gap: '12px',
+            cursor: 'pointer',
+            padding: '0 8px',
+            borderRadius: '4px',
+            transition: 'all 0.2s ease-out',
+            height: '32px',
+            backgroundColor: logoHovered ? 'rgba(255,255,255,0.08)' : 'transparent',
+            transform: logoHovered ? 'translateY(-1px)' : 'none'
+        }}>
+          <RadarChartOutlined style={{ fontSize: 20, color: '#fff', transform: 'rotate(-30deg)' }} />
+          <Typography.Title 
+            level={5}
+            style={{ 
+              margin: 0,
+              color: '#fff',
+              fontWeight: 400,
+              letterSpacing: '0.3px',
+              fontSize: '15px'
+            }}
+          >
+            圆弧测量系统
+          </Typography.Title>
+        </div>
       </Header>
       <Layout>
-        <Sider width={220} style={{ background: '#fff' }}>
+        <Sider 
+          width={180} 
+          collapsible 
+          collapsed={collapsed}
+          onCollapse={(value) => setCollapsed(value)}
+          style={{ 
+            background: '#fff',
+            boxShadow: '2px 0 8px rgba(0,0,0,0.05)',
+            zIndex: 10,
+            transition: 'all 0.2s ease-in-out'
+          }}
+        >
           <Menu
             mode="inline"
             selectedKeys={[selectedKey]}
             onClick={({ key }) => setSelectedKey(key)}
-            style={{ height: '100%', borderRight: 0 }}
+            style={{ 
+              height: '100%', 
+              borderRight: 0,
+              backgroundColor: 'transparent'
+            }}
+            theme="light"
           >
-            <Menu.Item key="upload">点云上传</Menu.Item>
-            <Menu.Item key="filter">点云预处理</Menu.Item>
-            <Menu.Item key="params">参数设置</Menu.Item>
-            <Menu.Item key="display">点云显示</Menu.Item>
-            <Menu.Item key="history">历史记录</Menu.Item>
+            <Menu.Item key="upload" icon={<UploadOutlined />}>点云上传</Menu.Item>
+            <Menu.Item key="filter" icon={<FilterOutlined />}>点云预处理</Menu.Item>
+            <Menu.Item key="params" icon={<SettingOutlined />}>参数设置</Menu.Item>
+            <Menu.Item key="display" icon={<EyeOutlined />}>点云显示</Menu.Item>
+            <Menu.Item key="history" icon={<HistoryOutlined />}>历史记录</Menu.Item>
           </Menu>
         </Sider>
         <Layout style={{ padding: '24px' }}>
@@ -129,94 +192,7 @@ const UploadSection = () => {
 };
 
 const ParamsSection = () => {
-  const [form] = Form.useForm();
-
-  const handlePreprocess = () => {
-    form.validateFields().then((values) => {
-      // 此处可整合区域数据后提交数据
-      message.success('参数提交成功！');
-      console.log('提交数据:', values);
-    });
-  };
-
-  return (
-    <Card title="参数设置" bordered={false}>
-      <Form
-        form={form}
-        layout="vertical"
-        initialValues={{
-          downsample_rate: 5,
-          ransc_downsample_rate: 5,
-          nb_neighbors: 100,
-          std_ratio: 0.5,
-          normal_distance_weight: 0.1,
-          max_iterations: 10000,
-          distance_threshold: 0.1,
-          radius_min: 20,
-          radius_max: 55,
-        }}
-      >
-        <Row gutter={16}>
-          <Col span={6}>
-            <Form.Item label="下采样倍数" name="downsample_rate">
-              <InputNumber min={1} max={10} style={{ width: '100%' }} />
-            </Form.Item>
-          </Col>
-          <Col span={6}>
-            <Form.Item label="RANSC 下采样倍数" name="ransc_downsample_rate">
-              <InputNumber min={1} max={10} style={{ width: '100%' }} />
-            </Form.Item>
-          </Col>
-          <Col span={6}>
-            <Form.Item label="邻域点数" name="nb_neighbors">
-              <InputNumber min={10} max={500} step={10} style={{ width: '100%' }} />
-            </Form.Item>
-          </Col>
-          <Col span={6}>
-            <Form.Item label="标准差比" name="std_ratio">
-              <InputNumber min={0.1} max={2.0} step={0.1} style={{ width: '100%' }} />
-            </Form.Item>
-          </Col>
-        </Row>
-        <Row gutter={16}>
-          <Col span={6}>
-            <Form.Item label="权重" name="normal_distance_weight">
-              <InputNumber min={0.01} max={1.0} step={0.01} style={{ width: '100%' }} />
-            </Form.Item>
-          </Col>
-          <Col span={6}>
-            <Form.Item label="最大迭代" name="max_iterations">
-              <InputNumber min={100} max={50000} step={100} style={{ width: '100%' }} />
-            </Form.Item>
-          </Col>
-          <Col span={6}>
-            <Form.Item label="距离阈值" name="distance_threshold">
-              <InputNumber min={0.01} max={1.0} step={0.01} style={{ width: '100%' }} />
-            </Form.Item>
-          </Col>
-          <Col span={6}>
-            <Form.Item label="最小半径" name="radius_min">
-              <InputNumber min={10} max={100} step={5} style={{ width: '100%' }} />
-            </Form.Item>
-          </Col>
-        </Row>
-        <Row gutter={16}>
-          <Col span={6}>
-            <Form.Item label="最大半径" name="radius_max">
-              <InputNumber min={20} max={200} step={5} style={{ width: '100%' }} />
-            </Form.Item>
-          </Col>
-        </Row>
-        <Row gutter={16} style={{ marginTop: 16 }}>
-          <Col>
-            <Button type="primary" onClick={handlePreprocess}>
-              点云预处理
-            </Button>
-          </Col>
-        </Row>
-      </Form>
-    </Card>
-  );
+  return <ParamsSettingComponent />;
 };
 
 const DisplaySection = () => {

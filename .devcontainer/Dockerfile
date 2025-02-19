@@ -29,4 +29,7 @@ RUN . /workspace/venv/bin/activate && pip install --no-cache-dir -r /tmp/require
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get install -y nodejs && \
     rm -rf /var/lib/apt/lists/*
-RUN echo "source /workspace/venv/bin/activate" >> /root/.bashrc && pip install python-multipart
+RUN echo "source /workspace/venv/bin/activate" >> /root/.bashrc 
+
+# 安装Typst
+

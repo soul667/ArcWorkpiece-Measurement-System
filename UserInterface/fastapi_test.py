@@ -35,7 +35,9 @@ templates = Jinja2Templates(directory="templates")
 # 全局变量，用于存储点云对象
 global_source_point_cloud = None
 global_source_point_cloud_down = None
-
+settings = {
+    'show': True  
+}
 def normalize_and_map(x, y, image_width=1280, image_height=720):
     """归一化并映射 x 和 y 坐标到指定图像尺寸的坐标,并返回 OpenCV 图片。
 
@@ -239,6 +241,74 @@ async def model_data_write(data: dict):
     temp_dir = os.path.join("UserInterface/assets", "temp")
     points = np.array(global_source_point_cloud.points)
     pass
+
+
+
+@app.post("/denoise")
+async def denoise(data: dict):
+    if not data:
+        return JSONResponse(status_code=400, content={"error": "No data received"})
+    # print(data)
+    logger.info(f"denoise Received data: {data}")
+    global global_source_point_cloud
+    if global_source_point_cloud is None:
+        # 尝试从文件中读取点云数据
+        temp_dir = os.path.join("UserInterface/assets", "temp")
+        temp_ply_path = os.path.join(temp_dir, 'temp.ply')
+        if not os.path.exists(temp_ply_path):
+            return JSONResponse(status_code=400, content={"error": "No point cloud data available"})
+        point_cloud = o3d.io.read_point_cloud(temp_ply_path)
+        global_source_point_cloud = point_cloud
+
+    nb_neighbors_= data.get('nb_neighbors', 100)
+    std_ratio_= data.get('std_ratio', 0.5)
+    denoise_pcd, ind= global_source_point_cloud.remove_statistical_outlier(nb_neighbors=nb_neighbors_, std_ratio=std_ratio_)
+
+    # 输出denoise_pcd 点数
+    logger.info(f"denoise success, points count: {len(denoise_pcd.points)}")
+    # # show 3d
+    if(data.get('settings', None)):
+        settings = data.get('settings')
+        if settings.get('show', False):
+            o3d.visualization.draw_geometries([denoise_pcd])
+    # o3d.visualization.draw_geometries([cropped_pcd])
+    # cl, ind = cropped_pcd.remove_statistical_outlier(nb_neighbors=100, std_ratio=0.5)
+
+    temp_dir = os.path.join("UserInterface/assets", "temp")
+    temp_ply_path = os.path.join(temp_dir, 'temp.ply')
+    o3d.io.write_point_cloud(temp_ply_path, denoise_pcd)
+    global_source_point_cloud = denoise_pcd
+    logger.info(f"Denoise success and point cloud saved to {temp_ply_path}")
+    # 重置三视图和信息
+    points = np.array(global_source_point_cloud.points)
+    img_xy = normalize_and_map(points[:, 0], points[:, 1])
+    img_yz = normalize_and_map(points[:, 1], points[:, 2])
+    img_xz = normalize_and_map(points[:, 0], points[:, 2])
+    cv2.imwrite(os.path.join(temp_dir, 'xy.jpg'), img_xy)
+    cv2.imwrite(os.path.join(temp_dir, 'yz.jpg'), img_yz)
+    cv2.imwrite(os.path.join(temp_dir, 'xz.jpg'), img_xz)
+    x_min = np.min(points[:, 0])
+    x_max = np.max(points[:, 0])
+    y_min = np.min(points[:, 1])
+    y_max = np.max(points[:, 1])
+    z_min = np.min(points[:, 2])
+    z_max = np.max(points[:, 2])
+
+    with open(os.path.join(temp_dir, 'info.yml'), 'w') as f:
+        f.write(f"x_min: {x_min}\n")
+        f.write(f"x_max: {x_max}\n")
+        f.write(f"y_min: {y_min}\n")
+        f.write(f"y_max: {y_max}\n")
+        f.write(f"z_min: {z_min}\n")
+        f.write(f"z_max: {z_max}\n")
+    return JSONResponse(status_code=200, content={"status": "success", "received": data})
+
+# @app.post("/settings")
+# async def settings(data: dict):
+#     # change global settings
+#     global settings
+#     settings = data
+#     return JSONResponse(status_code=200, content={"status": "success", "settings": settings})
 
 # @app.post("/settings")
 # async def model_data_write(data: dict):

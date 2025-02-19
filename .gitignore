@@ -1,5 +1,8 @@
+# Point Cloud files
 *.ply
 *.pcd
+
+# Python
 __pycache__/
 */__pycache__/
 **/__pycache__/
@@ -13,7 +16,57 @@ __pycache__/
 PointCloud/__pycache__/*
 *.so
 .Python
+.env
+.venv
+env/
+venv/
+ENV/
+dist/
+build/
+*.egg-info/
+
+# C++ build files
+*.o
+*.obj
+*.dll
+*.dylib
+*.so
+*.a
+*.lib
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+*.ninja*
+.ninja*
+Makefile
+
+# Node.js
 **/node_modules/
 */node_modules/*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.vs/
+*.user
+*.suo
+
+# Build and temp directories
+**/build/
+**/dist/
+**/temp/
 UserInterface/assets/temp/xy.jpg
 **/temp/*
+
+# Documentation
+docs/_build/
+docs/api/
+docs/html/
+docs/latex/
+
+# System specific
+.DS_Store
+Thumbs.db
