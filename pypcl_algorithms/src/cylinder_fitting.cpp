@@ -8,6 +8,7 @@
 #include <pybind11/numpy.h>
 #include <pybind11/eigen.h>
 #include <Eigen/Dense>
+#include <Eigen/SVD>
 
 namespace py = pybind11;
 
@@ -41,7 +42,8 @@ py::array_t<double> compute_normals(
     ne.compute(*cloud_normals);
 
     // Create output numpy array
-    py::array_t<double> normals({cloud_normals->size(), 3});
+    std::vector<ssize_t> shape = {static_cast<ssize_t>(cloud_normals->size()), 3};
+    py::array_t<double> normals(shape);
     auto normals_buffer = normals.request();
     double* normals_ptr = static_cast<double*>(normals_buffer.ptr);
 
@@ -53,6 +55,40 @@ py::array_t<double> compute_normals(
     }
 
     return normals;
+}
+
+Eigen::Vector3d find_cylinder_axis_svd(py::array_t<double> normals_array) {
+    // Convert numpy array to Eigen matrix
+    auto normals_buffer = normals_array.request();
+    if (normals_buffer.ndim != 2 || normals_buffer.shape[1] != 3) {
+        throw std::runtime_error("Input normals must be an Nx3 array");
+    }
+
+    const size_t num_points = normals_buffer.shape[0];
+    double* ptr = static_cast<double*>(normals_buffer.ptr);
+    
+    // Create matrix A (n x 3) where each row is a normal vector
+    Eigen::MatrixXd A(num_points, 3);
+    for (size_t i = 0; i < num_points; i++) {
+        A(i, 0) = ptr[i * 3];
+        A(i, 1) = ptr[i * 3 + 1];
+        A(i, 2) = ptr[i * 3 + 2];
+    }
+
+    // Compute A^T * A
+    Eigen::Matrix3d ATA = A.transpose() * A;
+
+    // Perform SVD on A^T * A
+    Eigen::JacobiSVD<Eigen::Matrix3d> svd(ATA, Eigen::ComputeFullV);
+    
+    // Get the eigenvector corresponding to the smallest singular value
+    // This is the last column of V and represents the cylinder axis direction
+    Eigen::Vector3d axis_direction = svd.matrixV().col(2);
+    
+    // Normalize the axis direction
+    axis_direction.normalize();
+    
+    return axis_direction;
 }
 
 std::tuple<Eigen::Vector3d, Eigen::Vector3d, double> fit_cylinder_ransac(
@@ -86,7 +122,7 @@ std::tuple<Eigen::Vector3d, Eigen::Vector3d, double> fit_cylinder_ransac(
     
     ne.setSearchMethod(tree);
     ne.setInputCloud(cloud);
-    ne.setKSearch(k_neighbors);  // Use specified number of nearest neighbors
+    ne.setKSearch(k_neighbors);
     ne.compute(*cloud_normals);
 
     // Create the segmentation object
@@ -99,7 +135,7 @@ std::tuple<Eigen::Vector3d, Eigen::Vector3d, double> fit_cylinder_ransac(
     seg.setNormalDistanceWeight(normal_distance_weight);
     seg.setMaxIterations(max_iterations);
     seg.setDistanceThreshold(distance_threshold);
-    seg.setRadiusLimits(min_radius, max_radius);  // Min/Max radius limits
+    seg.setRadiusLimits(min_radius, max_radius);
     
     seg.setInputCloud(cloud);
     seg.setInputNormals(cloud_normals);
@@ -115,7 +151,6 @@ std::tuple<Eigen::Vector3d, Eigen::Vector3d, double> fit_cylinder_ransac(
     }
 
     // Extract cylinder parameters
-    // Coefficients: [point_on_axis.x point_on_axis.y point_on_axis.z axis_direction.x axis_direction.y axis_direction.z radius]
     Eigen::Vector3d point_on_axis(coefficients->values[0], coefficients->values[1], coefficients->values[2]);
     Eigen::Vector3d axis_direction(coefficients->values[3], coefficients->values[4], coefficients->values[5]);
     double radius = coefficients->values[6];
@@ -141,6 +176,24 @@ void init_cylinder_fitting(py::module& m) {
                 
             Raises:
                 RuntimeError: If normal computation fails
+          )pbdoc");
+
+    m.def("find_cylinder_axis_svd", &find_cylinder_axis_svd, py::arg("normals"),
+          R"pbdoc(
+            Find cylinder axis direction using SVD method on surface normals.
+            
+            This method solves the equation AX=0 using SVD, where A is the matrix
+            of surface normals. The cylinder axis is the eigenvector corresponding
+            to the smallest singular value.
+            
+            Args:
+                normals (numpy.ndarray): Nx3 array of surface normals
+                
+            Returns:
+                numpy.ndarray: 3D normalized vector representing the cylinder axis direction
+                
+            Raises:
+                RuntimeError: If axis computation fails
           )pbdoc");
 
     m.def("fit_cylinder_ransac", &fit_cylinder_ransac, py::arg("points"),

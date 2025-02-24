@@ -260,8 +260,9 @@ const FilterSection = () => {
 
   // Every time the view changes, load image and reset regions 每次视图更改时，都会加载图像并重置区域 
   useEffect(() => {
-    console.log('Loading new view:', currentView);
-    imageRef.current.src = `http://localhost:9304/img/${currentView}`;
+    // console.log("111111111111111111111111111");
+    console.log(`Loading new view: http://localhost:9304/img/${currentView}`);
+    imageRef.current.src = `http://localhost:9304/img/${currentView}?t=${Date.now()}`;
     imageRef.current.onload = () => {
       handleResize();
     };
@@ -270,6 +271,19 @@ const FilterSection = () => {
     setYRegions([]);
     setLines([]);
   }, [currentView]);
+
+  // Component mount initialization
+  useEffect(() => {
+    console.log('Component mounted, initializing currentView:', currentView);
+    imageRef.current.src = `http://localhost:9304/img/${currentView}?t=${Date.now()}`;
+    imageRef.current.onload = () => {
+      handleResize();
+    };
+    fetchCoordinateRanges(currentView);
+    setXRegions([]);
+    setYRegions([]);
+    setLines([]);
+  }, []);
 
   // Update resize effect to handle fullscreen changes
   useEffect(() => {
@@ -359,6 +373,7 @@ const FilterSection = () => {
           settings:{
             show: showPointCloud
           }
+
         })
       });
 
@@ -516,7 +531,7 @@ const FilterSection = () => {
   // Get YAML coordinate ranges and parse
   const fetchCoordinateRanges = async (view) => {
     try {
-      const response = await fetch(`http://localhost:9304/yml/info`);
+      const response = await fetch(`http://localhost:9304/yml/info?t=${Date.now()}`);
       if (!response.ok) return;
       const text = await response.text();
       const ranges = parseYaml(text);

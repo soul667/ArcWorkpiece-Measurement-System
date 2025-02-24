@@ -7,8 +7,26 @@ const ParamsSettingComponent = () => {
 
   const handlePreprocess = () => {
     form.validateFields().then((values) => {
-      message.success('参数提交成功！');
-      console.log('提交数据:', values);
+      // Send data to /process endpoint
+      fetch('http://localhost:9304/process', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          message.success('参数提交成功！');
+        } else {
+          message.error('参数提交失败！');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        message.error('提交出错：' + error.message);
+      });
     });
   };
 

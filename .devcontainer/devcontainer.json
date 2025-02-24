@@ -3,6 +3,9 @@
     "build": { "dockerfile": "Dockerfile" },
     "customizations": {
         "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
           "extensions": [
             "ms-python.python",
             "ms-vscode.cpptools",

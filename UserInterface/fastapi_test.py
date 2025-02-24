@@ -8,8 +8,10 @@ import open3d as o3d
 import cv2
 import numpy as np
 from UserInterface.PointCouldProgress import *
+import pypcl_algorithms as pcl_algo
 from typing import Optional
 from io import BytesIO
+import numpy as np
 import logging
 log_file_path = "./UserInterface/fastapi.log"
 logging.basicConfig(level=logging.INFO, 
@@ -71,16 +73,21 @@ async def home(request: Request):
     return templates.TemplateResponse("index1.html", {"request": request})
 
 @app.get("/img/{img_name}")
-async def get_image(img_name: str):
+async def get_image(img_name: str, v: Optional[str] = None):
     img_path = os.path.join("UserInterface/assets", "temp", f"{img_name}.jpg")
-    logger.info(f"Requested image: {img_name}")
+    logger.info(f"Requested image: {img_name} with version: {v}")
     if os.path.exists(img_path):
-        return FileResponse(img_path)
+        # 获取文件最后修改时间作为版本号
+        file_version = str(os.path.getmtime(img_path))
+        response = FileResponse(img_path)
+        response.headers["Cache-Control"] = "public, max-age=31536000"  # 1年缓存
+        response.headers["ETag"] = f'W/"{file_version}"'
+        return response
     else:
         raise HTTPException(status_code=404, detail="Image not found")
 
 @app.get("/yml/{yml_name}")
-async def get_yml(yml_name: str):
+async def get_yml(yml_name: str, v: Optional[str] = None):
     yml_path = os.path.join("UserInterface/assets", "temp", f"{yml_name}.yml")
     # if os.path.exists(yml_path):
     #     return FileResponse(yml_path)
@@ -91,15 +98,28 @@ async def get_yml(yml_name: str):
     
     if os.path.exists(yml_path):
         logger.info(f"YAML file found: {yml_path}")
-        return FileResponse(yml_path)
+        # 获取文件最后修改时间作为版本号
+        file_version = str(os.path.getmtime(yml_path))
+        response = FileResponse(yml_path)
+        response.headers["Cache-Control"] = "public, max-age=31536000"  # 1年缓存
+        response.headers["ETag"] = f'W/"{file_version}"'
+        return response
     else:
         logger.error(f"YAML file not found: {yml_path}")
         raise HTTPException(status_code=404, detail="YAML file not found")
 
 @app.get("/get_ply/{ply_name}")
-async def get_ply(ply_name):
+async def get_ply(ply_name: str, v: Optional[str] = None):
     ply_path = os.path.join("UserInterface/assets", "temp", f"{ply_name}.ply")
-    return FileResponse(ply_path, media_type='application/octet-stream')
+    if os.path.exists(ply_path):
+        # 获取文件最后修改时间作为版本号
+        file_version = str(os.path.getmtime(ply_path))
+        response = FileResponse(ply_path, media_type='application/octet-stream')
+        response.headers["Cache-Control"] = "public, max-age=31536000"  # 1年缓存
+        response.headers["ETag"] = f'W/"{file_version}"'
+        return response
+    else:
+        raise HTTPException(status_code=404, detail="PLY file not found")
 
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
@@ -302,6 +322,80 @@ async def denoise(data: dict):
         f.write(f"z_min: {z_min}\n")
         f.write(f"z_max: {z_max}\n")
     return JSONResponse(status_code=200, content={"status": "success", "received": data})
+
+@app.post("/process")
+async def process(data: dict):
+    if not data:
+        return JSONResponse(status_code=400, content={"error": "No data received"})
+    logger.info(f"process Received data: {data}")
+    
+    global global_source_point_cloud
+    if global_source_point_cloud is None:
+        # return JSONResponse(status_code=400, content={"error": "No point cloud data available"})
+        temp_dir = os.path.join("UserInterface/assets", "temp")
+        temp_ply_path = os.path.join(temp_dir, 'temp.ply')
+        if not os.path.exists(temp_ply_path):
+            return JSONResponse(status_code=400, content={"error": "No point cloud data available"})
+        point_cloud = o3d.io.read_point_cloud(temp_ply_path)
+        global_source_point_cloud = point_cloud
+
+    # Get parameters from request
+    cylinder_method = data.get('cylinderMethod', 'RANSAC')
+    normal_neighbors = data.get('normalNeighbors', 30)
+    ransac_threshold = data.get('ransacThreshold', 0.1)
+    min_radius = data.get('minRadius', 6)
+    max_radius = data.get('maxRadius', 11)
+    
+
+    # Convert point cloud to numpy array
+    points = np.asarray(global_source_point_cloud.points)
+    # o3d.visualization.draw_geometries([global_source_point_cloud])
+
+    try:
+        # Compute surface normals
+        normals = pcl_algo.compute_normals(points, k_neighbors=normal_neighbors)
+
+        if cylinder_method == 'RANSAC':
+            # Use RANSAC method
+            point_on_axis, axis_direction, radius = pcl_algo.fit_cylinder_ransac(
+                points,
+                distance_threshold=ransac_threshold,
+                k_neighbors=normal_neighbors,
+                min_radius=min_radius,  # Convert from mm to meters
+                max_radius=max_radius
+            )
+            print(f"point_on_axis: {point_on_axis}")
+            print(f"axis_direction: {axis_direction}")
+            print(f"radius: {radius}")
+            
+        else:
+            print("Using SVD method")
+            # Use SVD method for other cases
+            axis_direction = pcl_algo.find_cylinder_axis_svd(normals)
+            # For SVD method, we use the mean point as point on axis
+            point_on_axis = np.mean(points, axis=0)
+            print(f"point_on_axis: {point_on_axis}")
+            print(f"axis_direction: {axis_direction}")
+            radius = None
+
+
+
+        result = {
+            "status": "success",
+            "axis": {
+                "point": point_on_axis.tolist(),
+                "direction": axis_direction.tolist()
+            }
+        }
+        
+        return JSONResponse(status_code=200, content=result)
+
+    except Exception as e:
+        logger.error(f"Error in process endpoint: {str(e)}")
+        return JSONResponse(
+            status_code=500, 
+            content={"error": f"Failed to process point cloud: {str(e)}"}
+        )
 
 # @app.post("/settings")
 # async def settings(data: dict):
