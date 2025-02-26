@@ -148,9 +148,9 @@ const FilterSection = () => {
               ]}
             />
             <Select
-                    value={zMode}
-                    onChange={setZMode}
-                    style={{ width: 120, marginRight: 8 }}
+              value={zMode}
+              onChange={setZMode}
+              style={{ width: 120, marginRight: 8 }}
               options={[
                 { value: 'keep', label: 'Z: 保留' },
                 { value: 'remove', label: 'Z: 移除' },
@@ -218,8 +218,9 @@ const FilterSection = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
-    const containerWidth = isFullscreen ? window.innerWidth : canvas.parentElement.clientWidth;
-    const containerHeight = isFullscreen ? window.innerHeight : window.innerHeight * 0.6;
+    // 设置固定的画布大小
+    const containerWidth = isFullscreen ? window.innerWidth * 0.8 : canvas.parentElement.clientWidth;
+    const containerHeight = isFullscreen ? window.innerHeight * 0.8 : window.innerHeight * 0.7;
     
     const imageAspectRatio = imageRef.current.width / imageRef.current.height;
     const containerAspectRatio = containerWidth / containerHeight;
@@ -258,9 +259,8 @@ const FilterSection = () => {
     redrawCanvas();
   };
 
-  // Every time the view changes, load image and reset regions 每次视图更改时，都会加载图像并重置区域 
+  // Every time the view changes, load image and reset regions
   useEffect(() => {
-    // console.log("111111111111111111111111111");
     console.log(`Loading new view: http://localhost:9304/img/${currentView}`);
     imageRef.current.src = `http://localhost:9304/img/${currentView}?t=${Date.now()}`;
     imageRef.current.onload = () => {
@@ -291,33 +291,6 @@ const FilterSection = () => {
     handleResize();
     return () => window.removeEventListener('resize', handleResize);
   }, [isFullscreen]);
-
-  // // Handle point cloud visibility changes
-  // useEffect(() => {
-  //   const togglePointCloud = async () => {
-  //     try {
-  //       const response = await fetch('http://localhost:9304/settings', {
-  //         method: 'POST',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //         },
-  //         body: JSON.stringify({
-  //           show: showPointCloud
-  //         })
-  //       });
-
-  //       if (!response.ok) {
-  //         const errorData = await response.json();
-  //         message.error(`切换点云显示失败: ${errorData.error || '未知错误'}`);
-  //       }
-  //     } catch (error) {
-  //       console.error('Toggle point cloud error:', error);
-  //       message.error('切换点云显示失败');
-  //     }
-  //   };
-
-  //   togglePointCloud();
-  // }, [showPointCloud]);
 
   // Monitor fullscreen changes
   useEffect(() => {
@@ -358,40 +331,6 @@ const FilterSection = () => {
     }
   };
 
-  // Handle region deletion
-  // Handle denoise operation
-  const handleDenoise = async () => {
-    try {
-      const response = await fetch('http://localhost:9304/denoise', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nb_neighbors: nbNeighbors,
-          std_ratio: stdRatio,
-          settings:{
-            show: showPointCloud
-          }
-
-        })
-      });
-
-      if (response.ok) {
-        message.success('去噪处理成功');
-        // Refresh image with cache busting
-        const timestamp = new Date().getTime();
-        imageRef.current.src = `http://localhost:9304/img/${currentView}?t=${timestamp}`;
-      } else {
-        const errorData = await response.json();
-        message.error(`去噪失败: ${errorData.error || '未知错误'}`);
-      }
-    } catch (error) {
-      console.error('Denoise error:', error);
-      message.error('去噪处理失败');
-    }
-  };
-
   const handleDeleteRegion = (index, type) => {
     if (type === 'x') {
       setXRegions(prev => {
@@ -408,6 +347,36 @@ const FilterSection = () => {
     }
   };
 
+  const handleDenoise = async () => {
+    try {
+      const response = await fetch('http://localhost:9304/denoise', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nb_neighbors: nbNeighbors,
+          std_ratio: stdRatio,
+          settings: {
+            show: showPointCloud
+          }
+        })
+      });
+
+      if (response.ok) {
+        message.success('去噪处理成功');
+        const timestamp = new Date().getTime();
+        imageRef.current.src = `http://localhost:9304/img/${currentView}?t=${timestamp}`;
+      } else {
+        const errorData = await response.json();
+        message.error(`去噪失败: ${errorData.error || '未知错误'}`);
+      }
+    } catch (error) {
+      console.error('Denoise error:', error);
+      message.error('去噪处理失败');
+    }
+  };
+
   // Handle crop operation
   const handleCrop = async () => {
     if (xRegions.length === 0 && yRegions.length === 0) {
@@ -419,28 +388,17 @@ const FilterSection = () => {
     const normalizeRegions = (regions, axis, isVertical = false) => {
       const min = coordinateRanges[`${axis}_min`];
       const max = coordinateRanges[`${axis}_max`];
-      const canvas = canvasRef.current;
-      
-      // Calculate scale factors
-      const scaleX = canvas.width / window.devicePixelRatio / imageRef.current.width;
-      const scaleY = canvas.height / window.devicePixelRatio / imageRef.current.height;
       
       return regions.map(([start, end]) => {
-        // Convert from screen coordinates to image coordinates
-        const startPx = isVertical ? start / scaleY : start / scaleX;
-        const endPx = isVertical ? end / scaleY : end / scaleX;
-        
-        // Convert from image coordinates to real-world coordinates
-        console.log('Converting:', coordinateRanges,startPx, endPx, min, max);
+        // 直接使用比例值转换到实际坐标
         return [
-          min + (max - min) * (startPx / (isVertical ? imageRef.current.height : imageRef.current.width)),
-          min + (max - min) * (endPx / (isVertical ? imageRef.current.height : imageRef.current.width))
+          min + (max - min) * start,
+          min + (max - min) * end
         ];
       });
     };
 
     // Transform regions based on the current view and normalize
-    // 根据当前视图转换区域并进行归一化
     let regions;
     switch (currentView) {
       case 'xy':
@@ -472,17 +430,6 @@ const FilterSection = () => {
         };
     }
 
-    console.log('Screen dimensions:', {
-      width: canvasRef.current.width / window.devicePixelRatio,
-      height: canvasRef.current.height / window.devicePixelRatio
-    });
-    console.log('Image dimensions:', {
-      width: imageRef.current.width,
-      height: imageRef.current.height
-    });
-    console.log('Current coordinate ranges:', coordinateRanges);
-    console.log('Sending crop request with normalized regions:', regions);
-
     try {
       console.log('Sending crop request:', JSON.stringify({
         regions,
@@ -492,6 +439,7 @@ const FilterSection = () => {
           z_mode: zMode
         }
       }));
+      
       const response = await fetch('http://localhost:9304/crop', {
         method: 'POST',
         headers: {
@@ -504,7 +452,7 @@ const FilterSection = () => {
             y_mode: yMode,
             z_mode: zMode
           },
-          settings:{
+          settings: {
             show: showPointCloud
           }
         })
@@ -512,10 +460,8 @@ const FilterSection = () => {
 
       if (response.ok) {
         message.success('裁剪成功');
-        // Refresh image with cache busting
         const timestamp = new Date().getTime();
         imageRef.current.src = `http://localhost:9304/img/${currentView}?t=${timestamp}`;
-        // 成功之后删除现有的所有区域
         setXRegions([]);
         setYRegions([]);
       } else {
@@ -528,7 +474,6 @@ const FilterSection = () => {
     }
   };
 
-  // Get YAML coordinate ranges and parse
   const fetchCoordinateRanges = async (view) => {
     try {
       const response = await fetch(`http://localhost:9304/yml/info?t=${Date.now()}`);
@@ -558,51 +503,62 @@ const FilterSection = () => {
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width / window.devicePixelRatio, canvas.height / window.devicePixelRatio);
-    ctx.drawImage(imageRef.current, 0, 0, canvas.width / window.devicePixelRatio, canvas.height / window.devicePixelRatio);
+    const width = canvas.width / window.devicePixelRatio;
+    const height = canvas.height / window.devicePixelRatio;
 
-    // Draw regions with fill
+    ctx.clearRect(0, 0, width, height);
+    ctx.drawImage(imageRef.current, 0, 0, width, height);
+
+    // Draw regions with fill using relative positions
     xRegions.forEach((region) => {
       const [x1, x2] = region;
+      const pixelX1 = x1 * width;
+      const pixelX2 = x2 * width;
+      
       ctx.fillStyle = 'rgba(0, 0, 255, 0.1)';
-      ctx.fillRect(x1, 0, x2 - x1, canvas.height / window.devicePixelRatio);
+      ctx.fillRect(pixelX1, 0, pixelX2 - pixelX1, height);
       
       ctx.strokeStyle = 'blue';
       ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.moveTo(x1, 0);
-      ctx.lineTo(x1, canvas.height / window.devicePixelRatio);
-      ctx.moveTo(x2, 0);
-      ctx.lineTo(x2, canvas.height / window.devicePixelRatio);
+      ctx.moveTo(pixelX1, 0);
+      ctx.lineTo(pixelX1, height);
+      ctx.moveTo(pixelX2, 0);
+      ctx.lineTo(pixelX2, height);
       ctx.stroke();
     });
 
     yRegions.forEach((region) => {
       const [y1, y2] = region;
+      const pixelY1 = y1 * height;
+      const pixelY2 = y2 * height;
+      
       ctx.fillStyle = 'rgba(0, 255, 0, 0.1)';
-      ctx.fillRect(0, y1, canvas.width / window.devicePixelRatio, y2 - y1);
+      ctx.fillRect(0, pixelY1, width, pixelY2 - pixelY1);
       
       ctx.strokeStyle = 'green';
       ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.moveTo(0, y1);
-      ctx.lineTo(canvas.width / window.devicePixelRatio, y1);
-      ctx.moveTo(0, y2);
-      ctx.lineTo(canvas.width / window.devicePixelRatio, y2);
+      ctx.moveTo(0, pixelY1);
+      ctx.lineTo(width, pixelY1);
+      ctx.moveTo(0, pixelY2);
+      ctx.lineTo(width, pixelY2);
       ctx.stroke();
     });
 
-    // Draw current lines
+    // Draw current lines using relative positions
     lines.forEach(line => {
       ctx.strokeStyle = 'red';
       ctx.lineWidth = 2;
       ctx.beginPath();
       if (drawMode === 'x') {
-        ctx.moveTo(line.x, 0);
-        ctx.lineTo(line.x, canvas.height / window.devicePixelRatio);
+        const pixelX = line.x * width;
+        ctx.moveTo(pixelX, 0);
+        ctx.lineTo(pixelX, height);
       } else {
-        ctx.moveTo(0, line.y);
-        ctx.lineTo(canvas.width / window.devicePixelRatio, line.y);
+        const pixelY = line.y * height;
+        ctx.moveTo(0, pixelY);
+        ctx.lineTo(width, pixelY);
       }
       ctx.stroke();
     });
@@ -615,13 +571,13 @@ const FilterSection = () => {
 
     const handleMouseUp = (e) => {
       const rect = canvas.getBoundingClientRect();
-      const scaleX = (canvas.width / window.devicePixelRatio) / rect.width;
-      const scaleY = (canvas.height / window.devicePixelRatio) / rect.height;
       
-      const x = (e.clientX - rect.left) * scaleX;
-      const y = (e.clientY - rect.top) * scaleY;
+      // Convert click position to relative coordinates (0-1)
+      const relativeX = (e.clientX - rect.left) / rect.width;
+      const relativeY = (e.clientY - rect.top) / rect.height;
       
-      const newLine = drawMode === 'x' ? { x } : { y };
+      // Store relative position
+      const newLine = drawMode === 'x' ? { x: relativeX } : { y: relativeY };
       setLines(prev => [...prev, newLine]);
     };
 
@@ -749,7 +705,7 @@ const FilterSection = () => {
                   <Select
                     value={zMode}
                     onChange={setZMode}
-                    style={{ width: 95 ,marginRight: 8}}
+                    style={{ width: 95, marginRight: 8 }}
                     options={[
                       { value: 'keep', label: 'Z: 保留' },
                       { value: 'remove', label: 'Z: 移除' },

@@ -5,6 +5,7 @@ from typing import List, Dict, Any, Optional
 import open3d as o3d
 import os
 from matplotlib import font_manager
+from scipy.interpolate import splprep, splev
 
 # 设置字体文件路径
 font_path = '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'
@@ -24,7 +25,7 @@ class ArcLineProcessor:
         self.points = None
         self.lines = []
         self.debug = False
-    
+
     def load_point_cloud(self, points: np.ndarray = None, ply_path: str = None) -> bool:
         """加载点云数据
         Args:
@@ -55,11 +56,13 @@ class ArcLineProcessor:
             曲率数组
         """
         n = len(points)
-        
+        if points.shape[1] != 2:
+            raise ValueError("输入点必须是一个 Nx2 的 (x, y) 坐标数组。")
         # 处理点数过少的情况
         if n < 3:
             return np.zeros(n)  # 点数太少，返回全零曲率
-            
+        # points = np.asarray(points)
+
         # 自适应窗口大小
         if window_size is None:
             # 建议窗口大小为点数的5%-10%，且为奇数
@@ -328,10 +331,10 @@ class ArcLineProcessor:
             return []
             
         # 计算曲率
-        curvatures = self.calculate_curvature(points[:, :2])
+        curvatures = self.calculate_curvature(points[:, -2:],window_size=15)
         
         # 使用Mean Shift进行分段
-        labels = self.segment_by_meanshift(points[:, :2], curvatures)
+        labels = self.segment_by_meanshift(points[:, -2:], curvatures)
         
         # 对每个分段拟合圆弧
         segments = []

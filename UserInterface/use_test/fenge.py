@@ -140,15 +140,15 @@ qulv_x=[]
 qulv_y=[]
 def calculate_slope(points):
     """
-    Calculate the slope at each point in a set of 2D points using matrix operations.
+    使用矩阵运算计算一组二维点集的每个点的斜率。
 
-    Parameters:
+    参数：
     points: numpy.ndarray
-        A Nx2 array of (x, y) coordinates.
+        一个 N×2 的数组，包含 (x, y) 坐标。
 
-    Returns:
+    返回：
     slopes: numpy.ndarray
-        An array of slopes corresponding to each point.
+        一个数组，包含每个点对应的斜率。
     """
     points = np.asarray(points)
     if points.shape[1] != 2:
