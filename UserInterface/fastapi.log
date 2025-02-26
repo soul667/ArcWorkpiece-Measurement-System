@@ -1,0 +1,103 @@
+2025-02-26 13:50:38,592 - UserInterface.point_cloud_manager - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.14 MB。
+2025-02-26 13:50:40,851 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:50:40,851 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:50:40,851 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:50:40,861 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:50:40,861 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:50:40,861 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:50:40,983 - UserInterface.fastapi_test - INFO - Requested image: xy with version: None
+2025-02-26 13:50:46,530 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-19.71447432944654, 23.123539833132092]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-02-26 13:50:46,684 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 4356158
+2025-02-26 13:50:50,702 - UserInterface.fastapi_test - INFO - Requested image: xy with version: None
+2025-02-26 13:50:51,800 - UserInterface.fastapi_test - INFO - Requested image: xz with version: None
+2025-02-26 13:50:51,800 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:50:51,800 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:50:51,801 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:50:53,088 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:50:53,089 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:50:53,089 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:50:53,089 - UserInterface.fastapi_test - INFO - Requested image: yz with version: None
+2025-02-26 13:50:59,921 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-10.190297314214112, -5.688527975796443]], 'z_regions': [[11.439578884132283, 14.6438160326782]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-02-26 13:50:59,980 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 398842
+2025-02-26 13:51:03,612 - UserInterface.fastapi_test - INFO - Requested image: yz with version: None
+2025-02-26 13:51:05,395 - UserInterface.fastapi_test - INFO - 接收到去噪请求数据: {'nb_neighbors': 100, 'std_ratio': 0.5, 'settings': {'show': True}}
+2025-02-26 13:51:05,721 - UserInterface.point_cloud_processor - INFO - 去噪成功，剩余点数: 371053
+2025-02-26 13:51:09,497 - UserInterface.fastapi_test - INFO - Requested image: yz with version: None
+2025-02-26 13:51:11,277 - UserInterface.fastapi_test - INFO - Requested image: xz with version: None
+2025-02-26 13:51:11,277 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:51:11,278 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:51:11,278 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:51:12,530 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:51:12,530 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:51:12,530 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:51:12,530 - UserInterface.fastapi_test - INFO - Requested image: xy with version: None
+2025-02-26 13:51:28,962 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[3.4562590067387795, 5.814939395161954], [-9.098007576803914, -6.5871542600953745], [10.456213707865615, 12.738807632146106]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-02-26 13:51:28,974 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 305872
+2025-02-26 13:51:31,678 - UserInterface.fastapi_test - INFO - Requested image: xy with version: None
+2025-02-26 13:51:33,658 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:51:33,658 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:51:33,659 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:51:33,659 - UserInterface.fastapi_test - INFO - Requested image: yz with version: None
+2025-02-26 13:51:34,790 - UserInterface.fastapi_test - INFO - Requested image: xy with version: None
+2025-02-26 13:51:34,791 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:51:34,791 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:51:34,791 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:11,350 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-17.69113172420838, -17.299256706768062], [-14.311209698785621, -13.968319058525342], [-11.078240804902983, -10.808826730412763], [-4.734763960087806, -4.465349885597586], [-1.648748197745288, -1.3058575574850053], [1.5597285075473337, 1.853634770627572], [8.050158483902628, 8.36855693557289], [14.393635328717806, 14.712033780388069], [17.602112034010425, 17.945002674270704], [20.810588739303043, 21.202463756743363]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-02-26 13:57:11,358 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 58506
+2025-02-26 13:57:14,036 - UserInterface.fastapi_test - INFO - Requested image: xy with version: None
+2025-02-26 13:57:15,919 - UserInterface.fastapi_test - INFO - Requested image: yz with version: None
+2025-02-26 13:57:15,920 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:57:15,920 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:15,920 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:24,437 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-9.332819646827389, -5.888567844622041]], 'z_regions': [[11.788577968789696, 13.508986951642463]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-02-26 13:57:24,439 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 44752
+2025-02-26 13:57:27,921 - UserInterface.fastapi_test - INFO - Requested image: yz with version: None
+2025-02-26 13:57:31,464 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:57:31,465 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:31,465 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:31,465 - UserInterface.fastapi_test - INFO - Requested image: xz with version: None
+2025-02-26 13:57:33,737 - UserInterface.fastapi_test - INFO - Requested image: xy with version: None
+2025-02-26 13:57:33,738 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:57:33,738 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:33,738 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:42,199 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-16.429500541871857, 12.576927341488215]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-02-26 13:57:42,200 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 25807
+2025-02-26 13:57:44,627 - UserInterface.fastapi_test - INFO - Requested image: xy with version: None
+2025-02-26 13:57:46,274 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:57:46,274 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:46,274 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:46,274 - UserInterface.fastapi_test - INFO - Requested image: yz with version: None
+2025-02-26 13:57:50,554 - UserInterface.fastapi_test - INFO - Requested image: xy with version: None
+2025-02-26 13:57:50,555 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:57:50,555 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:50,555 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:51,620 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:57:51,621 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:51,621 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:51,621 - UserInterface.fastapi_test - INFO - Requested image: yz with version: None
+2025-02-26 13:57:52,349 - UserInterface.fastapi_test - INFO - Requested image: xz with version: None
+2025-02-26 13:57:52,350 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:57:52,350 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:52,350 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:53,377 - UserInterface.fastapi_test - INFO - Requested image: yz with version: None
+2025-02-26 13:57:53,378 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 13:57:53,379 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 13:57:53,379 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 13:58:01,845 - UserInterface.fastapi_test - INFO - 接收到去噪请求数据: {'nb_neighbors': 100, 'std_ratio': 0.5, 'settings': {'show': True}}
+2025-02-26 13:58:01,880 - UserInterface.point_cloud_processor - INFO - 去噪成功，剩余点数: 16934
+2025-02-26 13:58:06,649 - UserInterface.fastapi_test - INFO - Requested image: yz with version: None
+2025-02-26 13:58:20,244 - UserInterface.fastapi_test - INFO - 接收到处理请求数据: {'cylinderMethod': 'RANSAC', 'circleFitMethod': 'Hyper', 'normalNeighbors': 20, 'ransacThreshold': 0.1, 'minRadius': 6, 'maxRadius': 11}
+2025-02-26 13:58:35,848 - UserInterface.cylinder_processor - INFO - RANSAC拟合成功: 轴点=[33.77649307 -8.55613518 19.16480446], 方向=[-0.99972653  0.00733828 -0.02220409], 半径=6.171914100646973
+2025-02-26 13:58:50,672 - UserInterface.fastapi_test - INFO - 接收到处理请求数据: {'cylinderMethod': 'LeastSquares', 'circleFitMethod': 'Hyper', 'normalNeighbors': 20, 'ransacThreshold': 0.1, 'minRadius': 6, 'maxRadius': 11}
+2025-02-26 13:58:50,672 - UserInterface.cylinder_processor - ERROR - 输入参数错误: 无效的圆柱体拟合方法: LeastSquares
+2025-02-26 13:58:56,592 - UserInterface.fastapi_test - INFO - 接收到处理请求数据: {'cylinderMethod': 'NormalPCA', 'circleFitMethod': 'Hyper', 'normalNeighbors': 20, 'ransacThreshold': 0.1, 'minRadius': 6, 'maxRadius': 11}
+2025-02-26 13:58:56,592 - UserInterface.cylinder_processor - ERROR - 输入参数错误: 无效的圆柱体拟合方法: NormalPCA
+2025-02-26 13:59:00,525 - UserInterface.fastapi_test - INFO - 接收到处理请求数据: {'cylinderMethod': 'RobPCA', 'circleFitMethod': 'Hyper', 'normalNeighbors': 20, 'ransacThreshold': 0.1, 'minRadius': 6, 'maxRadius': 11}
+2025-02-26 13:59:00,525 - UserInterface.cylinder_processor - ERROR - 输入参数错误: 无效的圆柱体拟合方法: RobPCA
+2025-02-26 14:06:03,770 - UserInterface.fastapi_test - INFO - Requested image: xy with version: None
+2025-02-26 14:06:03,809 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 14:06:03,809 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 14:06:03,810 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
+2025-02-26 14:06:03,810 - UserInterface.fastapi_test - INFO - Requested YAML file: info
+2025-02-26 14:06:03,810 - UserInterface.fastapi_test - INFO - Full path to YAML file: UserInterface/assets/temp/info.yml
+2025-02-26 14:06:03,810 - UserInterface.fastapi_test - INFO - YAML file found: UserInterface/assets/temp/info.yml
