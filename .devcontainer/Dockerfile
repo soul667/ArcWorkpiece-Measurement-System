@@ -36,8 +36,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
 RUN curl -LO https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz \
     && tar -xf typst-x86_64-unknown-linux-musl.tar.xz \
     && mv typst-x86_64-unknown-linux-musl/typst /usr/local/bin/ \
-    && rm -rf typst-x86_64-unknown-linux-musl*
-
+    && rm -rf typst-x86_64-unknown-linux-musl* 
 # Create a non-root user
 ARG USERNAME=vscode
 ARG USER_UID=1000
@@ -49,22 +48,9 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
-
-# Install some fonts
-RUN mkdir -p /usr/share/fonts/truetype/noto \
-    && curl -L https://github.com/notofonts/noto-fonts/raw/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf \
-        -o /usr/share/fonts/truetype/noto/NotoSans-Regular.ttf \
-    && curl -L https://github.com/notofonts/noto-cjk/raw/main/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf \
-        -o /usr/share/fonts/truetype/noto/NotoSansCJKjp-Regular.otf \
-    && fc-cache -f -v \
-    && apt-get install fonts-noto-cjk
-
-# RUN chown -R $USERNAME:$USERNAME /workspace
-# # Switch to vscode user
-# USER $USERNAME
-
-# Set the working directory
+    
 WORKDIR /workspace
+
 # Add venv activation to vscode user's bashrc
 RUN echo "source /workspace/venv/bin/activate" >> ~/.bashrc
 

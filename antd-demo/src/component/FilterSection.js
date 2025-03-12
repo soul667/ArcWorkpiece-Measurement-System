@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Card, Button, Row, Col, List, Typography, message, Select, Input, InputNumber, Checkbox } from 'antd';
 import { FullscreenOutlined, FullscreenExitOutlined, DeleteOutlined, ScissorOutlined, CloudOutlined, EyeOutlined } from '@ant-design/icons';
+import axios from '../utils/axios';
 const { Text } = Typography;
 
 const FilterSection = () => {
@@ -260,12 +261,32 @@ const FilterSection = () => {
   };
 
   // Every time the view changes, load image and reset regions
+  const loadImage = async (view) => {
+    try {
+      const response = await axios.get(`/img/${view}?t=${Date.now()}`, {
+        responseType: 'blob'
+      });
+      const blob = new Blob([response.data], { type: 'image/jpeg' });
+      const imageUrl = URL.createObjectURL(blob);
+      
+      // 清理旧的 URL 对象
+      if (imageRef.current.src && imageRef.current.src.startsWith('blob:')) {
+        URL.revokeObjectURL(imageRef.current.src);
+      }
+      
+      imageRef.current.src = imageUrl;
+      imageRef.current.onload = () => {
+        handleResize();
+      };
+    } catch (error) {
+      console.error('加载图像失败:', error);
+      message.error('加载图像失败，请检查认证状态');
+    }
+  };
+
   useEffect(() => {
-    console.log(`Loading new view: http://localhost:9304/img/${currentView}`);
-    imageRef.current.src = `http://localhost:9304/img/${currentView}?t=${Date.now()}`;
-    imageRef.current.onload = () => {
-      handleResize();
-    };
+    console.log(`Loading new view: ${currentView}`);
+    loadImage(currentView);
     fetchCoordinateRanges(currentView);
     setXRegions([]);
     setYRegions([]);
@@ -275,10 +296,7 @@ const FilterSection = () => {
   // Component mount initialization
   useEffect(() => {
     console.log('Component mounted, initializing currentView:', currentView);
-    imageRef.current.src = `http://localhost:9304/img/${currentView}?t=${Date.now()}`;
-    imageRef.current.onload = () => {
-      handleResize();
-    };
+    loadImage(currentView);
     fetchCoordinateRanges(currentView);
     setXRegions([]);
     setYRegions([]);
@@ -349,28 +367,21 @@ const FilterSection = () => {
 
   const handleDenoise = async () => {
     try {
-      const response = await fetch('http://localhost:9304/denoise', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nb_neighbors: nbNeighbors,
-          std_ratio: stdRatio,
-          settings: {
-            show: showPointCloud
-          }
-        })
+      await axios.post('/denoise', {
+        nb_neighbors: nbNeighbors,
+        std_ratio: stdRatio,
+        settings: {
+          show: showPointCloud
+        }
       });
 
-      if (response.ok) {
-        message.success('去噪处理成功');
-        const timestamp = new Date().getTime();
-        imageRef.current.src = `http://localhost:9304/img/${currentView}?t=${timestamp}`;
-      } else {
-        const errorData = await response.json();
-        message.error(`去噪失败: ${errorData.error || '未知错误'}`);
-      }
+      message.success('去噪处理成功');
+      loadImage(currentView);
+      setLines([]);
+      setXRegions([]);
+      setYRegions([]);
+      // const timestamp = new Date().getTime();
+      // imageRef.current.src = `/img/${currentView}?t=${timestamp}`;
     } catch (error) {
       console.error('Denoise error:', error);
       message.error('去噪处理失败');
@@ -440,34 +451,26 @@ const FilterSection = () => {
         }
       }));
       
-      const response = await fetch('http://localhost:9304/crop', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      await axios.post('/crop', {
+        regions,
+        modes: {
+          x_mode: xMode,
+          y_mode: yMode,
+          z_mode: zMode
         },
-        body: JSON.stringify({
-          regions,
-          modes: {
-            x_mode: xMode,
-            y_mode: yMode,
-            z_mode: zMode
-          },
-          settings: {
-            show: showPointCloud
-          }
-        })
+        settings: {
+          show: showPointCloud
+        }
       });
 
-      if (response.ok) {
-        message.success('裁剪成功');
-        const timestamp = new Date().getTime();
-        imageRef.current.src = `http://localhost:9304/img/${currentView}?t=${timestamp}`;
-        setXRegions([]);
-        setYRegions([]);
-      } else {
-        const errorData = await response.json();
-        message.error(`裁剪失败: ${errorData.error || '未知错误'}`);
-      }
+      setXRegions([]);
+      setYRegions([]);
+      setLines([]);
+      message.success('裁剪成功');
+      
+      loadImage(currentView);
+      // const timestamp = new Date().getTime();
+      // imageRef.current.src = `/img/${currentView}?t=${timestamp}`;
     } catch (error) {
       console.error('Crop error:', error);
       message.error('裁剪操作失败');
@@ -476,10 +479,8 @@ const FilterSection = () => {
 
   const fetchCoordinateRanges = async (view) => {
     try {
-      const response = await fetch(`http://localhost:9304/yml/info?t=${Date.now()}`);
-      if (!response.ok) return;
-      const text = await response.text();
-      const ranges = parseYaml(text);
+      const response = await axios.get(`/yml/info?t=${Date.now()}`);
+      const ranges = parseYaml(response.data);
       console.log('Fetching YAML:', ranges);
       setCoordinateRanges(ranges);
     } catch (error) {

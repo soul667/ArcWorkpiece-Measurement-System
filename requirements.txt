@@ -11,3 +11,5 @@ scikit-spatial
 fastapi
 uvicorn
 # pyblind
+pytest
+pymysql

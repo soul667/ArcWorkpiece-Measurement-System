@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Typography, Button, Upload, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+import axios from '../utils/axios';
 
 const { Text } = Typography;
 
@@ -18,38 +19,45 @@ const UploadSection = () => {
     <Card title="点云上传（仅支持PLY）" bordered={false}>
       <div style={{ display: 'flex', gap: '8px' }}>
         <Upload
-          name="file"
-          action="http://localhost:9304/upload"
           accept=".ply"
           multiple={false}
           showUploadList={false}
-          beforeUpload={(file) => {
+          beforeUpload={async (file) => {
             const isPLY = file.name.endsWith('.ply');
             if (!isPLY) {
               message.error('只能上传PLY格式的点云文件！');
               return false;
             }
-            return true;
-          }}
-          onChange={(info) => {
-            if (info.file.status === 'uploading') {
+
+            try {
               setUploading(true);
               setUploadStatus(null);
-            } else if (info.file.status === 'done') {
+
+              const formData = new FormData();
+              formData.append('file', file);
+
+              const response = await axios.post('/upload', formData, {
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                }
+              });
+
               setUploading(false);
-              if (info.file.response && info.file.response.error) {
+              if (response.data.error) {
                 setUploadStatus('error');
-                message.error(info.file.response.error);
+                message.error(response.data.error);
               } else {
                 setUploadStatus('success');
-                message.success(`${info.file.name} 上传成功`);
+                message.success(`${file.name} 上传成功`);
                 setHasUploadedCloud(true);
               }
-            } else if (info.file.status === 'error') {
+            } catch (error) {
               setUploading(false);
               setUploadStatus('error');
-              message.error(info.file.response?.error || '文件上传失败，请重试');
+              message.error(error.response?.data?.error || '文件上传失败，请重试');
             }
+
+            return false; // 阻止默认上传行为
           }}
         >
           <Button icon={<UploadOutlined />} loading={uploading}>

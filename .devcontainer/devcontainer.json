@@ -1,29 +1,48 @@
 {
-    "name": "ArcWorkpiece Measurement System Dev Container",
-    "build": { "dockerfile": "Dockerfile" },
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "terminal.integrated.defaultProfile.linux": "bash"
-            },
-          "extensions": [
-            "ms-python.python",
-            "ms-vscode.cpptools",
-            "streetsidesoftware.code-spell-checker",
-            "ms-azuretools.vscode-docker",
-            "ms-python.vscode-pylance",
-            "ms-toolsai.jupyter",
-            "GitHub.copilot",
-            "eamodio.gitlens",
-            "usernamehw.errorlens",
-            "dbaeumer.vscode-eslint",
-            "esbenp.prettier-vscode",
-            "dsznajder.es7-react-js-snippets",
-            "formulahendry.auto-rename-tag",
-            "formulahendry.auto-close-tag",
-            "myriad-dreamin.tinymist",
-            "saoudrizwan.claude-dev"
-          ]
-        }
-      }
+  "name": "ArcWorkpiece Measurement System Dev Container",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "remoteUser": "vscode",
+  "containerEnv": {
+    "HTTP_PROXY": "",
+    "HTTPS_PROXY": "",
+    "NO_PROXY": "*",
+    "http_proxy": "",
+    "https_proxy": ""
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        // 禁用所有代理设置
+        "http.proxy": "",
+        "https.proxy": "",
+        "github.copilot.advanced.proxy": "",
+        // 配置 Copilot 使用直接连接
+        "github.copilot.advanced.debug.useElectronFetcher": false,
+        "github.copilot.advanced.debug.useNodeFetcher": false,
+        "github.copilot.advanced.debug.useNodeFetchFetcher": false
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "streetsidesoftware.code-spell-checker",
+        "ms-azuretools.vscode-docker",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "eamodio.gitlens",
+        "usernamehw.errorlens",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "dsznajder.es7-react-js-snippets",
+        "formulahendry.auto-rename-tag",
+        "formulahendry.auto-close-tag",
+        "myriad-dreamin.tinymist",
+        "saoudrizwan.claude-dev",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ]
+    }
+  }
 }

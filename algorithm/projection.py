@@ -67,7 +67,6 @@ def generate_test_points(point_count=1000, radius=0.5, height=2.0, noise_std=0.0
 def visualize_projection(points, projected_2d, v, x, filename):
     """可视化原始三维点和投影结果"""
     fig = plt.figure(figsize=(15, 5))
-    fig.suptitle("Point Cloud Projection Visualization")
     
     # 绘制三维点云和投影方向
     ax = fig.add_subplot(121, projection='3d')
@@ -82,13 +81,11 @@ def visualize_projection(points, projected_2d, v, x, filename):
     # 绘制投影平面上的参考点
     ax.scatter([x[0]], [x[1]], [x[2]], c='r', s=100, marker='*', label='Reference Point')
     
-    ax.set_title('3D Points and Projection Direction')
     ax.legend()
     
     # 绘制投影结果
     ax = fig.add_subplot(122)
     ax.scatter(projected_2d[:,0], projected_2d[:,1], c='blue', alpha=0.5, s=1)
-    ax.set_title('2D Projected Points')
     ax.set_aspect('equal')
     ax.grid(True)
     
@@ -147,7 +144,6 @@ def visualize_axis_comparison(points, true_axis, ransac_result, svd_axis, title,
     point_on_axis, axis_ransac, radius = ransac_result
     
     fig = plt.figure(figsize=(15, 5))
-    fig.suptitle(title)
     
     # 绘制点云和轴线
     ax = fig.add_subplot(121, projection='3d')
@@ -173,7 +169,6 @@ def visualize_axis_comparison(points, true_axis, ransac_result, svd_axis, title,
             linewidth=2, label='SVD')
     
     ax.legend()
-    ax.set_title('Axis Comparison')
     
     # 绘制角度误差
     ax = fig.add_subplot(122)
@@ -182,7 +177,6 @@ def visualize_axis_comparison(points, true_axis, ransac_result, svd_axis, title,
     
     bars = ax.bar(['RANSAC', 'SVD'], [ransac_angle, svd_angle])
     ax.set_ylabel('Angle Error (degrees)')
-    ax.set_title('Axis Direction Error')
     
     # 添加数值标签
     for bar in bars:

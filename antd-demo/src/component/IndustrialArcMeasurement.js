@@ -5,32 +5,29 @@ import {
   Card,
   Typography,
   Button,
-  Form,
-  InputNumber,
-  Upload,
-  Row,
-  Col,
-  List,
-  message,
+  Space,
+  Dropdown,
 } from 'antd';
 import { 
   UploadOutlined, 
   FilterOutlined, 
   SettingOutlined, 
-  EyeOutlined, 
   HistoryOutlined,
-  RadarChartOutlined 
+  RadarChartOutlined,
+  UserOutlined,
+  LogoutOutlined,
+  LineChartOutlined
 } from '@ant-design/icons';
-import * as THREE from 'three';
-import { PLYLoader } from 'three/examples/jsm/loaders/PLYLoader';
 import FilterSection from './FilterSection';
 import ParamsSettingComponent from './ParamsSettingComponent';
 import UploadSection from './UploadSection';
+import LineQualityViewer from './LineQualityViewer';
+import ArcFittingComponent from './ArcFittingComponent';
 
 const { Header, Sider, Content } = Layout;
 const { Title, Text } = Typography;
 
-const IndustrialArcMeasurement = () => {
+const IndustrialArcMeasurement = ({ username, onLogout }) => {
   const [selectedKey, setSelectedKey] = useState('upload');
   const [collapsed, setCollapsed] = useState(false);
   const [logoHovered, setLogoHovered] = useState(false);
@@ -43,6 +40,7 @@ const IndustrialArcMeasurement = () => {
           padding: '0 12px',
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'space-between',
           boxShadow: '0 1px 2px rgba(0,0,0,0.08)',
           height: '42px',
           lineHeight: '42px'
@@ -77,7 +75,35 @@ const IndustrialArcMeasurement = () => {
             圆弧测量系统
           </Typography.Title>
         </div>
+
+        {/* User Info and Logout */}
+        <Space style={{ marginLeft: 'auto' }}>
+          <Dropdown menu={{
+            items: [
+              {
+                key: '1',
+                label: '退出登录',
+                icon: <LogoutOutlined />,
+                onClick: onLogout
+              }
+            ]
+          }}>
+            <Button 
+              type="text" 
+              icon={<UserOutlined />}
+              style={{ 
+                color: '#fff',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px'
+              }}
+            >
+              {username}
+            </Button>
+          </Dropdown>
+        </Space>
       </Header>
+      
       <Layout>
         <Sider 
           width={180} 
@@ -105,7 +131,8 @@ const IndustrialArcMeasurement = () => {
             <Menu.Item key="upload" icon={<UploadOutlined />}>点云上传</Menu.Item>
             <Menu.Item key="filter" icon={<FilterOutlined />}>点云预处理</Menu.Item>
             <Menu.Item key="params" icon={<SettingOutlined />}>参数设置</Menu.Item>
-            <Menu.Item key="display" icon={<EyeOutlined />}>点云显示</Menu.Item>
+            <Menu.Item key="arc-fitting" icon={<LineChartOutlined />}>圆弧拟合</Menu.Item>
+            <Menu.Item key="quality" icon={<LineChartOutlined />}>线质量分析</Menu.Item>
             <Menu.Item key="history" icon={<HistoryOutlined />}>历史记录</Menu.Item>
           </Menu>
         </Sider>
@@ -113,8 +140,9 @@ const IndustrialArcMeasurement = () => {
           <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 480 }}>
             {selectedKey === 'upload' && <UploadSection />}
             {selectedKey === 'filter' && <FilterSection />}
-            {selectedKey === 'params' && <ParamsSection />}
-            {selectedKey === 'display' && <DisplaySection />}
+            {selectedKey === 'params' && <ParamsSettingComponent />}
+            {selectedKey === 'arc-fitting' && <ArcFittingComponent />}
+            {selectedKey === 'quality' && <LineQualityViewer />}
             {selectedKey === 'history' && <HistorySection />}
           </Content>
         </Layout>
@@ -123,78 +151,10 @@ const IndustrialArcMeasurement = () => {
   );
 };
 
-const ParamsSection = () => {
-  return <ParamsSettingComponent />;
-};
-
-const DisplaySection = () => {
-  const [showThree, setShowThree] = useState(false);
-  const threeCanvasRef = useRef(null);
-
-  useEffect(() => {
-    if (showThree && threeCanvasRef.current) {
-      const canvas = threeCanvasRef.current;
-      const renderer = new THREE.WebGLRenderer({ canvas });
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(
-        75,
-        canvas.clientWidth / canvas.clientHeight,
-        0.1,
-        1000
-      );
-      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-      camera.position.z = 5;
-
-      const animate = () => {
-        requestAnimationFrame(animate);
-        renderer.render(scene, camera);
-      };
-
-      const loader = new PLYLoader();
-      loader.load(
-        '/get_ply',
-        (geometry) => {
-          const material = new THREE.PointsMaterial({ color: 0x00ff00, size: 0.01 });
-          const points = new THREE.Points(geometry, material);
-          scene.add(points);
-        },
-        undefined,
-        (error) => console.error(error)
-      );
-      animate();
-    }
-  }, [showThree]);
-
-  return (
-    <Card title="点云显示" bordered={false}>
-      <Button onClick={() => setShowThree(!showThree)}>
-        {showThree ? '隐藏点云' : '显示点云'}
-      </Button>
-      {showThree && (
-        <canvas
-          ref={threeCanvasRef}
-          style={{
-            width: '800px',
-            height: '600px',
-            border: '1px solid #d9d9d9',
-            display: 'block',
-            marginTop: 16,
-          }}
-        />
-      )}
-    </Card>
-  );
-};
-
 const HistorySection = () => {
-  const [history, setHistory] = useState([]);
   return (
     <Card title="历史记录" bordered={false}>
-      <List
-        dataSource={history}
-        renderItem={(item) => <List.Item>{item}</List.Item>}
-        locale={{ emptyText: '暂无历史记录' }}
-      />
+      <Text>暂无历史记录</Text>
     </Card>
   );
 };

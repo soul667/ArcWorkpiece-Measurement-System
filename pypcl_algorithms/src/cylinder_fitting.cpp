@@ -91,7 +91,7 @@ Eigen::Vector3d find_cylinder_axis_svd(py::array_t<double> normals_array) {
     return axis_direction;
 }
 
-std::tuple<Eigen::Vector3d, Eigen::Vector3d, double> fit_cylinder_ransac(
+std::tuple<Eigen::Vector3d, Eigen::Vector3d, double, int, py::array_t<double>> fit_cylinder_ransac(
     py::array_t<double> points_array,
     double distance_threshold = 0.01,
     int max_iterations = 1000,
@@ -158,7 +158,24 @@ std::tuple<Eigen::Vector3d, Eigen::Vector3d, double> fit_cylinder_ransac(
     // Normalize axis direction
     axis_direction.normalize();
 
-    return std::make_tuple(point_on_axis, axis_direction, radius);
+    // Get the maximum number of iterations that were allowed
+    int max_iters = seg.getMaxIterations();
+
+    // Create filtered points array
+    std::vector<ssize_t> shape = {static_cast<ssize_t>(inliers->indices.size()), 3};
+    py::array_t<double> filtered_points(shape);
+    auto filtered_buffer = filtered_points.request();
+    double* filtered_ptr = static_cast<double*>(filtered_buffer.ptr);
+
+    // Copy filtered points to numpy array
+    for (size_t i = 0; i < inliers->indices.size(); i++) {
+        int idx = inliers->indices[i];
+        filtered_ptr[i * 3] = ptr[idx * 3];
+        filtered_ptr[i * 3 + 1] = ptr[idx * 3 + 1];
+        filtered_ptr[i * 3 + 2] = ptr[idx * 3 + 2];
+    }
+    
+    return std::make_tuple(point_on_axis, axis_direction, radius, max_iters, filtered_points);
 }
 
 void init_cylinder_fitting(py::module& m) {
@@ -213,10 +230,12 @@ void init_cylinder_fitting(py::module& m) {
                 max_radius (float): Maximum cylinder radius to consider
                 
             Returns:
-                tuple: (point_on_axis, axis_direction, radius)
+                tuple: (point_on_axis, axis_direction, radius, iterations, filtered_points)
                     - point_on_axis (numpy.ndarray): 3D point on cylinder axis
                     - axis_direction (numpy.ndarray): normalized direction vector of cylinder axis
                     - radius (float): radius of the cylinder
+                    - iterations (int): maximum number of RANSAC iterations allowed
+                    - filtered_points (numpy.ndarray): Mx3 array of points that fit the cylinder model
                     
             Raises:
                 RuntimeError: If cylinder fitting fails

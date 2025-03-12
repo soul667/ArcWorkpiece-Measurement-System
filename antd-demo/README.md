@@ -1,71 +1,197 @@
-# Getting Started with Create React App
+# 圆弧工件测量系统 - 前端
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 项目概述
 
-## Available Scripts
+本项目是圆弧工件测量系统的前端部分，基于React和Ant Design构建，提供了用户认证、点云处理和测量功能的界面实现。
 
-In the project directory, you can run:
+## 技术栈
 
-### `npm start`
+- React 18
+- Ant Design 5
+- Axios
+- Three.js
+- JWT认证
+- CSS-in-JS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 开发环境设置
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1. 安装依赖
 
-### `npm test`
+```bash
+# 设置脚本可执行权限
+chmod +x install_deps.sh
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 运行安装脚本
+./install_deps.sh
+```
 
-### `npm run build`
+### 2. 环境配置
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# 创建环境配置文件
+cp .env.example .env
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# 根据需要修改配置
+vim .env
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. 启动开发服务器
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+服务器将在 http://localhost:3000 启动
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 项目结构
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+src/
+├── components/           # React组件
+│   ├── AuthenticatedApp.js    # 认证根组件
+│   ├── ErrorBoundary.js       # 错误边界
+│   ├── LoadingScreen.js       # 加载界面
+│   └── LoginComponent.js      # 登录组件
+├── utils/               # 工具函数
+│   └── axios.js        # API请求配置
+├── config.js           # 全局配置
+├── App.js             # 应用入口
+└── index.js           # 渲染入口
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 可用脚本
 
-## Learn More
+- `npm start` - 启动开发服务器
+- `npm run build` - 构建生产版本
+- `npm test` - 运行测试
+- `npm run lint` - 代码检查
+- `npm run format` - 代码格式化
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 开发指南
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 代码风格
 
-### Code Splitting
+项目使用Prettier进行代码格式化，配置文件位于`.prettierrc`。运行以下命令格式化代码：
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm run format
+```
 
-### Analyzing the Bundle Size
+### 环境变量
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+开发时可用的环境变量在`.env.example`中列出，包括：
 
-### Making a Progressive Web App
+- `REACT_APP_API_URL` - 后端API地址
+- `REACT_APP_VERSION` - 应用版本
+- `REACT_APP_DEBUG` - 调试模式开关
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 认证系统
 
-### Advanced Configuration
+认证使用JWT实现，主要文件：
+- `AuthenticatedApp.js` - 认证状态管理
+- `LoginComponent.js` - 登录界面
+- `axios.js` - API请求拦截器
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 组件开发
 
-### Deployment
+1. 组件应遵循以下原则：
+   - 单一职责
+   - 可复用性
+   - 可测试性
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. 组件文档：
+   - 导出Props类型定义
+   - 添加JSDoc注释
+   - 包含使用示例
 
-### `npm run build` fails to minify
+3. 错误处理：
+   - 使用ErrorBoundary包装组件
+   - 实现合适的错误状态UI
+   - 记录错误日志
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-// export NODE_OPTIONS=--openssl-legacy-provider
+## 测试
+
+### 单元测试
+
+```bash
+# 运行所有测试
+npm test
+
+# 运行特定测试
+npm test -- ComponentName.test.js
+
+# 生成测试覆盖报告
+npm test -- --coverage
+```
+
+### E2E测试
+
+```bash
+# 运行E2E测试
+npm run test:e2e
+```
+
+## 构建和部署
+
+### 开发环境
+
+```bash
+npm start
+```
+
+### 生产环境
+
+```bash
+# 构建生产版本
+npm run build
+
+# 预览生产构建
+npm run serve
+```
+
+### Docker部署
+
+```bash
+# 构建镜像
+docker build -t arc-workpiece-frontend .
+
+# 运行容器
+docker run -p 3000:80 arc-workpiece-frontend
+```
+
+## 故障排除
+
+常见问题及解决方案参见：`docs/dev_troubleshooting.md`
+
+## 性能优化
+
+1. 代码分割
+   - 使用React.lazy进行组件懒加载
+   - 路由级别的代码分割
+
+2. 性能监控
+   - 使用React DevTools分析组件性能
+   - 监控页面加载性能指标
+
+## 安全注意事项
+
+1. 认证
+   - 使用HTTPS
+   - 实现CSRF保护
+   - XSS防护
+
+2. 数据保护
+   - 敏感信息加密存储
+   - 清理会话数据
+
+## 贡献指南
+
+1. Fork项目
+2. 创建特性分支
+3. 提交变更
+4. 推送到分支
+5. 创建Pull Request
+
+## 许可证
+
+Copyright © 2025
