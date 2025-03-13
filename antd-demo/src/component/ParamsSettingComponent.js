@@ -68,6 +68,7 @@ const ParamsSettingComponent = () => {
     const fetchLatestSettings = async () => {
       try {
         const response = await axios.get('/api/settings/latest');
+        console.log('最新设置:', response.data);
         if (response.data.status === 'success') {
           const { cylinderSettings, arcSettings } = response.data.data;
           // 如果有保存的设置就使用，没有就使用默认值

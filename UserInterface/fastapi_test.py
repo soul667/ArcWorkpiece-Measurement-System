@@ -2,7 +2,7 @@
 import os
 import json
 import logging
-from typing import Optional, Tuple
+from typing import Optional, Tuple, List
 from io import BytesIO
 
 # 第三方库
@@ -35,6 +35,68 @@ from UserInterface.point_cloud_denoiser import PointCloudDenoiser
 from UserInterface.point_cloud_manager import PointCloudManager
 from UserInterface.point_cloud_processor import PointCloudProcessor
 from algorithm.axis_projection import AxisProjector
+
+def generate_cylinder_points(point_count: int = 1000, radius: float = 0.5, height: float = 2.0, 
+                         noise_std: float = 0.01, arc_angle: float = 360.0,
+                         axis_direction: List[float] = [0, 0, 1]) -> np.ndarray:
+    """生成圆柱体点云数据
+    
+    Args:
+        point_count: 点云数量
+        radius: 圆柱体半径
+        height: 圆柱体高度 
+        noise_std: 噪声标准差
+        arc_angle: 圆心角(度)
+        axis_direction: 圆柱体轴向方向
+        
+    Returns:
+        points: 生成的圆柱体点云，numpy数组(N,3) 
+    """
+    # 归一化轴向向量
+    axis = np.array(axis_direction)
+    axis = axis / np.linalg.norm(axis)
+    
+    # 创建旋转矩阵，将[0,0,1]对齐到目标轴向
+    if np.allclose(axis, [0, 0, 1]):
+        R = np.eye(3)
+    else:
+        # 计算旋转轴
+        rot_axis = np.cross([0, 0, 1], axis)
+        rot_axis = rot_axis / np.linalg.norm(rot_axis)
+        
+        # 计算旋转角度
+        cos_angle = np.dot([0, 0, 1], axis)
+        angle = np.arccos(cos_angle)
+        
+        # Rodriguez旋转公式
+        K = np.array([[0, -rot_axis[2], rot_axis[1]],
+                     [rot_axis[2], 0, -rot_axis[0]],
+                     [-rot_axis[1], rot_axis[0], 0]])
+        R = np.eye(3) + np.sin(angle) * K + (1 - cos_angle) * K.dot(K)
+    
+    # 计算弧度
+    arc_rad = np.deg2rad(arc_angle)
+    
+    # 生成点云
+    thetas = np.random.uniform(0, arc_rad, point_count)
+    heights = np.random.uniform(-height/2, height/2, point_count)
+    
+    # 生成圆柱面上的点
+    x = radius * np.cos(thetas)
+    y = radius * np.sin(thetas)
+    z = heights
+    
+    # 合并为点云数组
+    points = np.column_stack([x, y, z])
+    
+    # 旋转点云以对齐目标轴向
+    points = points.dot(R.T)
+    
+    # 添加随机噪声
+    noise = np.random.normal(0, noise_std, (point_count, 3))
+    points += noise
+    
+    return points
 
 # 配置日志
 log_file_path = "./UserInterface/fastapi.log"
@@ -231,6 +293,69 @@ app.include_router(auth_router, prefix="/auth", tags=["authentication"])
 # 配置OAuth2
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
 auth_service = AuthService()
+
+@app.post("/api/generate-point-cloud")
+async def generate_point_cloud(data: dict):
+    """生成点云数据并提供下载
+    
+    请求体:
+    {
+        "noise_std": float,      // 噪声大小
+        "arc_angle": float,      // 圆心角(度)
+        "axis_direction": [x,y,z],// 轴线方向
+        "axis_density": int,     // 沿轴线密度
+        "arc_density": int       // 圆弧密度
+    }
+    """
+    try:
+        # 验证和提取参数
+        noise_std = float(data.get("noise_std", 0.01))
+        arc_angle = float(data.get("arc_angle", 360.0))
+        axis_direction = data.get("axis_direction", [0, 0, 1])
+        axis_density = int(data.get("axis_density", 500))
+        arc_density = int(data.get("arc_density", 100))
+        
+        # 参数验证
+        if not isinstance(axis_direction, list) or len(axis_direction) != 3:
+            raise ValueError("axis_direction must be a list of 3 numbers")
+        
+        # 生成点云
+        points = generate_cylinder_points(
+            point_count=axis_density * arc_density,
+            radius=10.0,  # 固定半径
+            height=50.0,  # 固定高度
+            noise_std=noise_std,
+            arc_angle=arc_angle,
+            axis_direction=axis_direction
+        )
+        
+        # 创建点云对象
+        pcd = o3d.geometry.PointCloud()
+        pcd.points = o3d.utility.Vector3dVector(points)
+        
+        # 保存点云文件
+        temp_dir = os.path.join("UserInterface/assets", "temp")
+        os.makedirs(temp_dir, exist_ok=True)
+        temp_ply_path = os.path.join(temp_dir, 'generated_cloud.ply')
+        o3d.io.write_point_cloud(temp_ply_path, pcd)
+        
+        # 更新全局点云
+        global global_source_point_cloud
+        global_source_point_cloud = pcd
+        
+        # 返回文件下载响应
+        return FileResponse(
+            path=temp_ply_path,
+            filename="generated_cloud.ply",
+            media_type="application/octet-stream",
+            headers={
+                "Content-Disposition": "attachment; filename=generated_cloud.ply"
+            }
+        )
+        
+    except Exception as e:
+        logger.error(f"生成点云失败: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 # 配置CORS中间件
 app.add_middleware(
@@ -817,6 +942,21 @@ async def process(data: dict):
     except Exception as e:
         logger.error(f"处理点云数据时出错: {str(e)}")
         return JSONResponse(status_code=500, content={"error": f"点云处理失败: {str(e)}"})
+def validate_json_data(data):
+    """
+    递归验证并转换数据，确保所有数据都是JSON可序列化的
+    """
+    if isinstance(data, dict):
+        return {k: validate_json_data(v) for k, v in data.items()}
+    elif isinstance(data, list):
+        return [validate_json_data(item) for item in data]
+    elif isinstance(data, bool):
+        return int(data)
+    elif isinstance(data, (int, float, str)) or data is None:
+        return data
+    else:
+        return str(data)
+
 @app.post("/api/arc-fitting-stats")
 async def get_arc_fitting_stats(data: dict):
     """获取圆弧拟合统计信息"""
@@ -827,7 +967,7 @@ async def get_arc_fitting_stats(data: dict):
         point_cloud, success = get_point_cloud()
         if not success:
             raise HTTPException(status_code=400, detail="无可用的点云数据")
-        
+        print("data",data)
         settings = {
             'arcNormalNeighbors': data.get('arcNormalNeighbors', 10),
             'fitIterations': data.get('fitIterations', 50),
@@ -839,12 +979,14 @@ async def get_arc_fitting_stats(data: dict):
         points = np.asarray(point_cloud.points)
         results = arc_fitting_processor.process_all_lines(points, settings)
         
+        # 验证数据确保可以JSON序列化
+        validated_results = validate_json_data(results)
         return JSONResponse(
             status_code=200,
             content={
                 "status": "success",
-                "lineStats": results['lineStats'],
-                "overallStats": results['overallStats']
+                "lineStats": validated_results['lineStats'],
+                "overallStats": validated_results['overallStats']
             }
         )
         

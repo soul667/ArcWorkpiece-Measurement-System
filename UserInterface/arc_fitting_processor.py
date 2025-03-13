@@ -30,7 +30,7 @@ class ArcFittingProcessor:
         # 获取所有分组
         groups = self.grouper.get_all_groups(points, axis='x')
         all_lines_stats = []
-        all_radii = []
+        all_valid_radii = []
 
         # 处理每一组（每一根线）
         for line_idx, line_points in enumerate(groups):
@@ -54,14 +54,15 @@ class ArcFittingProcessor:
             
             line_stats['lineIndex'] = line_idx
             all_lines_stats.append(line_stats)
-            all_radii.extend(line_stats['radii'])
+            all_valid_radii.extend([r['radius'] for r in line_stats['radiusData'] if r['isValid']])
 
-        # 计算总体统计信息
+        # 计算总体统计信息（仅使用有效值）
         overall_stats = {
-            'overallMean': float(np.mean(all_radii)),
-            'overallStd': float(np.std(all_radii)),
-            'minRadius': float(np.min(all_radii)),
-            'maxRadius': float(np.max(all_radii))
+            'overallMedian': float(np.median(all_valid_radii)),
+            'overallStd': float(np.std(all_valid_radii)),
+            'minValidRadius': float(np.min(all_valid_radii)),
+            'maxValidRadius': float(np.max(all_valid_radii)),
+            'totalValidCount': len(all_valid_radii)
         }
 
         return {
@@ -110,15 +111,41 @@ class ArcFittingProcessor:
             sampled_points = planar_coords[sample_indices]
             
             # 使用HyperFit方法拟合圆
-            _, _, radius = self.circle_fitter.hyper_circle_fit(sampled_points)
+            _, _, radius = self.circle_fitter.fit_circle_arc(sampled_points)
             radii.append(radius)
 
-        # 计算统计信息
-        mean_radius = np.mean(radii)
-        std_dev = np.std(radii)
+        # 异常值筛除
+        q1 = np.percentile(radii, 25)
+        q3 = np.percentile(radii, 75)
+        iqr = q3 - q1
+        lower_bound = q1 - 1.5 * iqr
+        upper_bound = q3 + 1.5 * iqr
+        valid_radii = [r for r in radii if lower_bound <= r <= upper_bound]
+        
+        # 计算统计信息（使用有效值）
+        median_radius = float(np.median(valid_radii))
+        std_dev = float(np.std(valid_radii))
+        
+        # 为K线图准备数据
+        radius_data = [
+            {
+                'iteration': i + 1,
+                'radius': radius,
+                'isValid': int(lower_bound <= radius <= upper_bound)
+            } for i, radius in enumerate(radii)
+        ]
 
         return {
-            'radii': radii,
-            'meanRadius': float(mean_radius),
-            'stdDev': float(std_dev)
+            'radiusData': radius_data,  # K线图数据
+            'medianRadius': median_radius,  # 中位数
+            'stdDev': std_dev,
+            'outlierStats': {  # 异常值统计
+                'totalCount': len(radii),
+                'validCount': len(valid_radii),
+                'outlierCount': len(radii) - len(valid_radii),
+                'bounds': {
+                    'lower': float(lower_bound),
+                    'upper': float(upper_bound)
+                }
+            }
         }

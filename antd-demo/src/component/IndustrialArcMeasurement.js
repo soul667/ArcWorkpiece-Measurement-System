@@ -23,12 +23,13 @@ import ParamsSettingComponent from './ParamsSettingComponent';
 import UploadSection from './UploadSection';
 import LineQualityViewer from './LineQualityViewer';
 import ArcFittingComponent from './ArcFittingComponent';
+import PointCloudGeneratorComponent from './PointCloudGeneratorComponent';
 
 const { Header, Sider, Content } = Layout;
 const { Title, Text } = Typography;
 
 const IndustrialArcMeasurement = ({ username, onLogout }) => {
-  const [selectedKey, setSelectedKey] = useState('upload');
+  const [selectedKey, setSelectedKey] = useState('generate');
   const [collapsed, setCollapsed] = useState(false);
   const [logoHovered, setLogoHovered] = useState(false);
 
@@ -128,6 +129,7 @@ const IndustrialArcMeasurement = ({ username, onLogout }) => {
             }}
             theme="light"
           >
+            <Menu.Item key="generate" icon={<RadarChartOutlined />}>点云生成</Menu.Item>
             <Menu.Item key="upload" icon={<UploadOutlined />}>点云上传</Menu.Item>
             <Menu.Item key="filter" icon={<FilterOutlined />}>点云预处理</Menu.Item>
             <Menu.Item key="params" icon={<SettingOutlined />}>参数设置</Menu.Item>
@@ -138,6 +140,7 @@ const IndustrialArcMeasurement = ({ username, onLogout }) => {
         </Sider>
         <Layout style={{ padding: '24px' }}>
           <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 480 }}>
+            {selectedKey === 'generate' && <PointCloudGeneratorComponent />}
             {selectedKey === 'upload' && <UploadSection />}
             {selectedKey === 'filter' && <FilterSection />}
             {selectedKey === 'params' && <ParamsSettingComponent />}
