@@ -87,8 +87,14 @@ const UploadSection = () => {
               setUploading(true);
               setUploadStatus(null);
 
+              // 获取最新参数设置
+              const settingsResponse = await axios.get('/api/settings/latest');
+              const cylinderSettings = settingsResponse.data.data.cylinderSettings || {};
+              
               const formData = new FormData();
               formData.append('file', file);
+              formData.append('actual_speed', cylinderSettings.actualSpeed || 100);
+              formData.append('acquisition_speed', cylinderSettings.acquisitionSpeed || 100);
 
               const response = await axios.post('/upload', formData, {
                 headers: {

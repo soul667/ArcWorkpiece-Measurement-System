@@ -7986,3 +7986,1111 @@
 2025-03-13 06:00:26,134 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
 2025-03-13 06:00:26,151 - UserInterface.auth.db - INFO - Database tables initialized successfully
 2025-03-13 06:00:26,156 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:24:54,934 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:24:54,944 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:24:54,946 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-13 23:25:20,320 - UserInterface.auth.service - INFO - User authenticated successfully: admin123
+2025-03-13 23:25:20,320 - UserInterface.auth.routes - INFO - User logged in successfully: admin123
+2025-03-13 23:25:20,412 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:25:20,421 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:25:22,879 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:25:22,889 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:25:22,894 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:25:22,977 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:25:22,986 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:25:22,990 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:25:23,007 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:25:23,016 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:25:23,020 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:25:23,026 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:25:23,034 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:25:23,039 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:25:43,122 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:25:43,135 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:25:43,137 - UserInterface.fastapi_test - INFO - Received settings save request:
+2025-03-13 23:25:43,137 - UserInterface.fastapi_test - INFO - Full data: {
+  "name": "设置_2025314072543",
+  "cylinderSettings": {
+    "cylinderMethod": "NormalRANSAC",
+    "normalNeighbors": 20,
+    "minRadius": 6,
+    "maxRadius": 11,
+    "ransacThreshold": 0.01,
+    "maxIterations": 1000,
+    "normalDistanceWeight": 0.1
+  },
+  "arcSettings": {
+    "arcMethod": "HyperFit",
+    "arcNormalNeighbors": 20,
+    "arcMaxRadius": 12,
+    "arcMinRadius": 6,
+    "learningRate": 0.01,
+    "gradientMaxIterations": 1000,
+    "tolerance": 1e-06,
+    "fitIterations": 50,
+    "samplePercentage": 50
+  }
+}
+2025-03-13 23:25:43,137 - UserInterface.fastapi_test - INFO - Name: 设置_2025314072543
+2025-03-13 23:25:43,137 - UserInterface.fastapi_test - INFO - Cylinder settings: {
+  "cylinderMethod": "NormalRANSAC",
+  "normalNeighbors": 20,
+  "minRadius": 6,
+  "maxRadius": 11,
+  "ransacThreshold": 0.01,
+  "maxIterations": 1000,
+  "normalDistanceWeight": 0.1
+}
+2025-03-13 23:25:43,137 - UserInterface.fastapi_test - INFO - Arc settings: {
+  "arcMethod": "HyperFit",
+  "arcNormalNeighbors": 20,
+  "arcMaxRadius": 12,
+  "arcMinRadius": 6,
+  "learningRate": 0.01,
+  "gradientMaxIterations": 1000,
+  "tolerance": 1e-06,
+  "fitIterations": 50,
+  "samplePercentage": 50
+}
+2025-03-13 23:25:43,143 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:25:43,209 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:25:43,224 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:25:43,231 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:37:01,639 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:37:01,650 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:37:01,653 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-13 23:40:14,999 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:15,011 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:15,014 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-13 23:40:15,046 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:15,056 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:15,070 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:15,079 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:15,090 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:15,101 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:22,004 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:22,023 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:22,039 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:22,051 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:24,418 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-13 23:40:24,432 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-13 23:40:24,464 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-13 23:40:24,465 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-13 23:40:24,507 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-13 23:40:24,587 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-13 23:40:26,812 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:26,833 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:26,845 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:26,856 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:26,868 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:26,877 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:26,889 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:26,900 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:26,912 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:26,928 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:26,939 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:26,951 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:27,881 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:27,897 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:27,899 - UserInterface.fastapi_test - INFO - Received settings save request:
+2025-03-13 23:40:27,900 - UserInterface.fastapi_test - INFO - Full data: {
+  "name": "设置_2025314074027",
+  "cylinderSettings": {
+    "cylinderMethod": "NormalRANSAC",
+    "normalNeighbors": 20,
+    "minRadius": 6,
+    "maxRadius": 11,
+    "ransacThreshold": 0.01,
+    "maxIterations": 1000,
+    "normalDistanceWeight": 0.1
+  },
+  "arcSettings": {
+    "arcMethod": "HyperFit",
+    "arcNormalNeighbors": 20,
+    "arcMaxRadius": 12,
+    "arcMinRadius": 6,
+    "learningRate": 0.01,
+    "gradientMaxIterations": 1000,
+    "tolerance": 1e-06,
+    "fitIterations": 50,
+    "samplePercentage": 50
+  }
+}
+2025-03-13 23:40:27,900 - UserInterface.fastapi_test - INFO - Name: 设置_2025314074027
+2025-03-13 23:40:27,900 - UserInterface.fastapi_test - INFO - Cylinder settings: {
+  "cylinderMethod": "NormalRANSAC",
+  "normalNeighbors": 20,
+  "minRadius": 6,
+  "maxRadius": 11,
+  "ransacThreshold": 0.01,
+  "maxIterations": 1000,
+  "normalDistanceWeight": 0.1
+}
+2025-03-13 23:40:27,900 - UserInterface.fastapi_test - INFO - Arc settings: {
+  "arcMethod": "HyperFit",
+  "arcNormalNeighbors": 20,
+  "arcMaxRadius": 12,
+  "arcMinRadius": 6,
+  "learningRate": 0.01,
+  "gradientMaxIterations": 1000,
+  "tolerance": 1e-06,
+  "fitIterations": 50,
+  "samplePercentage": 50
+}
+2025-03-13 23:40:27,908 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:27,975 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:27,986 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:27,999 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:33,193 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:33,209 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:33,212 - UserInterface.fastapi_test - INFO - Received settings save request:
+2025-03-13 23:40:33,212 - UserInterface.fastapi_test - INFO - Full data: {
+  "name": "设置_2025314074033",
+  "cylinderSettings": {
+    "cylinderMethod": "NormalRANSAC",
+    "normalNeighbors": 20,
+    "minRadius": 6,
+    "maxRadius": 11,
+    "ransacThreshold": 0.01,
+    "maxIterations": 10000,
+    "normalDistanceWeight": 0.1
+  },
+  "arcSettings": {
+    "arcMethod": "HyperFit",
+    "arcNormalNeighbors": 20,
+    "arcMaxRadius": 12,
+    "arcMinRadius": 6,
+    "learningRate": 0.01,
+    "gradientMaxIterations": 1000,
+    "tolerance": 1e-06,
+    "fitIterations": 50,
+    "samplePercentage": 50
+  }
+}
+2025-03-13 23:40:33,212 - UserInterface.fastapi_test - INFO - Name: 设置_2025314074033
+2025-03-13 23:40:33,212 - UserInterface.fastapi_test - INFO - Cylinder settings: {
+  "cylinderMethod": "NormalRANSAC",
+  "normalNeighbors": 20,
+  "minRadius": 6,
+  "maxRadius": 11,
+  "ransacThreshold": 0.01,
+  "maxIterations": 10000,
+  "normalDistanceWeight": 0.1
+}
+2025-03-13 23:40:33,213 - UserInterface.fastapi_test - INFO - Arc settings: {
+  "arcMethod": "HyperFit",
+  "arcNormalNeighbors": 20,
+  "arcMaxRadius": 12,
+  "arcMinRadius": 6,
+  "learningRate": 0.01,
+  "gradientMaxIterations": 1000,
+  "tolerance": 1e-06,
+  "fitIterations": 50,
+  "samplePercentage": 50
+}
+2025-03-13 23:40:33,223 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:33,265 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:33,281 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:33,299 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:35,986 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:35,997 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:35,999 - UserInterface.fastapi_test - INFO - Received settings save request:
+2025-03-13 23:40:36,000 - UserInterface.fastapi_test - INFO - Full data: {
+  "name": "设置_2025314074035",
+  "cylinderSettings": {
+    "cylinderMethod": "NormalRANSAC",
+    "normalNeighbors": 20,
+    "minRadius": 6,
+    "maxRadius": 11,
+    "ransacThreshold": 0.01,
+    "maxIterations": 8888,
+    "normalDistanceWeight": 0.1
+  },
+  "arcSettings": {
+    "arcMethod": "HyperFit",
+    "arcNormalNeighbors": 20,
+    "arcMaxRadius": 12,
+    "arcMinRadius": 6,
+    "learningRate": 0.01,
+    "gradientMaxIterations": 1000,
+    "tolerance": 1e-06,
+    "fitIterations": 50,
+    "samplePercentage": 50
+  }
+}
+2025-03-13 23:40:36,000 - UserInterface.fastapi_test - INFO - Name: 设置_2025314074035
+2025-03-13 23:40:36,000 - UserInterface.fastapi_test - INFO - Cylinder settings: {
+  "cylinderMethod": "NormalRANSAC",
+  "normalNeighbors": 20,
+  "minRadius": 6,
+  "maxRadius": 11,
+  "ransacThreshold": 0.01,
+  "maxIterations": 8888,
+  "normalDistanceWeight": 0.1
+}
+2025-03-13 23:40:36,000 - UserInterface.fastapi_test - INFO - Arc settings: {
+  "arcMethod": "HyperFit",
+  "arcNormalNeighbors": 20,
+  "arcMaxRadius": 12,
+  "arcMinRadius": 6,
+  "learningRate": 0.01,
+  "gradientMaxIterations": 1000,
+  "tolerance": 1e-06,
+  "fitIterations": 50,
+  "samplePercentage": 50
+}
+2025-03-13 23:40:36,008 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:36,034 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:36,044 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:36,054 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:38,143 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:38,155 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:38,315 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:38,325 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:39,766 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:39,784 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:39,793 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:39,808 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:39,819 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:39,828 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:39,838 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:39,851 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:39,859 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:39,924 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:40:39,935 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:40:39,948 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:44:05,173 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:44:05,186 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:44:05,201 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:44:05,218 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:44:05,230 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:44:05,249 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:45:05,846 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:45:05,863 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:45:05,879 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:45:05,894 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:45:05,906 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:45:05,922 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:46:05,429 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:46:05,441 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:46:05,453 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:46:05,464 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:46:05,474 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:46:05,487 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:47:13,103 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:47:13,115 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:47:13,128 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:47:13,143 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:47:13,153 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:47:13,169 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:40,950 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:40,962 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:48:40,979 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:40,998 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:41,010 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:48:41,028 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:46,950 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:46,971 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:48:47,200 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:47,211 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:48:50,062 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:50,083 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:48:50,102 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:50,121 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:50,134 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:48:50,156 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:50,184 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:50,197 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:48:50,220 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:50,347 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:50,358 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:48:50,374 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:59,947 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:48:59,958 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:48:59,962 - UserInterface.fastapi_test - INFO - Received settings save request:
+2025-03-13 23:48:59,962 - UserInterface.fastapi_test - INFO - Full data: {
+  "name": "设置_2025314074859",
+  "cylinderSettings": {
+    "cylinderMethod": "NormalRANSAC",
+    "normalNeighbors": 20,
+    "minRadius": 6,
+    "maxRadius": 11,
+    "axisOrientation": "x",
+    "actualSpeed": 2.5,
+    "acquisitionSpeed": 2,
+    "ransacThreshold": 0.01,
+    "maxIterations": 8888,
+    "normalDistanceWeight": 0.1
+  },
+  "arcSettings": {
+    "arcMethod": "HyperFit",
+    "arcNormalNeighbors": 20,
+    "arcMaxRadius": 12,
+    "arcMinRadius": 6,
+    "learningRate": 0.01,
+    "gradientMaxIterations": 1000,
+    "tolerance": 1e-06,
+    "fitIterations": 50,
+    "samplePercentage": 50
+  }
+}
+2025-03-13 23:48:59,962 - UserInterface.fastapi_test - INFO - Name: 设置_2025314074859
+2025-03-13 23:48:59,963 - UserInterface.fastapi_test - INFO - Cylinder settings: {
+  "cylinderMethod": "NormalRANSAC",
+  "normalNeighbors": 20,
+  "minRadius": 6,
+  "maxRadius": 11,
+  "axisOrientation": "x",
+  "actualSpeed": 2.5,
+  "acquisitionSpeed": 2,
+  "ransacThreshold": 0.01,
+  "maxIterations": 8888,
+  "normalDistanceWeight": 0.1
+}
+2025-03-13 23:48:59,963 - UserInterface.fastapi_test - INFO - Arc settings: {
+  "arcMethod": "HyperFit",
+  "arcNormalNeighbors": 20,
+  "arcMaxRadius": 12,
+  "arcMinRadius": 6,
+  "learningRate": 0.01,
+  "gradientMaxIterations": 1000,
+  "tolerance": 1e-06,
+  "fitIterations": 50,
+  "samplePercentage": 50
+}
+2025-03-13 23:48:59,980 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:00,027 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:00,041 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:00,060 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:05,448 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:05,462 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:05,729 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:05,743 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:07,078 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:07,091 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:07,105 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:07,123 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:07,134 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:07,149 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:07,169 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:07,181 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:07,199 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:07,307 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:07,318 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:07,334 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:11,101 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:11,121 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:11,138 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:11,216 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:11,230 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:11,248 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:15,778 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:15,877 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:15,892 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:15,969 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:15,982 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:16,001 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:18,135 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:18,151 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:18,169 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:18,256 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:18,270 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:18,288 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:20,446 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:20,459 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:20,479 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:20,559 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:49:20,571 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:49:20,587 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:58:50,215 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:58:50,227 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:58:50,233 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-13 23:59:25,288 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-13 23:59:25,299 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-13 23:59:25,305 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-14 00:00:47,874 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:00:47,886 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:00:47,890 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-14 00:03:06,555 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:06,566 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:03:06,570 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-14 00:03:29,391 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:03:29,428 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:03:29,461 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:03:29,620 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:03:29,635 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:03:29,700 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:03:29,773 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:29,791 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:03:29,791 - UserInterface.auth.service - WARNING - Token verification failed: token expired
+2025-03-14 00:03:29,806 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:29,818 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:03:29,819 - UserInterface.auth.service - WARNING - Token verification failed: token expired
+2025-03-14 00:03:29,832 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:29,844 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:03:29,844 - UserInterface.auth.service - WARNING - Token verification failed: token expired
+2025-03-14 00:03:29,860 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:29,873 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:03:29,873 - UserInterface.auth.service - WARNING - Token verification failed: token expired
+2025-03-14 00:03:34,413 - UserInterface.auth.service - INFO - User authenticated successfully: admin123
+2025-03-14 00:03:34,413 - UserInterface.auth.routes - INFO - User logged in successfully: admin123
+2025-03-14 00:03:34,441 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:34,456 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:03:36,474 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:36,486 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:03:36,504 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:36,706 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:36,718 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:03:36,736 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:36,757 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:36,769 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:03:36,789 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:36,809 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:36,822 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:03:36,841 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:40,558 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:40,571 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:03:40,574 - UserInterface.fastapi_test - INFO - Received settings save request:
+2025-03-14 00:03:40,575 - UserInterface.fastapi_test - INFO - Full data: {
+  "name": "设置_2025314080340",
+  "cylinderSettings": {
+    "cylinderMethod": "NormalRANSAC",
+    "normalNeighbors": 20,
+    "minRadius": 6,
+    "maxRadius": 11,
+    "axisOrientation": "x",
+    "actualSpeed": 2.5,
+    "acquisitionSpeed": 2,
+    "ransacThreshold": 0.01,
+    "maxIterations": 8888,
+    "normalDistanceWeight": 0.1
+  },
+  "arcSettings": {
+    "arcMethod": "HyperFit",
+    "arcNormalNeighbors": 20,
+    "arcMaxRadius": 12,
+    "arcMinRadius": 6,
+    "learningRate": 0.01,
+    "gradientMaxIterations": 1000,
+    "tolerance": 1e-06,
+    "fitIterations": 50,
+    "samplePercentage": 50
+  }
+}
+2025-03-14 00:03:40,575 - UserInterface.fastapi_test - INFO - Name: 设置_2025314080340
+2025-03-14 00:03:40,575 - UserInterface.fastapi_test - INFO - Cylinder settings: {
+  "cylinderMethod": "NormalRANSAC",
+  "normalNeighbors": 20,
+  "minRadius": 6,
+  "maxRadius": 11,
+  "axisOrientation": "x",
+  "actualSpeed": 2.5,
+  "acquisitionSpeed": 2,
+  "ransacThreshold": 0.01,
+  "maxIterations": 8888,
+  "normalDistanceWeight": 0.1
+}
+2025-03-14 00:03:40,575 - UserInterface.fastapi_test - INFO - Arc settings: {
+  "arcMethod": "HyperFit",
+  "arcNormalNeighbors": 20,
+  "arcMaxRadius": 12,
+  "arcMinRadius": 6,
+  "learningRate": 0.01,
+  "gradientMaxIterations": 1000,
+  "tolerance": 1e-06,
+  "fitIterations": 50,
+  "samplePercentage": 50
+}
+2025-03-14 00:03:40,588 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:40,666 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:03:40,678 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:03:40,696 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:04:07,155 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:04:07,166 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:04:07,180 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:04:13,019 - UserInterface.point_cloud_manager - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.04 MB。
+2025-03-14 00:04:18,693 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:04:18,704 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:04:18,712 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:04:18,757 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:04:23,420 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:04:23,422 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:04:25,063 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:04:25,064 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:04:44,456 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-12.598590507010897, -9.655951670563642]], 'z_regions': [[13.804252346000187, 17.970525689863422]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': False}}
+2025-03-14 00:04:44,659 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 885010
+2025-03-14 00:04:45,233 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:04:46,906 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:04:47,063 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:04:47,839 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:04:47,841 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:04:49,167 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:04:49,169 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:04:49,920 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:04:49,923 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:04:51,755 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:04:51,756 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:04:53,245 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:04:53,247 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:05:03,116 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-12.51487323943662, -9.69756209987196]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:05:03,178 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 846622
+2025-03-14 00:05:30,887 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:05:30,907 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:05:30,924 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:05:30,944 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:05:30,957 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:05:30,974 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:05:30,998 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:05:31,010 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:05:31,030 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:05:31,151 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:05:31,163 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:05:31,179 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:05:32,134 - UserInterface.fastapi_test - INFO - 接收到处理请求数据: {'cylinder_method': 'NormalRANSAC', 'normal_neighbors': 20, 'min_radius': 6, 'max_radius': 11, 'ransac_threshold': 0.01, 'max_iterations': 8888, 'normal_distance_weight': 0.1, 'axis_orientation': 'x', 'actual_speed': 2.5, 'acquisition_speed': 2}
+2025-03-14 00:05:32,135 - UserInterface.cylinder_processor - INFO - 开始处理点云数据: 714069 个点
+2025-03-14 00:05:32,135 - UserInterface.cylinder_processor - INFO - 计算点云法线...
+2025-03-14 00:05:35,584 - UserInterface.cylinder_processor - INFO - 法线计算完成，耗时: 3.45s
+2025-03-14 00:06:10,099 - UserInterface.cylinder_processor - INFO - RANSAC迭代次数: 8888
+2025-03-14 00:06:10,100 - UserInterface.cylinder_processor - INFO - NormalRANSAC拟合成功: 轴点=[-23.82399368 -10.20764065  14.70658302], 方向=[-8.72881040e-04 -9.18234055e-01  3.96037193e-01], 半径=7.500362873077393
+2025-03-14 00:06:10,288 - UserInterface.cylinder_processor - ERROR - 生成投影图像失败: [Errno 13] Permission denied: 'UserInterface/assets/temp/projection.png'
+2025-03-14 00:06:10,288 - UserInterface.cylinder_processor - ERROR - 处理过程出错: 生成投影视图失败: [Errno 13] Permission denied: 'UserInterface/assets/temp/projection.png'
+2025-03-14 00:06:10,288 - UserInterface.fastapi_test - ERROR - 处理点云数据时出错: 圆柱体拟合失败: 生成投影视图失败: [Errno 13] Permission denied: 'UserInterface/assets/temp/projection.png'
+2025-03-14 00:06:23,145 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:06:23,155 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:06:23,160 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-14 00:06:34,459 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:06:34,470 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:06:34,475 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-14 00:06:37,061 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:06:37,085 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:06:37,311 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:06:37,323 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:06:44,957 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:06:44,970 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:06:44,988 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:06:51,959 - UserInterface.point_cloud_manager - INFO - 成功读取点云文件，共 7960000 个点，文件大小为 238.44 MB。
+2025-03-14 00:06:55,940 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:06:55,964 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:06:55,994 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:06:55,999 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:06:56,015 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:06:56,018 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:06:56,062 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:06:56,178 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:06:57,622 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:06:57,624 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:06:58,872 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:06:58,873 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:07:03,048 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:07:03,049 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:07:04,641 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:07:04,643 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:07:05,557 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:07:05,558 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:07:47,338 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-22.658046875, -22.145130208333335], [-19.452317708333332, -18.811171875], [-15.990130208333333, -15.44515625], [-13.169088541666667, -12.335598958333332], [-9.67484375, -9.258098958333335], [-6.533229166666668, -6.276770833333334], [22.318333333333335, 22.76713541666666], [19.17671875, 19.593463541666665], [16.06716145833333, 16.323619791666665], [12.66908854166666, 13.085833333333333], [9.527473958333331, 9.912161458333337], [6.514088541666666, 6.834661458333336], [3.083958333333335, 3.5648177083333366], [-0.0576562499999973, 0.16674479166666245]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:07:48,133 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 2861830
+2025-03-14 00:08:58,555 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:08:58,567 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:08:58,571 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-14 00:09:05,240 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:09:05,252 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:09:05,266 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:09:11,035 - UserInterface.point_cloud_manager - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.77 MB。
+2025-03-14 00:09:15,716 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:09:15,737 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:09:15,751 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:09:15,756 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:09:15,770 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:09:15,797 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:09:20,492 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-20.38748399487836, 23.784456740442657]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:09:20,887 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 4460791
+2025-03-14 00:09:26,027 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:09:26,029 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:09:26,234 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:09:30,075 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:09:30,076 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:09:30,807 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:09:30,809 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:09:38,661 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-9.976966816357887, -6.164911960051217]], 'z_regions': [[8.557839264145683, 12.251138158505992]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:09:38,790 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 517163
+2025-03-14 00:09:41,483 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:09:43,395 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:09:43,554 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:10:32,286 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-17.385677083333334, -17.109739583333333], [-14.258385416666666, -13.798489583333334], [-11.2690625, -10.464244791666667], [-8.026796875, -7.382942708333335], [-4.715546875000001, -4.278645833333336], [-1.473281250000003, -0.9903906249999999], [1.7459895833333334, 2.2058854166666677], [4.643333333333331, 5.402161458333332], [8.161536458333334, 8.575442708333334], [11.242838541666668, 11.725729166666667], [14.462109374999997, 14.761041666666664], [17.865338541666667, 18.210260416666664], [20.762682291666664, 21.360546874999997]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:10:32,326 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 121898
+2025-03-14 00:10:40,182 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:10:42,073 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:10:42,236 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:10:44,605 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:10:44,606 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:10:54,712 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:10:56,183 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:10:56,342 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:11:03,323 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[3.9181412123651, 6.668774955603752]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:11:03,330 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 101808
+2025-03-14 00:11:07,555 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:11:10,183 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-8.896575991429094, -6.113581851211162]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'remove', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:11:10,187 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 90683
+2025-03-14 00:11:12,361 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:11:18,955 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-15.336294990305468, 19.90417732012856]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:11:18,959 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 74149
+2025-03-14 00:11:21,112 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:11:22,065 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:11:22,236 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:11:26,220 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-9.868192218244532, -6.7734747184405135]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:11:26,224 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 62231
+2025-03-14 00:11:28,068 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:11:38,600 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-8.672794167603021, -7.861064987326557]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'remove', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:11:38,603 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 46677
+2025-03-14 00:11:45,828 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:11:48,035 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:11:48,054 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:11:48,069 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:11:48,245 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:11:48,258 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:11:48,277 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:11:48,305 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:11:48,317 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:11:48,334 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:11:48,351 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:11:48,363 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:11:48,380 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:11:49,556 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:11:49,566 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:11:49,569 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:11:49,757 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:11:49,783 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:11:50,845 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:11:50,847 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:11:56,619 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-9.8421451305234, -6.830052836499517]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': False}}
+2025-03-14 00:11:56,622 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 44962
+2025-03-14 00:11:56,853 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:12:00,359 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:12:00,536 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:12:01,318 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:12:01,504 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:12:03,073 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:03,085 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:12:03,101 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:03,118 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:03,130 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:12:03,149 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:03,175 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:03,188 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:12:03,204 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:03,310 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:03,322 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:12:03,338 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:04,056 - UserInterface.fastapi_test - INFO - 接收到处理请求数据: {'cylinder_method': 'NormalRANSAC', 'normal_neighbors': 20, 'min_radius': 6, 'max_radius': 11, 'ransac_threshold': 0.01, 'max_iterations': 8888, 'normal_distance_weight': 0.1, 'axis_orientation': 'x', 'actual_speed': 2.5, 'acquisition_speed': 2}
+2025-03-14 00:12:04,056 - UserInterface.cylinder_processor - INFO - 开始处理点云数据: 44962 个点
+2025-03-14 00:12:04,057 - UserInterface.cylinder_processor - INFO - 计算点云法线...
+2025-03-14 00:12:04,268 - UserInterface.cylinder_processor - INFO - 法线计算完成，耗时: 0.21s
+2025-03-14 00:12:12,748 - UserInterface.cylinder_processor - INFO - RANSAC迭代次数: 8888
+2025-03-14 00:12:12,749 - UserInterface.cylinder_processor - INFO - NormalRANSAC拟合成功: 轴点=[ -1.37485158 -11.22738361  11.08189106], 方向=[-1.45781699e-04  9.46711667e-01 -3.22082284e-01], 半径=9.552727699279785
+2025-03-14 00:12:13,045 - UserInterface.cylinder_processor - INFO - 成功保存投影图像到: UserInterface/assets/temp/projection.png
+2025-03-14 00:12:38,831 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:38,850 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:12:38,853 - UserInterface.fastapi_test - INFO - Received settings save request:
+2025-03-14 00:12:38,853 - UserInterface.fastapi_test - INFO - Full data: {
+  "name": "设置_2025314081238",
+  "cylinderSettings": {
+    "cylinderMethod": "NormalRANSAC",
+    "normalNeighbors": 30,
+    "minRadius": 3,
+    "maxRadius": 11,
+    "axisOrientation": "x",
+    "actualSpeed": 2.5,
+    "acquisitionSpeed": 2,
+    "ransacThreshold": 0.05,
+    "maxIterations": 8888,
+    "normalDistanceWeight": 0.8
+  },
+  "arcSettings": {
+    "arcMethod": "HyperFit",
+    "arcNormalNeighbors": 20,
+    "arcMaxRadius": 12,
+    "arcMinRadius": 6,
+    "learningRate": 0.01,
+    "gradientMaxIterations": 1000,
+    "tolerance": 1e-06,
+    "fitIterations": 50,
+    "samplePercentage": 50
+  }
+}
+2025-03-14 00:12:38,854 - UserInterface.fastapi_test - INFO - Name: 设置_2025314081238
+2025-03-14 00:12:38,854 - UserInterface.fastapi_test - INFO - Cylinder settings: {
+  "cylinderMethod": "NormalRANSAC",
+  "normalNeighbors": 30,
+  "minRadius": 3,
+  "maxRadius": 11,
+  "axisOrientation": "x",
+  "actualSpeed": 2.5,
+  "acquisitionSpeed": 2,
+  "ransacThreshold": 0.05,
+  "maxIterations": 8888,
+  "normalDistanceWeight": 0.8
+}
+2025-03-14 00:12:38,854 - UserInterface.fastapi_test - INFO - Arc settings: {
+  "arcMethod": "HyperFit",
+  "arcNormalNeighbors": 20,
+  "arcMaxRadius": 12,
+  "arcMinRadius": 6,
+  "learningRate": 0.01,
+  "gradientMaxIterations": 1000,
+  "tolerance": 1e-06,
+  "fitIterations": 50,
+  "samplePercentage": 50
+}
+2025-03-14 00:12:38,866 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:38,904 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:38,922 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:12:38,942 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:40,525 - UserInterface.fastapi_test - INFO - 接收到处理请求数据: {'cylinder_method': 'NormalRANSAC', 'normal_neighbors': 30, 'min_radius': 3, 'max_radius': 11, 'ransac_threshold': 0.05, 'max_iterations': 8888, 'normal_distance_weight': 0.8, 'axis_orientation': 'x', 'actual_speed': 2.5, 'acquisition_speed': 2}
+2025-03-14 00:12:40,525 - UserInterface.cylinder_processor - INFO - 开始处理点云数据: 44962 个点
+2025-03-14 00:12:40,525 - UserInterface.cylinder_processor - INFO - 计算点云法线...
+2025-03-14 00:12:40,790 - UserInterface.cylinder_processor - INFO - 法线计算完成，耗时: 0.26s
+2025-03-14 00:12:42,323 - UserInterface.cylinder_processor - INFO - RANSAC迭代次数: 8888
+2025-03-14 00:12:42,324 - UserInterface.cylinder_processor - INFO - NormalRANSAC拟合成功: 轴点=[ 1.45227754 -7.05745363 13.87291718], 方向=[0.99973928 0.00352344 0.02256015], 半径=4.072250843048096
+2025-03-14 00:12:42,631 - UserInterface.cylinder_processor - INFO - 成功保存投影图像到: UserInterface/assets/temp/projection.png
+2025-03-14 00:12:46,794 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:46,809 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:12:47,041 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:47,053 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:12:49,526 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:49,546 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:12:49,562 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:49,577 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:49,590 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:12:49,609 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:49,639 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:49,652 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:12:49,673 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:49,803 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:49,816 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:12:49,833 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:12:51,493 - UserInterface.fastapi_test - INFO - 接收到处理请求数据: {'cylinder_method': 'NormalRANSAC', 'normal_neighbors': 30, 'min_radius': 3, 'max_radius': 11, 'ransac_threshold': 0.05, 'max_iterations': 8888, 'normal_distance_weight': 0.8, 'axis_orientation': 'x', 'actual_speed': 2.5, 'acquisition_speed': 2}
+2025-03-14 00:12:51,494 - UserInterface.cylinder_processor - INFO - 开始处理点云数据: 44962 个点
+2025-03-14 00:12:51,494 - UserInterface.cylinder_processor - INFO - 计算点云法线...
+2025-03-14 00:12:51,756 - UserInterface.cylinder_processor - INFO - 法线计算完成，耗时: 0.26s
+2025-03-14 00:12:53,273 - UserInterface.cylinder_processor - INFO - RANSAC迭代次数: 8888
+2025-03-14 00:12:53,274 - UserInterface.cylinder_processor - INFO - NormalRANSAC拟合成功: 轴点=[ 1.45227754 -7.05745363 13.87291718], 方向=[0.99973928 0.00352344 0.02256015], 半径=4.072250843048096
+2025-03-14 00:12:53,571 - UserInterface.cylinder_processor - INFO - 成功保存投影图像到: UserInterface/assets/temp/projection.png
+2025-03-14 00:13:00,966 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:00,985 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:13:01,000 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:26,183 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:26,200 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:13:26,212 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:32,523 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:32,541 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:13:32,560 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:32,590 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:32,603 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:13:32,626 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:32,649 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:32,663 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:13:32,685 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:32,708 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:32,724 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:13:32,748 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:33,883 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:33,904 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:13:33,929 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:33,964 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:13:33,980 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:13:34,004 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:14:47,972 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:14:47,984 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:14:47,990 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-14 00:14:49,596 - UserInterface.auth.service - INFO - User authenticated successfully: admin123
+2025-03-14 00:14:49,597 - UserInterface.auth.routes - INFO - User logged in successfully: admin123
+2025-03-14 00:14:49,787 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:14:49,799 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:14:55,209 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:14:55,225 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:14:55,241 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:14:55,266 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:14:55,279 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:14:55,301 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:14:55,324 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:14:55,337 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:14:55,356 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:14:55,470 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:14:55,482 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:14:55,503 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:15:04,495 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:15:04,511 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:15:04,515 - UserInterface.fastapi_test - INFO - Received settings save request:
+2025-03-14 00:15:04,515 - UserInterface.fastapi_test - INFO - Full data: {
+  "name": "设置_2025314081504",
+  "cylinderSettings": {
+    "cylinderMethod": "NormalRANSAC",
+    "normalNeighbors": 30,
+    "minRadius": 3,
+    "maxRadius": 11,
+    "axisOrientation": "x",
+    "actualSpeed": 2.5,
+    "acquisitionSpeed": 2,
+    "ransacThreshold": 0.05,
+    "maxIterations": 8888,
+    "normalDistanceWeight": 0.8
+  },
+  "arcSettings": {
+    "arcMethod": "HyperFit",
+    "arcNormalNeighbors": 20,
+    "arcMaxRadius": 12,
+    "arcMinRadius": 6,
+    "learningRate": 0.01,
+    "gradientMaxIterations": 1000,
+    "tolerance": 1e-06,
+    "fitIterations": 50,
+    "samplePercentage": 50
+  }
+}
+2025-03-14 00:15:04,515 - UserInterface.fastapi_test - INFO - Name: 设置_2025314081504
+2025-03-14 00:15:04,516 - UserInterface.fastapi_test - INFO - Cylinder settings: {
+  "cylinderMethod": "NormalRANSAC",
+  "normalNeighbors": 30,
+  "minRadius": 3,
+  "maxRadius": 11,
+  "axisOrientation": "x",
+  "actualSpeed": 2.5,
+  "acquisitionSpeed": 2,
+  "ransacThreshold": 0.05,
+  "maxIterations": 8888,
+  "normalDistanceWeight": 0.8
+}
+2025-03-14 00:15:04,516 - UserInterface.fastapi_test - INFO - Arc settings: {
+  "arcMethod": "HyperFit",
+  "arcNormalNeighbors": 20,
+  "arcMaxRadius": 12,
+  "arcMinRadius": 6,
+  "learningRate": 0.01,
+  "gradientMaxIterations": 1000,
+  "tolerance": 1e-06,
+  "fitIterations": 50,
+  "samplePercentage": 50
+}
+2025-03-14 00:15:04,528 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:15:04,567 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:15:04,579 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:15:04,597 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:15:09,937 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:15:09,958 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:15:09,973 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:15:16,057 - UserInterface.point_cloud_manager - INFO - 成功读取点云文件，共 6368000 个点，文件大小为 186.77 MB。
+2025-03-14 00:15:20,529 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:15:20,547 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:15:20,555 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:15:20,582 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:15:20,666 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:15:28,466 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-19.50656209987196, 24.350763672946776]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:15:28,866 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 4432791
+2025-03-14 00:15:34,029 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:15:34,030 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:15:34,258 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:15:38,618 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:15:38,619 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:15:39,429 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:15:39,432 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:15:47,152 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-9.896713029909325, -6.472551474770702]], 'z_regions': [[9.188402490012077, 12.206097928086962]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:15:47,275 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 404764
+2025-03-14 00:15:49,702 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:15:54,372 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:15:55,398 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-14 00:15:55,559 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:15:56,799 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:15:56,801 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:16:31,206 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[20.903125921875002, 21.19968842864583], [17.709375848958338, 18.188438359895834], [14.355938272395832, 14.766563281770829], [1.7178129838541665, 2.1968754947916658], [-1.430312088020834, -1.133749581250001], [-4.6924996624999995, -4.3731246552083345], [-11.148437309895835, -10.623749797916668], [-14.273749881250001, -13.84031237135417], [-17.55874995625, -17.12531244635417]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:16:31,225 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 62052
+2025-03-14 00:16:33,619 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-14 00:16:34,894 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:16:35,064 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-14 00:16:39,751 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-9.798179936763438, -6.821525203167054]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:16:39,754 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 54912
+2025-03-14 00:16:42,097 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:16:45,511 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-8.857136272178526, -8.089517572970289]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'remove', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-14 00:16:45,513 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 40843
+2025-03-14 00:16:47,466 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-14 00:16:48,663 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:16:48,684 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:16:48,707 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:16:48,849 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:16:48,861 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:16:48,876 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:16:48,898 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:16:48,911 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:16:48,933 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:16:48,953 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:16:48,965 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:16:48,983 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:16:54,682 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:16:54,699 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:16:54,702 - UserInterface.fastapi_test - INFO - Received settings save request:
+2025-03-14 00:16:54,702 - UserInterface.fastapi_test - INFO - Full data: {
+  "name": "设置_2025314081654",
+  "cylinderSettings": {
+    "cylinderMethod": "NormalRANSAC",
+    "normalNeighbors": 30,
+    "minRadius": 1,
+    "maxRadius": 11,
+    "axisOrientation": "x",
+    "actualSpeed": 2.5,
+    "acquisitionSpeed": 2,
+    "ransacThreshold": 0.05,
+    "maxIterations": 8888,
+    "normalDistanceWeight": 0.8
+  },
+  "arcSettings": {
+    "arcMethod": "HyperFit",
+    "arcNormalNeighbors": 20,
+    "arcMaxRadius": 12,
+    "arcMinRadius": 6,
+    "learningRate": 0.01,
+    "gradientMaxIterations": 1000,
+    "tolerance": 1e-06,
+    "fitIterations": 50,
+    "samplePercentage": 50
+  }
+}
+2025-03-14 00:16:54,702 - UserInterface.fastapi_test - INFO - Name: 设置_2025314081654
+2025-03-14 00:16:54,703 - UserInterface.fastapi_test - INFO - Cylinder settings: {
+  "cylinderMethod": "NormalRANSAC",
+  "normalNeighbors": 30,
+  "minRadius": 1,
+  "maxRadius": 11,
+  "axisOrientation": "x",
+  "actualSpeed": 2.5,
+  "acquisitionSpeed": 2,
+  "ransacThreshold": 0.05,
+  "maxIterations": 8888,
+  "normalDistanceWeight": 0.8
+}
+2025-03-14 00:16:54,703 - UserInterface.fastapi_test - INFO - Arc settings: {
+  "arcMethod": "HyperFit",
+  "arcNormalNeighbors": 20,
+  "arcMaxRadius": 12,
+  "arcMinRadius": 6,
+  "learningRate": 0.01,
+  "gradientMaxIterations": 1000,
+  "tolerance": 1e-06,
+  "fitIterations": 50,
+  "samplePercentage": 50
+}
+2025-03-14 00:16:54,719 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:16:54,759 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:16:54,772 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:16:54,791 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:16:56,249 - UserInterface.fastapi_test - INFO - 接收到处理请求数据: {'cylinder_method': 'NormalRANSAC', 'normal_neighbors': 30, 'min_radius': 1, 'max_radius': 11, 'ransac_threshold': 0.05, 'max_iterations': 8888, 'normal_distance_weight': 0.8, 'axis_orientation': 'x', 'actual_speed': 2.5, 'acquisition_speed': 2}
+2025-03-14 00:16:56,249 - UserInterface.cylinder_processor - INFO - 开始处理点云数据: 40843 个点
+2025-03-14 00:16:56,250 - UserInterface.cylinder_processor - INFO - 计算点云法线...
+2025-03-14 00:16:56,478 - UserInterface.cylinder_processor - INFO - 法线计算完成，耗时: 0.23s
+2025-03-14 00:16:57,564 - UserInterface.cylinder_processor - INFO - RANSAC迭代次数: 8888
+2025-03-14 00:16:57,565 - UserInterface.cylinder_processor - INFO - NormalRANSAC拟合成功: 轴点=[40.54343414 -6.94820452 14.63691807], 方向=[-0.99974296 -0.00376418 -0.0223574 ], 半径=3.959843873977661
+2025-03-14 00:16:57,912 - UserInterface.cylinder_processor - INFO - 成功保存投影图像到: UserInterface/assets/temp/projection.png
+2025-03-14 00:17:08,948 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:08,964 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:17:08,979 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:32,017 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:32,028 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:17:32,041 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:32,054 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:32,066 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:17:32,080 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:32,094 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:32,107 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:17:32,126 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:32,152 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:32,165 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:17:32,185 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:32,300 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:32,312 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:17:32,327 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:39,052 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:39,070 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:17:39,087 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:39,165 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:39,183 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:17:39,200 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:50,227 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:50,242 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:17:50,244 - UserInterface.fastapi_test - INFO - Received settings save request:
+2025-03-14 00:17:50,245 - UserInterface.fastapi_test - INFO - Full data: {
+  "name": "设置_2025314081750",
+  "cylinderSettings": {
+    "cylinderMethod": "NormalRANSAC",
+    "normalNeighbors": 30,
+    "minRadius": 1,
+    "maxRadius": 11,
+    "axisOrientation": "x",
+    "actualSpeed": 2.5,
+    "acquisitionSpeed": 2,
+    "ransacThreshold": 0.05,
+    "maxIterations": 8888,
+    "normalDistanceWeight": 0.8
+  },
+  "arcSettings": {
+    "arcMethod": "HyperFit",
+    "arcNormalNeighbors": 1,
+    "arcMaxRadius": 12,
+    "arcMinRadius": 6,
+    "learningRate": 0.01,
+    "gradientMaxIterations": 1000,
+    "tolerance": 1e-06,
+    "fitIterations": 1,
+    "samplePercentage": 100
+  }
+}
+2025-03-14 00:17:50,245 - UserInterface.fastapi_test - INFO - Name: 设置_2025314081750
+2025-03-14 00:17:50,245 - UserInterface.fastapi_test - INFO - Cylinder settings: {
+  "cylinderMethod": "NormalRANSAC",
+  "normalNeighbors": 30,
+  "minRadius": 1,
+  "maxRadius": 11,
+  "axisOrientation": "x",
+  "actualSpeed": 2.5,
+  "acquisitionSpeed": 2,
+  "ransacThreshold": 0.05,
+  "maxIterations": 8888,
+  "normalDistanceWeight": 0.8
+}
+2025-03-14 00:17:50,245 - UserInterface.fastapi_test - INFO - Arc settings: {
+  "arcMethod": "HyperFit",
+  "arcNormalNeighbors": 1,
+  "arcMaxRadius": 12,
+  "arcMinRadius": 6,
+  "learningRate": 0.01,
+  "gradientMaxIterations": 1000,
+  "tolerance": 1e-06,
+  "fitIterations": 1,
+  "samplePercentage": 100
+}
+2025-03-14 00:17:50,256 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:50,298 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:50,312 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:17:50,330 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:55,717 - UserInterface.fastapi_test - INFO - 接收到处理请求数据: {'cylinder_method': 'NormalRANSAC', 'normal_neighbors': 30, 'min_radius': 1, 'max_radius': 11, 'ransac_threshold': 0.05, 'max_iterations': 8888, 'normal_distance_weight': 0.8, 'axis_orientation': 'x', 'actual_speed': 2.5, 'acquisition_speed': 2}
+2025-03-14 00:17:55,717 - UserInterface.cylinder_processor - INFO - 开始处理点云数据: 40843 个点
+2025-03-14 00:17:55,717 - UserInterface.cylinder_processor - INFO - 计算点云法线...
+2025-03-14 00:17:55,955 - UserInterface.cylinder_processor - INFO - 法线计算完成，耗时: 0.24s
+2025-03-14 00:17:57,037 - UserInterface.cylinder_processor - INFO - RANSAC迭代次数: 8888
+2025-03-14 00:17:57,037 - UserInterface.cylinder_processor - INFO - NormalRANSAC拟合成功: 轴点=[40.54343414 -6.94820452 14.63691807], 方向=[-0.99974296 -0.00376418 -0.0223574 ], 半径=3.959843873977661
+2025-03-14 00:17:57,353 - UserInterface.cylinder_processor - INFO - 成功保存投影图像到: UserInterface/assets/temp/projection.png
+2025-03-14 00:17:59,213 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:17:59,236 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:17:59,260 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:18:00,895 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:18:00,915 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:18:00,931 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:18:04,921 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:18:04,941 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:18:04,959 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:18:04,980 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:18:04,994 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:18:05,015 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:18:05,045 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:18:05,059 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:18:05,082 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:18:05,193 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-14 00:18:05,206 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-14 00:18:05,226 - UserInterface.auth.db - INFO - Successfully connected to MySQL database

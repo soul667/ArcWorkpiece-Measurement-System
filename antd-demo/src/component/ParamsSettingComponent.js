@@ -25,7 +25,10 @@ const defaultCylinderSettings = {
   maxIterations: 1000,
   normalDistanceWeight: 0.1,
   maxRadius: 11,
-  minRadius: 6
+  minRadius: 6,
+  axisOrientation: 'x',
+  actualSpeed: 100,
+  acquisitionSpeed: 100
 };
 
 const ParamsSettingComponent = () => {
@@ -237,7 +240,10 @@ const ParamsSettingComponent = () => {
           max_radius: values.maxRadius,
           ransac_threshold: values.ransacThreshold,
           max_iterations: values.maxIterations,
-          normal_distance_weight: values.normalDistanceWeight
+          normal_distance_weight: values.normalDistanceWeight,
+          axis_orientation: values.axisOrientation,
+          actual_speed: values.actualSpeed,
+          acquisition_speed: values.acquisitionSpeed
         };
 
         const response = await axios.post('/process', processData);
@@ -303,7 +309,10 @@ const ParamsSettingComponent = () => {
           max_radius: values.maxRadius,
           ransac_threshold: values.ransacThreshold,
           max_iterations: values.maxIterations,
-          normal_distance_weight: values.normalDistanceWeight
+          normal_distance_weight: values.normalDistanceWeight,
+          axis_orientation: values.axisOrientation,
+          actual_speed: values.actualSpeed,
+          acquisition_speed: values.acquisitionSpeed
         };
 
         const response = await axios.post('/process', processData);
@@ -383,6 +392,9 @@ const ParamsSettingComponent = () => {
               normalDistanceWeight: 0.1,
               maxRadius: 11,
               minRadius: 6,
+              axisOrientation: 'x',
+              actualSpeed: 100,
+              acquisitionSpeed: 100,
             }}
           >
             <div style={{ 
@@ -463,6 +475,62 @@ const ParamsSettingComponent = () => {
                       max={50} 
                       style={{ width: '100%' }}
                       addonAfter="mm" 
+                    />
+                  </Form.Item>
+                </Col>
+              </Row>
+            </div>
+
+            {/* 点云采集参数设置 */}
+            <div style={{ 
+              background: '#fafafa', 
+              padding: '12px 16px', 
+              borderRadius: '4px',
+              marginBottom: '16px'
+            }}>
+              <div style={{ marginBottom: '12px', color: '#1890ff', fontSize: '13px' }}>点云采集参数设置</div>
+              <Row gutter={24}>
+                <Col span={8}>
+                  <Form.Item 
+                    {...formItemLayout}
+                    label="轴朝向" 
+                    name="axisOrientation"
+                    tooltip="采集点云时圆柱轴线的朝向"
+                  >
+                    <Select>
+                      <Option value="x">X轴</Option>
+                      <Option value="y">Y轴</Option>
+                      <Option value="z">Z轴</Option>
+                    </Select>
+                  </Form.Item>
+                </Col>
+                <Col span={8}>
+                  <Form.Item 
+                    {...formItemLayout}
+                    label="实际速度" 
+                    name="actualSpeed"
+                    tooltip="实际测量时的运动速度"
+                  >
+                    <InputNumber 
+                      min={0} 
+                      max={1000} 
+                      style={{ width: '100%' }}
+                      addonAfter="mm/s" 
+                    />
+                  </Form.Item>
+                </Col>
+                <Col span={8}>
+                  <Form.Item 
+                    {...formItemLayout}
+                    label="采集速度" 
+                    name="acquisitionSpeed"
+                    tooltip="点云采集时的扫描速度"
+                  >
+                    <InputNumber 
+                      min={0} 
+                      max={1000} 
+                      style={{ width: '100%' }}
+                      addonAfter="mm/s" 
                     />
                   </Form.Item>
                 </Col>

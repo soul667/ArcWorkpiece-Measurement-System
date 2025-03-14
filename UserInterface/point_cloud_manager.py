@@ -61,11 +61,28 @@ class PointCloudManager:
         image[y_img, x_img] = (255, 255, 255)
         return image
         
-    def upload_point_cloud(self, file_content: bytes) -> Tuple[o3d.geometry.PointCloud, float]:
+    def adjust_points_by_speed(self, points: np.ndarray, actual_speed: float, acquisition_speed: float) -> np.ndarray:
+        """根据实际速度和采集速度的比例调整点云的y坐标
+        
+        Args:
+            points: 点云坐标数组
+            actual_speed: 实际运动速度
+            acquisition_speed: 采集时的速度
+            
+        Returns:
+            调整后的点云坐标数组
+        """
+        speed_ratio = actual_speed / acquisition_speed
+        points[:, 1] = points[:, 1] / speed_ratio  # y轴坐标除以速度比
+        return points
+
+    def upload_point_cloud(self, file_content: bytes, actual_speed: float = 100, acquisition_speed: float = 100) -> Tuple[o3d.geometry.PointCloud, float]:
         """上传并处理点云文件
         
         Args:
             file_content: 上传的文件内容
+            actual_speed: 实际运动速度
+            acquisition_speed: 采集时的速度
             
         Returns:
             点云对象和文件大小的元组
@@ -86,8 +103,13 @@ class PointCloudManager:
             self.logger.info(f"成功读取点云文件，共 {len(point_cloud.points)} 个点，"
                            f"文件大小为 {file_size_mb:.2f} MB。")
             
-            # 生成可视化和更新信息
+            # 读取并调整点云
             points = np.array(point_cloud.points)
+            adjusted_points = self.adjust_points_by_speed(points, actual_speed, acquisition_speed)
+            point_cloud.points = o3d.utility.Vector3dVector(adjusted_points)
+            
+            # 生成可视化和更新信息
+            points = adjusted_points
             self.generate_views(points)
             self.update_cloud_info(points)
             

@@ -10,7 +10,7 @@ import cv2
 import numpy as np
 import open3d as o3d
 import uvicorn
-from fastapi import FastAPI, Request, UploadFile, File, HTTPException, Depends
+from fastapi import FastAPI, Request, UploadFile, File, Form, HTTPException, Depends
 import onnxruntime as ort
 from scipy.interpolate import interp1d
 from typing import List
@@ -479,14 +479,22 @@ async def get_yml(yml_name: str, v: Optional[str] = None):
         raise HTTPException(status_code=404, detail="未找到YAML文件")
 
 @app.post("/upload")
-async def upload_file(file: UploadFile = File(...)):
+async def upload_file(
+    file: UploadFile = File(...),
+    actual_speed: float = Form(100.0),
+    acquisition_speed: float = Form(100.0)
+):
     if not file:
         return JSONResponse(status_code=400, content={"error": "未提供文件"})
 
     try:
         file_content = await file.read()
         global global_source_point_cloud
-        global_source_point_cloud, file_size_mb = cloud_manager.upload_point_cloud(file_content)
+        global_source_point_cloud, file_size_mb = cloud_manager.upload_point_cloud(
+            file_content,
+            actual_speed=actual_speed,
+            acquisition_speed=acquisition_speed
+        )
         
         return JSONResponse(
             status_code=200, 
