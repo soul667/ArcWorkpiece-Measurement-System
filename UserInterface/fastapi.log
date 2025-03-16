@@ -14592,3 +14592,81 @@
 2025-03-16 07:08:40,436 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
 2025-03-16 07:08:40,445 - UserInterface.auth.db - INFO - Database tables initialized successfully
 2025-03-16 07:08:40,449 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-16 15:52:44,120 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-16 15:52:44,133 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-16 15:52:44,143 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-16 15:52:50,544 - UserInterface.auth.service - INFO - User authenticated successfully: admin123
+2025-03-16 15:52:50,545 - UserInterface.auth.routes - INFO - User logged in successfully: admin123
+2025-03-16 15:52:50,764 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-16 15:52:50,777 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-16 15:52:58,100 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 15:52:58,149 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-16 15:52:58,202 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-16 15:52:58,211 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-16 15:52:58,255 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 15:53:02,029 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-16 15:53:02,030 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 15:53:24,486 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-11.331585290966578, -11.088276085081919]], 'z_regions': [[-28.991433604292485, -28.074210880516585]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'remove', 'z_mode': 'remove'}, 'settings': {'show': True}}
+2025-03-16 15:53:24,503 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 31745
+2025-03-16 15:53:29,450 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-16 15:53:33,056 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-16 15:53:33,225 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 15:53:34,520 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-16 15:53:34,522 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 15:53:41,167 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [], 'z_regions': [[-28.534579374059277, -28.267495362538327]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'remove', 'z_mode': 'remove'}, 'settings': {'show': True}}
+2025-03-16 15:53:41,169 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 26732
+2025-03-16 15:53:44,170 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-16 15:53:56,539 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-10.568586519114689, -10.502444210718858]], 'z_regions': [[-28.963319497816595, -28.90006275824584]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'remove', 'z_mode': 'remove'}, 'settings': {'show': True}}
+2025-03-16 15:53:56,542 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 26732
+2025-03-16 15:53:59,372 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-16 15:54:08,455 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-10.218977174736732, -10.10086590974418]], 'z_regions': [[-29.41314520143083, -29.237432035956516]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'remove', 'z_mode': 'remove'}, 'settings': {'show': True}}
+2025-03-16 15:54:08,456 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 26732
+2025-03-16 15:54:18,044 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-16 15:54:20,480 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-16 15:54:20,645 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 15:54:21,591 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-16 15:54:21,593 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 15:55:38,216 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-16 15:55:38,228 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-16 15:55:38,232 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-16 15:55:42,511 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-10.95599146829026, -10.679611108207688]], 'z_regions': [[-28.706778276224103, -28.618921693486946]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'remove', 'z_mode': 'remove'}, 'settings': {'show': True}}
+2025-03-16 15:55:42,518 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 26732
+2025-03-16 16:02:45,989 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-16 16:02:46,004 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-16 16:02:46,011 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-16 16:02:49,441 - UserInterface.auth.service - INFO - User authenticated successfully: admin123
+2025-03-16 16:02:49,441 - UserInterface.auth.routes - INFO - User logged in successfully: admin123
+2025-03-16 16:02:49,465 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-16 16:02:49,478 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-16 16:02:56,153 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 16:02:56,182 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-16 16:02:56,395 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-16 16:02:56,438 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 16:02:56,463 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-16 16:02:57,616 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-16 16:02:57,619 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 16:03:09,042 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-10.233150526535837, -10.089054783244924]], 'z_regions': [[-28.89303423162687, -28.590807587011057]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-16 16:03:09,047 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 666
+2025-03-16 16:03:17,419 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-16 16:03:49,587 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-16 16:03:49,605 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-16 16:03:49,622 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-16 16:03:57,475 - UserInterface.point_cloud_manager - INFO - 成功读取点云文件，共 7960000 个点，文件大小为 236.48 MB。
+2025-03-16 16:04:03,381 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-16 16:04:03,402 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 16:04:03,434 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 16:04:03,474 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-16 16:04:03,633 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 16:04:04,664 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 16:04:04,666 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-16 16:04:14,947 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-16 16:04:15,108 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-16 16:04:25,306 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-13.892349551856594, -12.478777208706786]], 'y_regions': [], 'z_regions': [[-33.12843417485831, -30.944596990430178]]}, 'modes': {'x_mode': 'remove', 'y_mode': 'remove', 'z_mode': 'remove'}, 'settings': {'show': True}}
+2025-03-16 16:04:25,372 - UserInterface.point_cloud_processor - ERROR - 点云裁剪失败: list index out of range
+2025-03-16 16:04:25,372 - UserInterface.fastapi_test - ERROR - 点云裁剪失败: 点云裁剪失败: list index out of range
+2025-03-16 16:04:42,564 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-13.892349551856594, -12.478777208706786]], 'y_regions': [], 'z_regions': [[-33.12843417485831, -30.944596990430178]]}, 'modes': {'x_mode': 'remove', 'y_mode': 'remove', 'z_mode': 'remove'}, 'settings': {'show': True}}
+2025-03-16 16:04:42,632 - UserInterface.point_cloud_processor - ERROR - 点云裁剪失败: list index out of range
+2025-03-16 16:04:42,632 - UserInterface.fastapi_test - ERROR - 点云裁剪失败: 点云裁剪失败: list index out of range
+2025-03-16 16:05:08,632 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-13.892349551856594, -12.478777208706786]], 'y_regions': [], 'z_regions': [[-33.12843417485831, -30.944596990430178]]}, 'modes': {'x_mode': 'remove', 'y_mode': 'remove', 'z_mode': 'keep'}, 'settings': {'show': True}}
+2025-03-16 16:05:08,701 - UserInterface.point_cloud_processor - ERROR - 点云裁剪失败: list index out of range
+2025-03-16 16:05:08,701 - UserInterface.fastapi_test - ERROR - 点云裁剪失败: 点云裁剪失败: list index out of range

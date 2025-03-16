@@ -97,60 +97,96 @@ def segmentPointCloud(points, x_range=None, y_range=None, z_range=None,
         numpy.ndarray: 分割后的点云数据
     """
     filtered_points = np.asarray(points)
-    print(f"初始点云数量: {len(filtered_points)}")
-    # print mode
-    print(f"X轴分割模式: {x_mode}")
-    print(f"Y轴分割模式: {y_mode}")
-    print(f"Z轴分割模式: {z_mode}")
-    # X轴分割
-    if x_range is not None and x_range != []:
-        # 对于keep模式，我们需要保留在任意指定区域内的点
-        if x_mode == 'keep':
-            combined_mask = np.zeros(len(filtered_points), dtype=bool)
-            for x_min, x_max in x_range:
-                mask = (filtered_points[:, 0] >= x_min) & (filtered_points[:, 0] <= x_max)
-                combined_mask = combined_mask | mask
-                print(f"X轴分割范围 [{x_min}, {x_max}]")
-            filtered_points = filtered_points[combined_mask]
-        # 对于remove模式，我们需要移除所有指定区域内的点
-        else:
-            for x_min, x_max in x_range:
-                mask = (filtered_points[:, 0] >= x_min) & (filtered_points[:, 0] <= x_max)
-                filtered_points = filtered_points[~mask]
-                print(f"X轴分割范围 [{x_min}, {x_max}]")
-        print(f"X轴分割后点数: {len(filtered_points)}")
+    remove_diff_num = sum(mode == 'remove' for mode in [x_mode, y_mode, z_mode])
+    remove_diff_range_num = sum(range is not None and range != [] for range in [x_range, y_range, z_range])
+    if_filter_special = False
+    filter_mask_special_use=[]
+    first_range_num=0
+    second_range_num=1
 
-    # Y轴分割 并且y_range不为[](无元素)
-    if y_range is not None and y_range != []:
-        if y_mode == 'keep':
-            combined_mask = np.zeros(len(filtered_points), dtype=bool)
-            for y_min, y_max in y_range:
-                mask = (filtered_points[:, 1] >= y_min) & (filtered_points[:, 1] <= y_max)
-                combined_mask = combined_mask | mask
-                print(f"Y轴分割范围 [{y_min}, {y_max}]")
-            filtered_points = filtered_points[combined_mask]
-        else:
-            for y_min, y_max in y_range:
-                mask = (filtered_points[:, 1] >= y_min) & (filtered_points[:, 1] <= y_max)
-                filtered_points = filtered_points[~mask]
-                print(f"Y轴分割范围 [{y_min}, {y_max}]")
-        print(f"Y轴分割后点数: {len(filtered_points)}")
+    if(remove_diff_num>1 and remove_diff_range_num==2):
+        
+       if_filter_special = True
+        # 特殊处理
+       use_ranges = [range_ for range_ in [x_range, y_range, z_range] if range_ is not None and range_ != []]
+       if x_range==[]:
+           first_range_num=1
+           second_range_num=2
+       if y_range==[]:
+           first_range_num=0
+           second_range_num=2
+       if z_range==[]:
+           first_range_num=0
+           second_range_num=1
+       # 一定有两个，之前处理过
+       use_ranges_len =[len(range_) for range_ in use_ranges]
+       min_len = min(use_ranges_len)
+       # 开始解析filter_mask_special_use 两个use_ranges区间夹一个区间
+       for i in range(min_len):
+              x_min, x_max = use_ranges[first_range_num][i]
+              y_min, y_max = use_ranges[second_range_num][i]
+              filter_mask_special_use.append((x_min, x_max , y_min, y_max))
+           
 
-    # Z轴分割
-    if z_range is not None and z_range != []:
-        if z_mode == 'keep':
-            combined_mask = np.zeros(len(filtered_points), dtype=bool)
-            for z_min, z_max in z_range:
-                mask = (filtered_points[:, 2] >= z_min) & (filtered_points[:, 2] <= z_max)
-                combined_mask = combined_mask | mask
-                print(f"Z轴分割范围 [{z_min}, {z_max}]")
-            filtered_points = filtered_points[combined_mask]
-        else:
-            for z_min, z_max in z_range:
-                mask = (filtered_points[:, 2] >= z_min) & (filtered_points[:, 2] <= z_max)
-                filtered_points = filtered_points[~mask]
-                print(f"Z轴分割范围 [{z_min}, {z_max}]")
-        print(f"Z轴分割后点数: {len(filtered_points)}")
+    if if_filter_special:
+        # 特殊处理
+        combined_mask = np.zeros(len(filtered_points), dtype=bool)
+        for (x_min, x_max , y_min, y_max) in filter_mask_special_use:
+            print(x_min, x_max , y_min, y_max)
+            mask = (filtered_points[:, 0] >= x_min) & (filtered_points[:, 0] <= x_max) & (filtered_points[:, 1] >= y_min) & (filtered_points[:, 1] <= y_max)
+            combined_mask = combined_mask | mask
+        # 一次性应用所有mask
+        filtered_points = filtered_points[~combined_mask]
+    else:
+        if x_range is not None and x_range != []:
+            # 对于keep模式，我们需要保留在任意指定区域内的点
+            if x_mode == 'keep':
+                combined_mask = np.zeros(len(filtered_points), dtype=bool)
+                for x_min, x_max in x_range:
+                    mask = (filtered_points[:, 0] >= x_min) & (filtered_points[:, 0] <= x_max)
+                    combined_mask = combined_mask | mask
+                    print(f"X轴分割范围 [{x_min}, {x_max}]")
+                filtered_points = filtered_points[combined_mask]
+            # 对于remove模式，我们需要移除所有指定区域内的点
+            else:
+                for x_min, x_max in x_range:
+                    mask = (filtered_points[:, 0] >= x_min) & (filtered_points[:, 0] <= x_max)
+                    filtered_points = filtered_points[~mask]
+                    print(f"X轴分割范围 [{x_min}, {x_max}]")
+            print(f"X轴分割后点数: {len(filtered_points)}")
+
+        # Y轴分割 并且y_range不为[](无元素)
+        if y_range is not None and y_range != []:
+            if y_mode == 'keep':
+                combined_mask = np.zeros(len(filtered_points), dtype=bool)
+                for y_min, y_max in y_range:
+                    mask = (filtered_points[:, 1] >= y_min) & (filtered_points[:, 1] <= y_max)
+                    combined_mask = combined_mask | mask
+                    print(f"Y轴分割范围 [{y_min}, {y_max}]")
+                filtered_points = filtered_points[combined_mask]
+            else:
+                for y_min, y_max in y_range:
+                    mask = (filtered_points[:, 1] >= y_min) & (filtered_points[:, 1] <= y_max)
+                    filtered_points = filtered_points[~mask]
+                    print(f"Y轴分割范围 [{y_min}, {y_max}]")
+            print(f"Y轴分割后点数: {len(filtered_points)}")
+
+        # Z轴分割
+        if z_range is not None and z_range != []:
+            if z_mode == 'keep':
+                combined_mask = np.zeros(len(filtered_points), dtype=bool)
+                for z_min, z_max in z_range:
+                    mask = (filtered_points[:, 2] >= z_min) & (filtered_points[:, 2] <= z_max)
+                    combined_mask = combined_mask | mask
+                    print(f"Z轴分割范围 [{z_min}, {z_max}]")
+                filtered_points = filtered_points[combined_mask]
+            else:
+                for z_min, z_max in z_range:
+                    mask = (filtered_points[:, 2] >= z_min) & (filtered_points[:, 2] <= z_max)
+                    filtered_points = filtered_points[~mask]
+                    print(f"Z轴分割范围 [{z_min}, {z_max}]")
+            print(f"Z轴分割后点数: {len(filtered_points)}")
+
 
     print(f"分割后点云数量: {len(filtered_points)}")
     return filtered_points
