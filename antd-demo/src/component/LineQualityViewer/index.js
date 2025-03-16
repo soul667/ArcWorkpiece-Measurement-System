@@ -18,6 +18,7 @@ const LineQualityViewer = () => {
   const [autoDetectEnabled, setAutoDetectEnabled] = useState(true);
   const [currentProbability, setCurrentProbability] = useState(null);
 
+  // const [axis,setAxis]=useState(0)
   // 获取分组数据
   const fetchGroupedData = useCallback(async (axis, index) => {
     const cacheKey = `${axis}_${index}`;
@@ -45,6 +46,7 @@ const LineQualityViewer = () => {
       }));
       
       setData(response.data);
+      console.log('response.data:', response.data);
       setTotal(response.data.total_groups);
     } catch (error) {
       console.error('获取分组数据失败:', error);
@@ -262,6 +264,7 @@ const LineQualityViewer = () => {
           <LineChart 
             data={data}
             loading={loading}
+            selectedAxis={selectedAxis}
           />
           </center>
         </Card>

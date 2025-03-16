@@ -655,7 +655,29 @@ async def update_setting(
             status_code=500,
             content={"error": f"更新失败: {str(e)}"}
         )
-
+# 从出现422错误
+@app.delete("/api/settings/deleteAll")
+async def delete_all_settings(
+    current_user: dict = Depends(get_current_user)):
+    """删除当前用户的所有设置"""
+    try:
+        query = """
+            DELETE FROM parameter_settings 
+            WHERE user_id = %s
+        """
+        db = Database()
+        db.execute_query(query, (current_user['id'],))
+        return JSONResponse(
+            status_code=200,
+            content={"status": "success", "message": "所有设置已删除"}
+        )
+    except Exception as e:
+        logger.error(f"删除所有设置失败: {str(e)}")
+        return JSONResponse(
+            status_code=500,
+            content={"error": f"删除失败: {str(e)}"}
+        )
+    
 @app.delete("/api/settings/{setting_id}")
 async def delete_setting(
     setting_id: int,
@@ -872,6 +894,7 @@ async def group_points(data: dict):
             
         # 获取参数
         axis = data.get('axis', 'x')
+        print("axis=",axis)
         index = data.get('index', 0)
         
         # 参数验证
@@ -965,6 +988,7 @@ def validate_json_data(data):
     else:
         return str(data)
 
+# 新增了传入的时候需要输入轴
 @app.post("/api/arc-fitting-stats")
 async def get_arc_fitting_stats(data: dict):
     """获取圆弧拟合统计信息"""
@@ -975,7 +999,7 @@ async def get_arc_fitting_stats(data: dict):
         point_cloud, success = get_point_cloud()
         if not success:
             raise HTTPException(status_code=400, detail="无可用的点云数据")
-        print("data",data)
+        # print("data",data)
         settings = {
             'arcNormalNeighbors': data.get('arcNormalNeighbors', 10),
             'fitIterations': data.get('fitIterations', 50),
@@ -983,9 +1007,11 @@ async def get_arc_fitting_stats(data: dict):
             'axis_direction': global_axis_direction,
             'point_on_axis': np.array([0, 0, 0])  # 可以使用任意轴上点
         }
-        
+        axis_now = data.get('axis_now', 'x')  # Get axis_now from request data
+        print('data', data)
+        print("axis_now", axis_now)
         points = np.asarray(point_cloud.points)
-        results = arc_fitting_processor.process_all_lines(points, settings)
+        results = arc_fitting_processor.process_all_lines(points, settings, axis_now)
         
         # 验证数据确保可以JSON序列化
         validated_results = validate_json_data(results)
@@ -1004,6 +1030,8 @@ async def get_arc_fitting_stats(data: dict):
             status_code=500,
             content={"error": f"圆弧拟合失败: {str(e)}"}
         )
+
+
 
 if __name__ == "__main__":
     # 创建必要的目录

@@ -64,7 +64,7 @@ const ExportPanel = ({ data, defectLines, loading, total }) => {
             axis: data.axis,
             index
           });
-          
+          // console.log
           const lineData = {
             id: index,
             timestamp: timestamp,

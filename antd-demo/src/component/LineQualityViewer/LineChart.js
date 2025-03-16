@@ -1,25 +1,41 @@
 import React, { useMemo } from 'react';
-import { Scatter, Line } from '@ant-design/charts';
+import { Scatter } from '@ant-design/charts';
 import { Empty, Spin } from 'antd';
+// import { useState } from 'react';
 
 const LineChart = ({ 
   data, 
-  loading
+  loading,
+  selectedAxis='x' // 分组轴是哪一个
 }) => {
+  // const [axis,setAxis]=useState(0)
+  // // var axis=0
+  // if(selectedAxis==='y'){
+  //   setAxis(1)
+  // }else if(selectedAxis==='z'){
+  //   setAxis(2)
+  // }
   const pointSize = 0.8
   const transformedData = useMemo(() => {
     if (!data?.group?.points) return [];
     
     const points = data.group.points;
     // 将3D点转换为2D视图
+    const axisMapping = {
+      'x': [1, 2], // [y_num, z_num] when x is selected
+      'y': [0, 2], 
+      'z': [0, 1]
+    };
+
+    const [y_num, z_num] = axisMapping[selectedAxis] || [0, 0];
     return points.map((point, pointIndex) => ({
       lineIndex: 0,
       coordinate: data.group.coordinate,
       pointIndex: pointIndex,
-      y: point[1], // y坐标
-      z: point[2], // z坐标
+      y: point[y_num], // y坐标
+      z: point[z_num], // z坐标
     }));
-  }, [data]);
+  }, [data, selectedAxis]);
 
   if (loading) {
     return (

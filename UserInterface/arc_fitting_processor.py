@@ -11,7 +11,7 @@ class ArcFittingProcessor:
         self.projector = AxisProjector()
         self.grouper = PointCloudGrouper()
 
-    def process_all_lines(self, points: np.ndarray, settings: Dict) -> Dict[str, Any]:
+    def process_all_lines(self, points: np.ndarray, settings: Dict, axis_now: str = 'x') -> Dict[str, Any]:
         """
         处理所有线的圆拟合
 
@@ -28,7 +28,7 @@ class ArcFittingProcessor:
             Dict: 包含所有线的拟合结果和统计信息
         """
         # 获取所有分组
-        groups = self.grouper.get_all_groups(points, axis='x')
+        groups = self.grouper.get_all_groups(points, axis=axis_now)
         all_lines_stats = []
         all_valid_radii = []
 

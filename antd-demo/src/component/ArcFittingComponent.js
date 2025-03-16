@@ -3,7 +3,31 @@ import { Card, Table, Statistic, Row, Col, message, Radio, Space, Switch } from 
 import { Line, Column, Stock, Scatter } from '@ant-design/charts';
 import { isNumber } from 'lodash';
 import axios from '../utils/axios';
+const defaultArcSettings = {
+  arcMethod: 'HyperFit',
+  arcNormalNeighbors: 20,
+  arcMaxRadius: 12,
+  arcMinRadius: 6,
+  learningRate: 0.01,
+  gradientMaxIterations: 1000,
+  tolerance: 1e-6,
+  fitIterations: 50,      // 拟合迭代次数n
+  samplePercentage: 50    // 采样百分比m
+};
 
+const defaultCylinderSettings = {
+  cylinderMethod: 'NormalRANSAC',
+  normalNeighbors: 20,
+  ransacThreshold: 0.01,
+  maxIterations: 1000,
+  normalDistanceWeight: 0.1,
+  maxRadius: 11,
+  minRadius: 6,
+  axisOrientation: 'x',
+  actualSpeed: 100,
+  acquisitionSpeed: 100
+};
+// var 
 const ArcFittingComponent = () => {
   const [lineData, setLineData] = useState([]);
   const [chartData, setChartData] = useState([]);
@@ -64,8 +88,16 @@ const ArcFittingComponent = () => {
     if (!settings) return;
 
     try {
+      const settingsResponse = await axios.get('/api/settings/latest');
+      const cylinderSettings = settingsResponse.data.data.cylinderSettings || {};
+      const axis_now=cylinderSettings.axisOrientation|| 'x';
       setLoading(true);
-      const response = await axios.post('/api/arc-fitting-stats', settings.arcSettings);
+      // console.log('settings.arcSettings',axis_now)
+      //... 是展开设置对象，将对象的属性展开
+      const response = await axios.post('/api/arc-fitting-stats', {
+        ...settings.arcSettings,
+        axis_now:axis_now
+      });
       if (response.data.status === 'success') {
         setLineData(response.data.lineStats);
         setStatistics(response.data.overallStats);

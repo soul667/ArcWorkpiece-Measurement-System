@@ -52,7 +52,33 @@ const ParamsSettingComponent = () => {
       message.error('更新失败');
     }
   };
-
+  const handelDeleteAll = async () => {
+    try {
+      const response = await axios.delete('/api/settings/deleteAll');
+      
+      if (response.data.status === 'success') {
+        message.success('删除成功');
+        fetchSavedSettings(); // 刷新列表
+      } else {
+        // 处理不成功但非错误的情况
+        message.warning(response.data.message || '删除操作未完成');
+      }
+      
+    } catch (error) {
+      console.error('删除失败:', error);
+      
+      if (error.response) {
+        // 获取具体的错误信息
+        const errorMsg = error.response.data?.detail || 
+                       error.response.data?.error || 
+                       error.response.data?.message || 
+                       '删除失败，请检查权限或稍后重试';
+        message.error(errorMsg);
+      } else {
+        message.error('删除失败，网络错误');
+      }
+    }
+  };
   // 删除设置
   const handleDelete = async (item) => {
     try {
@@ -185,7 +211,7 @@ const ParamsSettingComponent = () => {
   useEffect(() => {
     fetchSavedSettings();
   }, []);
-
+  
   // 处理投影图像显示
   const handleProjectionImage = (data) => {
     const imgContainer = document.getElementById('projection-container');
@@ -296,66 +322,6 @@ const ParamsSettingComponent = () => {
         console.error('Error:', error);
       }
     });
-  };
-
-  const handleSequentialFit = async () => {
-    try {
-      // First do cylinder fitting
-      await form.validateFields().then(async (values) => {
-        const processData = {
-          cylinder_method: values.cylinderMethod,
-          normal_neighbors: values.normalNeighbors,
-          min_radius: values.minRadius,
-          max_radius: values.maxRadius,
-          ransac_threshold: values.ransacThreshold,
-          max_iterations: values.maxIterations,
-          normal_distance_weight: values.normalDistanceWeight,
-          axis_orientation: values.axisOrientation,
-          actual_speed: values.actualSpeed,
-          acquisition_speed: values.acquisitionSpeed
-        };
-
-        const response = await axios.post('/process', processData);
-        const data = response.data;
-        
-        if (data.status !== 'success') {
-          throw new Error(data.error || '轴线拟合失败');
-        }
-        message.success('轴线拟合完成');
-        handleProjectionImage(data);
-      });
-
-      // Then do arc fitting
-      await arcForm.validateFields().then(async (values) => {
-        const arcFitData = {
-          arc_method: values.arcMethod,
-          normal_neighbors: values.arcNormalNeighbors,
-          min_radius: values.arcMinRadius,
-          max_radius: values.arcMaxRadius,
-        };
-
-        if (values.arcMethod === 'GradientDescent') {
-          arcFitData.gradient_params = {
-            learning_rate: values.learningRate,
-            max_iterations: values.gradientMaxIterations,
-            tolerance: values.tolerance
-          };
-        }
-
-        const response = await axios.post('/fit_arc', arcFitData);
-        const data = response.data;
-
-        if (data.status !== 'success') {
-          throw new Error(data.error || '圆弧拟合失败');
-        }
-        message.success('圆弧拟合完成');
-      });
-
-      message.success('序列拟合完成');
-    } catch (error) {
-      console.error('Error:', error);
-      message.error('拟合失败：' + error.message);
-    }
   };
 
   const formItemLayout = {
@@ -813,9 +779,18 @@ const ParamsSettingComponent = () => {
         </TabPane>
       </Tabs>
       <div style={{ marginTop: '20px', textAlign: 'center', display: 'flex', justifyContent: 'center', gap: '16px' }}>
-        <Button type="primary" size="large" onClick={handleSequentialFit}>
-          执行序列拟合（轴线+圆弧）
-        </Button>
+        <Popconfirm
+          title="确定要删除所有设置吗？"
+          description="此操作将删除所有已保存的参数设置，且不可恢复。"
+          onConfirm={handelDeleteAll}
+          okText="确定"
+          cancelText="取消"
+          okButtonProps={{ danger: true }}
+        >
+          <Button type="primary" size="large" danger>
+            删除所有设置
+          </Button>
+        </Popconfirm>
         <Button size="large" onClick={handleSaveSetting}>
           保存当前设置
         </Button>

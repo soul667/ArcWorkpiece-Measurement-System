@@ -73,7 +73,7 @@ class PointCloudManager:
             调整后的点云坐标数组
         """
         speed_ratio = actual_speed / acquisition_speed
-        points[:, 1] = points[:, 1] / speed_ratio  # y轴坐标除以速度比
+        points[:, 1] = points[:, 1] * speed_ratio  # y轴坐标除以速度比
         return points
 
     def upload_point_cloud(self, file_content: bytes, actual_speed: float = 100, acquisition_speed: float = 100) -> Tuple[o3d.geometry.PointCloud, float]:
