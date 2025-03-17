@@ -901,7 +901,7 @@ async def get_setting(setting_id: int, current_user: dict = Depends(get_current_
             content={"error": f"获取设置失败: {str(e)}"}
         )
 
-@app.post("/crop")
+@app.post("/api/point-cloud/crop")
 async def submit(data: dict):
     if not data:
         return JSONResponse(status_code=400, content={"error": "未接收到数据"})
@@ -1002,7 +1002,7 @@ async def denoise_point_cloud(data: dict):
         logger.error(f"点云去噪失败: {str(e)}")
         return JSONResponse(status_code=500, content={"error": str(e)})
     
-@app.post("/api/group-points")
+@app.post("/api/point-cloud/group-points")
 async def group_points(data: dict):
     """
     获取指定索引的线条数据
@@ -1115,7 +1115,7 @@ def validate_json_data(data):
         return str(data)
 
 # 新增了传入的时候需要输入轴
-@app.post("/api/arc-fitting-stats")
+@app.post("/api/point-cloud/arc-fitting-stats")
 async def get_arc_fitting_stats(data: dict):
     """获取圆弧拟合统计信息"""
     try:

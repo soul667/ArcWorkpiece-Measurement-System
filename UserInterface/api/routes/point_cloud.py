@@ -54,6 +54,21 @@ arc_fitting_processor = ArcFittingProcessor()
 global_source_point_cloud = None
 global_axis_direction = None
 
+def validate_json_data(data):
+    """
+    递归验证并转换数据，确保所有数据都是JSON可序列化的
+    """
+    if isinstance(data, dict):
+        return {k: validate_json_data(v) for k, v in data.items()}
+    elif isinstance(data, list):
+        return [validate_json_data(item) for item in data]
+    elif isinstance(data, bool):
+        return int(data)
+    elif isinstance(data, (int, float, str)) or data is None:
+        return data
+    else:
+        return str(data)
+
 def get_point_cloud() -> tuple[o3d.geometry.PointCloud, bool]:
     """获取当前点云数据"""
     global global_source_point_cloud
@@ -182,7 +197,7 @@ async def process_cylinder(data: Dict):
         raise HTTPException(status_code=500, detail=f"点云处理失败: {str(e)}")
 
 @router.post("/arc-fitting-stats")
-async def get_arc_fitting_stats(data: Dict):
+async def get_arc_fitting_stats(data: dict):
     """获取圆弧拟合统计信息"""
     try:
         if not global_axis_direction:
@@ -191,55 +206,79 @@ async def get_arc_fitting_stats(data: Dict):
         point_cloud, success = get_point_cloud()
         if not success:
             raise HTTPException(status_code=400, detail="无可用的点云数据")
-
+        # print("data",data)
         settings = {
             'arcNormalNeighbors': data.get('arcNormalNeighbors', 10),
             'fitIterations': data.get('fitIterations', 50),
             'samplePercentage': data.get('samplePercentage', 50),
             'axis_direction': global_axis_direction,
-            'point_on_axis': np.array([0, 0, 0])
+            'point_on_axis': np.array([0, 0, 0])  # 可以使用任意轴上点
         }
-        
-        axis_now = data.get('axis_now', 'x')
+        axis_now = data.get('axis_now', 'x')  # Get axis_now from request data
+        print('data', data)
+        print("axis_now", axis_now)
         points = np.asarray(point_cloud.points)
         results = arc_fitting_processor.process_all_lines(points, settings, axis_now)
         
+        # 验证数据确保可以JSON序列化
+        validated_results = validate_json_data(results)
         return JSONResponse(
             status_code=200,
             content={
                 "status": "success",
-                "lineStats": results['lineStats'],
-                "overallStats": results['overallStats']
+                "lineStats": validated_results['lineStats'],
+                "overallStats": validated_results['overallStats']
             }
         )
         
     except Exception as e:
         logger.error(f"圆弧拟合失败: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"圆弧拟合失败: {str(e)}")
+        return JSONResponse(
+            status_code=500,
+            content={"error": f"圆弧拟合失败: {str(e)}"}
+        )
+
 
 @router.post("/group-points")
-async def group_points(data: GroupPointsRequest):
-    """获取指定索引的线条数据"""
+async def group_points(data: dict):
+    """
+    获取指定索引的线条数据
+    请求体:
+    {
+        "axis": "x" | "y" | "z",  # 分组轴
+        "index": 0                 # 线条索引
+    }
+    """
     try:
+        # 获取点云数据
         point_cloud, success = get_point_cloud()
         if not success:
-            raise HTTPException(status_code=400, detail="无可用的点云数据")
+            return JSONResponse(status_code=400, content={"error": "无可用的点云数据"})
             
-        if data.axis not in ['x', 'y', 'z']:
-            raise HTTPException(status_code=400, detail="无效的轴参数，必须为 x、y 或 z")
+        # 获取参数
+        axis = data.get('axis', 'x')
+        print("axis=",axis)
+        index = data.get('index', 0)
+        
+        # 参数验证
+        if axis not in ['x', 'y', 'z']:
+            return JSONResponse(status_code=400, content={"error": "无效的轴参数，必须为 x、y 或 z"})
+        if not isinstance(index, int) or index < 0:
+            return JSONResponse(status_code=400, content={"error": "无效的线条索引"})
             
+        # 获取指定线条数据
         points = np.asarray(point_cloud.points)
         result = point_cloud_grouper.group_by_axis(
             points,
-            axis=data.axis,
-            index=data.index
+            axis=axis,
+            index=index
         )
             
         return JSONResponse(status_code=200, content=result)
-            
+    
     except Exception as e:
         logger.error(f"点云分组失败: {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
+        return JSONResponse(status_code=500, content={"error": str(e)})   
 
 @router.post("/remove-defect-lines")
 async def remove_defect_lines(data: DefectLinesRequest):
@@ -360,21 +399,30 @@ async def denoise_point_cloud(data: DenoiseRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/crop")
-async def crop_point_cloud(data: PointCloudProcessRequest):
+async def crop_point_cloud(data: dict):
+    # logger.error("111111111111111111111111111111111111")
+
     """裁剪点云数据"""
     if not data:
         raise HTTPException(status_code=400, detail="未接收到数据")
-    
+    # out data
+    print(data)
+
     point_cloud, success = get_point_cloud()
     if not success:
         raise HTTPException(status_code=400, detail="无可用的点云数据")
 
     try:
+        data_region = data.get('regions', None)
+        data_mode = data.get('modes', None)
         cropped_pcd = cloud_processor.crop_point_cloud(
             point_cloud,
-            data.regions,
-            data.modes
+            data_region,
+            data_mode
         )
+
+        if data.get('settings', {}).get('show', False):
+            o3d.visualization.draw_geometries([cropped_pcd])
 
         temp_ply_path = os.path.join(TEMP_DIR, 'temp.ply')
         o3d.io.write_point_cloud(temp_ply_path, cropped_pcd)
@@ -389,7 +437,7 @@ async def crop_point_cloud(data: PointCloudProcessRequest):
         return ProcessingResponse(
             status="success",
             message="点云裁剪完成",
-            received=data.dict()
+            received=data
         )
 
     except Exception as e:

@@ -160,21 +160,21 @@ to the terms and conditions of this license.
 
 .. |Latest Documentation Status| image:: https://readthedocs.org/projects/pybind11/badge?version=latest
    :target: http://pybind11.readthedocs.org/en/latest
-.. |Stable Documentation Status| image:: https://img.shields.io/badge/docs-stable-blue.svg
+.. |Stable Documentation Status| image:: https://api/files/img.shields.io/badge/docs-stable-blue.svg
    :target: http://pybind11.readthedocs.org/en/stable
-.. |Gitter chat| image:: https://img.shields.io/gitter/room/gitterHQ/gitter.svg
+.. |Gitter chat| image:: https://api/files/img.shields.io/gitter/room/gitterHQ/gitter.svg
    :target: https://gitter.im/pybind/Lobby
 .. |CI| image:: https://github.com/pybind/pybind11/workflows/CI/badge.svg
    :target: https://github.com/pybind/pybind11/actions
 .. |Build status| image:: https://ci.appveyor.com/api/projects/status/riaj54pn4h08xy40?svg=true
    :target: https://ci.appveyor.com/project/wjakob/pybind11
-.. |PyPI package| image:: https://img.shields.io/pypi/v/pybind11.svg
+.. |PyPI package| image:: https://api/files/img.shields.io/pypi/v/pybind11.svg
    :target: https://pypi.org/project/pybind11/
-.. |Conda-forge| image:: https://img.shields.io/conda/vn/conda-forge/pybind11.svg
+.. |Conda-forge| image:: https://api/files/img.shields.io/conda/vn/conda-forge/pybind11.svg
    :target: https://github.com/conda-forge/pybind11-feedstock
 .. |Repology| image:: https://repology.org/badge/latest-versions/python:pybind11.svg
    :target: https://repology.org/project/python:pybind11/versions
-.. |Python Versions| image:: https://img.shields.io/pypi/pyversions/pybind11.svg
+.. |Python Versions| image:: https://api/files/img.shields.io/pypi/pyversions/pybind11.svg
    :target: https://pypi.org/project/pybind11/
-.. |GitHub Discussions| image:: https://img.shields.io/static/v1?label=Discussions&message=Ask&color=blue&logo=github
+.. |GitHub Discussions| image:: https://api/files/img.shields.io/static/v1?label=Discussions&message=Ask&color=blue&logo=github
    :target: https://github.com/pybind/pybind11/discussions

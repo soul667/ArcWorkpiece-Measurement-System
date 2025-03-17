@@ -13,7 +13,7 @@ let currentMode = 0; // 当前模式，0 为垂直线 (x)，1 为水平线 (y)
 let coordinateRanges = {}; // 存储从服务器获取的坐标范围
 
 const img = new Image();
-img.src = `/img/${currentView}`;
+img.src = `/api/files/img/${currentView}`;
 
 // 图片加载完成后绘制到画布
 img.addEventListener("load", () => {
@@ -30,7 +30,7 @@ document.getElementById("btn-yz").addEventListener("click", () => updateView("yz
 // 更新视图函数
 function updateView(view) {
     currentView = view;
-    img.src = `/img/${view}`;
+    img.src = `/api/files/img/${view}`;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     x_regions = [];
     y_regions = [];
@@ -42,7 +42,7 @@ function updateView(view) {
 // 获取坐标范围
 async function fetchCoordinateRanges(view) {
     try {
-        const response = await fetch(`/yml/info`);
+        const response = await fetch(`/api/files/yml/info`);
         if (!response.ok) {
             console.error("Failed to fetch YAML data");
             return;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Typography, Button, Upload, message, Progress, Spin, Divider, List, Image, Row, Col } from 'antd';
+import { Card, Typography, Button, Upload, message, Progress, Spin, Divider, List, Image, Row, Col, Popconfirm } from 'antd';
 import { 
   InboxOutlined, 
   CloudUploadOutlined, 
@@ -24,7 +24,7 @@ const UploadSection = () => {
   const fetchTempClouds = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('/api/clouds/list');
+      const response = await axios.get('/api/temp-save/list');
       if (response.data.status === 'success') {
         setTempClouds(response.data.data);
       }
@@ -38,7 +38,7 @@ const UploadSection = () => {
   // 暂存当前点云
   const handleStore = async () => {
     try {
-      const response = await axios.post('/api/clouds/store');
+      const response = await axios.post('/api/temp-save/store');
       if (response.data.status === 'success') {
         message.success('点云暂存成功');
         fetchTempClouds();
@@ -49,14 +49,27 @@ const UploadSection = () => {
   };
 
   // 加载点云
-  const handleLoad = async (cloudId) => {
+  const handleLoad = async (timestamp) => {
     try {
-      const response = await axios.get(`/api/clouds/${cloudId}/load`);
+      const response = await axios.get(`/api/temp-save/${timestamp}/load`);
       if (response.data.status === 'success') {
         message.success('点云加载成功');
       }
     } catch (error) {
       message.error('点云加载失败');
+    }
+  };
+
+  // 删除点云
+  const handleDelete = async (timestamp) => {
+    try {
+      const response = await axios.delete(`/api/temp-save/${timestamp}`);
+      if (response.data.status === 'success') {
+        message.success('点云删除成功');
+        fetchTempClouds();
+      }
+    } catch (error) {
+      message.error('点云删除失败');
     }
   };
 
@@ -143,7 +156,7 @@ const UploadSection = () => {
               formData.append('actual_speed', cylinderSettings.actualSpeed || 100);
               formData.append('acquisition_speed', cylinderSettings.acquisitionSpeed || 100);
 
-              const response = await axios.post('/upload', formData, {
+              const response = await axios.post('/api/point-cloud/upload', formData, {
                 headers: {
                   'Content-Type': 'multipart/form-data',
                 },
@@ -253,6 +266,21 @@ const UploadSection = () => {
               padding: '16px',
               borderRadius: '4px'
             }}
+            actions={[
+              <Button type="primary" onClick={() => handleLoad(item.timestamp)}>
+                加载点云
+              </Button>,
+              <Popconfirm
+                title="确定要删除这个暂存点云吗？"
+                onConfirm={() => handleDelete(item.timestamp)}
+                okText="确定"
+                cancelText="取消"
+              >
+                <Button type="text" danger icon={<DeleteOutlined />}>
+                  删除
+                </Button>
+              </Popconfirm>
+            ]}
           >
             <div style={{ width: '100%' }}>
               <div style={{ 
@@ -262,10 +290,7 @@ const UploadSection = () => {
                 alignItems: 'center'
               }}>
                 <Typography.Text strong>
-                  {item.filename}
-                </Typography.Text>
-                <Typography.Text type="secondary">
-                  创建时间: {new Date(item.createdAt).toLocaleString()}
+                  暂存时间: {new Date(item.createdAt).toLocaleString()}
                 </Typography.Text>
               </div>
               
@@ -274,7 +299,7 @@ const UploadSection = () => {
                   <div style={{ textAlign: 'center' }}>
                     <Typography.Text type="secondary">XY视图</Typography.Text>
                     <Image
-                      src={`/img/${item.views.xy}`}
+                      src={`/api/files/img/${item.views.xy}?t=${Date.now()}`}
                       alt="XY视图"
                       style={{ width: '100%', maxHeight: '150px', objectFit: 'contain' }}
                     />
@@ -284,7 +309,7 @@ const UploadSection = () => {
                   <div style={{ textAlign: 'center' }}>
                     <Typography.Text type="secondary">YZ视图</Typography.Text>
                     <Image
-                      src={`/img/${item.views.yz}`}
+                      src={`/api/files/img/${item.views.yz}?t=${Date.now()}`}
                       alt="YZ视图"
                       style={{ width: '100%', maxHeight: '150px', objectFit: 'contain' }}
                     />
@@ -294,19 +319,13 @@ const UploadSection = () => {
                   <div style={{ textAlign: 'center' }}>
                     <Typography.Text type="secondary">XZ视图</Typography.Text>
                     <Image
-                      src={`/img/${item.views.xz}`}
+                      src={`/api/files/img/${item.views.xz}?t=${Date.now()}`}
                       alt="XZ视图"
                       style={{ width: '100%', maxHeight: '150px', objectFit: 'contain' }}
                     />
                   </div>
                 </Col>
               </Row>
-
-              <div style={{ marginTop: '16px', textAlign: 'right' }}>
-                <Button type="primary" onClick={() => handleLoad(item.id)}>
-                  加载点云
-                </Button>
-              </div>
             </div>
           </List.Item>
         )}

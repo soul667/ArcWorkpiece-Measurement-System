@@ -131,7 +131,7 @@ GET /yml/{yml_name}
 
 #### 1. 裁剪点云
 ```
-POST /crop
+POST /api/point-cloud/crop
 
 请求体:
 {

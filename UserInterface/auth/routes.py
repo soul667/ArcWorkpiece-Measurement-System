@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from datetime import timedelta
-from .service import AuthService, get_current_user
+from .service import auth_service, get_current_user  # Use global instance
 from pydantic import BaseModel
 from typing import Optional
 import logging
@@ -9,7 +9,6 @@ from ..config import settings
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
-auth_service = AuthService()
 
 class UserCreate(BaseModel):
     username: str
@@ -54,38 +53,52 @@ async def register(user: UserCreate):
             detail="Password must be at least 8 characters and contain upper, lower case and numbers"
         )
 
-    success = auth_service.create_user(user.username, user.password)
-    if not success:
+    try:
+        success = auth_service.create_user(user.username, user.password)
+        if not success:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="User registration failed. Username may already exist."
+            )
+        logger.info(f"New user registered: {user.username}")
+        return {"message": "User created successfully"}
+    except Exception as e:
+        logger.error(f"Registration error: {str(e)}")
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="User registration failed. Username may already exist."
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Internal server error during registration"
         )
-    logger.info(f"New user registered: {user.username}")
-    return {"message": "User created successfully"}
 
 @router.post("/token", response_model=Token)
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     """Login and get access token"""
-    user = auth_service.authenticate_user(form_data.username, form_data.password)
-    if not user:
-        logger.warning(f"Login failed for user: {form_data.username}")
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
-            headers={"WWW-Authenticate": "Bearer"},
+    try:
+        user = auth_service.authenticate_user(form_data.username, form_data.password)
+        if not user:
+            logger.warning(f"Login failed for user: {form_data.username}")
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Incorrect username or password",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+
+        # Create access token with configured expiration
+        access_token = auth_service.create_access_token(
+            data={"sub": user["username"]},
+            expires_delta=timedelta(minutes=settings.JWT_ACCESS_TOKEN_EXPIRE_MINUTES)
         )
 
-    # Create access token with configured expiration
-    access_token = auth_service.create_access_token(
-        data={"sub": user["username"]},
-        expires_delta=timedelta(minutes=settings.JWT_ACCESS_TOKEN_EXPIRE_MINUTES)
-    )
-
-    logger.info(f"User logged in successfully: {form_data.username}")
-    return {
-        "access_token": access_token,
-        "token_type": "bearer"
-    }
+        logger.info(f"User logged in successfully: {form_data.username}")
+        return {
+            "access_token": access_token,
+            "token_type": "bearer"
+        }
+    except Exception as e:
+        logger.error(f"Login error: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Internal server error during login"
+        )
 
 @router.get("/me", response_model=UserResponse)
 async def read_users_me(current_user: dict = Depends(get_current_user)):
@@ -99,6 +112,3 @@ async def verify_token(current_user: dict = Depends(get_current_user)):
         "valid": True,
         "user": current_user
     }
-
-# Note: Exception handlers should be added to the main FastAPI app, not to the router
-# These can be moved to your main app file where you create the FastAPI instance

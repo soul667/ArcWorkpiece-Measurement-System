@@ -60,7 +60,7 @@ const ExportPanel = ({ data, defectLines, loading, total }) => {
       // 获取所有线条数据
       const promises = Array.from({ length: total }, async (_, index) => {
         try {
-          const response = await axios.post('/api/group-points', { 
+          const response = await axios.post('/api/point-cloud/group-points', { 
             axis: data.axis,
             index
           });

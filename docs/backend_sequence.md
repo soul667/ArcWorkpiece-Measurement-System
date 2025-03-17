@@ -28,7 +28,7 @@ sequenceDiagram
     participant PointCloudManager
     participant FileSystem
     
-    Client->>FastAPI: POST /crop
+    Client->>FastAPI: POST /api/point-cloud/crop
     FastAPI->>PointCloudProcessor: crop_point_cloud()
     PointCloudProcessor->>PointCloudProcessor: 执行裁剪
     PointCloudProcessor-->>FastAPI: 返回裁剪结果

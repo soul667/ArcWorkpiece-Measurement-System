@@ -93,8 +93,9 @@ const ArcFittingComponent = () => {
       const axis_now=cylinderSettings.axisOrientation|| 'x';
       setLoading(true);
       // console.log('settings.arcSettings',axis_now)
+      message.info('axis_now:'+axis_now)
       //... 是展开设置对象，将对象的属性展开
-      const response = await axios.post('/api/arc-fitting-stats', {
+      const response = await axios.post('/api/point-cloud/arc-fitting-stats', {
         ...settings.arcSettings,
         axis_now:axis_now
       },{

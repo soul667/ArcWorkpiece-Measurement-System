@@ -9,15 +9,27 @@ from io import BytesIO
 class PointCloudManager:
     """点云管理类：处理点云文件的上传、可视化和信息管理"""
     
+    _instance = None
+    
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+    
     def __init__(self, temp_dir: str = "UserInterface/assets/temp"):
         """初始化点云管理器
         
         Args:
             temp_dir: 临时文件存储目录
         """
-        self.temp_dir = temp_dir
-        self.logger = logging.getLogger(__name__)
-        self._ensure_temp_dir()
+        # 确保 __init__ 只在第一次创建实例时运行
+        if not hasattr(self, 'initialized'):
+            self.temp_dir = temp_dir
+            self.logger = logging.getLogger(__name__)
+            self._ensure_temp_dir()
+            self.current_cloud = None
+            self.temp_dir = os.path.join("UserInterface/assets", "temp")
+            self.initialized = True  # 标记已初始化
         
     def _ensure_temp_dir(self) -> None:
         """确保临时目录存在"""
@@ -113,26 +125,38 @@ class PointCloudManager:
             self.generate_views(points)
             self.update_cloud_info(points)
             
+            # 设置为当前点云
+            self.current_cloud = point_cloud
+            
             return point_cloud, file_size_mb
             
         except Exception as e:
             self.logger.error(f"点云文件处理失败: {str(e)}")
             raise RuntimeError(f"点云文件处理失败: {str(e)}")
 
-    def generate_views(self, points: np.ndarray) -> None:
+    def generate_views(self, points: np.ndarray, prefix: Optional[str] = None) -> None:
         """生成点云三视图
         
         Args:
             points: 点云数据数组
+            prefix: 输出文件路径前缀，默认为None时使用temp_dir
         """
         try:
             img_xy = self.normalize_and_map(points[:, 0], points[:, 1])
             img_yz = self.normalize_and_map(points[:, 1], points[:, 2])
             img_xz = self.normalize_and_map(points[:, 0], points[:, 2])
             
-            cv2.imwrite(os.path.join(self.temp_dir, 'xy.jpg'), img_xy)
-            cv2.imwrite(os.path.join(self.temp_dir, 'yz.jpg'), img_yz)
-            cv2.imwrite(os.path.join(self.temp_dir, 'xz.jpg'), img_xz)
+            # 如果没有指定prefix，使用默认的temp_dir
+            base_dir = prefix if prefix else self.temp_dir
+            
+            # 确保输出目录存在
+            if prefix:
+                os.makedirs(os.path.dirname(prefix), exist_ok=True)
+            
+            # 写入三视图
+            cv2.imwrite(f"{base_dir}_xy.jpg", img_xy)
+            cv2.imwrite(f"{base_dir}_yz.jpg", img_yz)
+            cv2.imwrite(f"{base_dir}_xz.jpg", img_xz)
             
         except Exception as e:
             self.logger.error(f"生成三视图失败: {str(e)}")
@@ -163,3 +187,31 @@ class PointCloudManager:
         except Exception as e:
             self.logger.error(f"更新点云信息失败: {str(e)}")
             raise RuntimeError(f"更新点云信息失败: {str(e)}")
+        
+    def get_current_cloud(self) -> Optional[o3d.geometry.PointCloud]:
+        """获取当前点云"""
+        if self.current_cloud is None:
+            # read from file
+            # 从temp_dir中读取点云文件
+            cloud_path = os.path.join(self.temp_dir, 'temp.ply')
+            if not os.path.exists(cloud_path):
+                return None
+            self.current_cloud = o3d.io.read_point_cloud(cloud_path)
+            
+        return self.current_cloud
+    
+    def get_points(self, point_cloud: o3d.geometry.PointCloud) -> np.ndarray:
+        """获取点云的点数据"""
+        return np.asarray(point_cloud.points)
+    
+    def save_point_cloud(self, point_cloud: o3d.geometry.PointCloud, path: str):
+        """保存点云到指定路径"""
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        o3d.io.write_point_cloud(path, point_cloud)
+
+    def load_point_cloud(self, path: str):
+        """加载点云并设为当前点云"""
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"点云文件不存在: {path}")
+        self.current_cloud = o3d.io.read_point_cloud(path)
+        return self.current_cloud

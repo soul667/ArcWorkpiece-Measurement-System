@@ -272,7 +272,7 @@ const ParamsSettingComponent = () => {
           acquisition_speed: values.acquisitionSpeed
         };
 
-        const response = await axios.post('/process', processData);
+        const response = await axios.post('/api/point-cloud/process', processData);
         const data = response.data;
         
         if (data.status === 'success') {
@@ -283,7 +283,11 @@ const ParamsSettingComponent = () => {
           handleProjectionImage(data);
         }
       } catch (error) {
-        console.error('Error:', error);
+        message.error(error);
+
+        // const errMsg = error.response?.data?.detail || '请求出错';   
+        // message.error(errMsg);
+        // console.error('Error:', error);
       }
     });
   };
@@ -319,6 +323,9 @@ const ParamsSettingComponent = () => {
           }
         }
       } catch (error) {
+        // console.error('Error:', error);
+        const errMsg = error.response?.data?.detail || '请求出错';   
+        message.error(errMsg);
         console.error('Error:', error);
       }
     });

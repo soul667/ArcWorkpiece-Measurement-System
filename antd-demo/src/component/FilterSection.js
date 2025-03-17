@@ -263,7 +263,7 @@ const FilterSection = () => {
   // Every time the view changes, load image and reset regions
   const loadImage = async (view) => {
     try {
-      const response = await axios.get(`/img/${view}?t=${Date.now()}`, {
+      const response = await axios.get(`/api/files/img/${view}?t=${Date.now()}`, {
         responseType: 'blob'
       });
       const blob = new Blob([response.data], { type: 'image/jpeg' });
@@ -381,7 +381,7 @@ const FilterSection = () => {
       setXRegions([]);
       setYRegions([]);
       // const timestamp = new Date().getTime();
-      // imageRef.current.src = `/img/${currentView}?t=${timestamp}`;
+      // imageRef.current.src = `/api/files/img/${currentView}?t=${timestamp}`;
     } catch (error) {
       console.error('Denoise error:', error);
       message.error('去噪处理失败');
@@ -451,7 +451,7 @@ const FilterSection = () => {
         }
       }));
       
-      await axios.post('/crop', {
+      await axios.post('/api/point-cloud/crop', {
         regions,
         modes: {
           x_mode: xMode,
@@ -461,7 +461,8 @@ const FilterSection = () => {
         settings: {
           show: showPointCloud
         }
-      });
+      }
+    );
 
       setXRegions([]);
       setYRegions([]);
@@ -470,7 +471,7 @@ const FilterSection = () => {
       
       loadImage(currentView);
       // const timestamp = new Date().getTime();
-      // imageRef.current.src = `/img/${currentView}?t=${timestamp}`;
+      // imageRef.current.src = `/api/files/img/${currentView}?t=${timestamp}`;
     } catch (error) {
       console.error('Crop error:', error);
       message.error('裁剪操作失败');
@@ -479,7 +480,7 @@ const FilterSection = () => {
 
   const fetchCoordinateRanges = async (view) => {
     try {
-      const response = await axios.get(`/yml/info?t=${Date.now()}`);
+      const response = await axios.get(`/api/files/yml/info?t=${Date.now()}`);
       const ranges = parseYaml(response.data);
       console.log('Fetching YAML:', ranges);
       setCoordinateRanges(ranges);

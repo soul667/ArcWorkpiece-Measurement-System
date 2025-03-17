@@ -13,10 +13,14 @@ logger = logging.getLogger(__name__)
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
 
 class AuthService:
-    def __init__(self):
-        self.db = Database()
-        self.db.initialize_tables()
-        self.token_expire_minutes = settings.JWT_ACCESS_TOKEN_EXPIRE_MINUTES
+    _instance = None
+    
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance.db = Database()
+            cls._instance.token_expire_minutes = settings.JWT_ACCESS_TOKEN_EXPIRE_MINUTES
+        return cls._instance
         
     def create_user(self, username: str, password: str):
         """Create a new user with encrypted password"""
@@ -35,24 +39,12 @@ class AuthService:
             
     def authenticate_user(self, username: str, password: str):
         """Authenticate a user and return user data if successful"""
-
-        # 输出所有用户和密码
-        query = "SELECT * FROM users"
-        users = self.db.execute_query(query)
-
-        for user in users:
-            print(user['username'], user['password'])
-
         query = "SELECT * FROM users WHERE username = %s"
         users = self.db.execute_query(query, (username,))
     
         if not users:
             logger.warning(f"Authentication failed: User not found - {username}")
-            # 没有用户就创建用户
-            self.create_user(username, password)
-            users = self.db.execute_query(query, (username,))
-
-            # return None
+            return None
         
         user = users[0]
         if bcrypt.checkpw(password.encode('utf-8'), user['password'].encode('utf-8')):
@@ -112,9 +104,11 @@ class AuthService:
             return user
         return None
 
+# Create global AuthService instance
+auth_service = AuthService()
+
 async def get_current_user(token: str = Depends(oauth2_scheme)):
     """FastAPI dependency for getting the current authenticated user"""
-    auth_service = AuthService()
     credentials = auth_service.verify_token(token)
     if credentials is None:
         raise HTTPException(

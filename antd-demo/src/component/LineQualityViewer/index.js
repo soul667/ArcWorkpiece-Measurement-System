@@ -34,7 +34,7 @@ const LineQualityViewer = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post('/api/group-points', { 
+      const response = await axios.post('/api/point-cloud/group-points', { 
         axis,
         index
       });
@@ -66,7 +66,7 @@ const LineQualityViewer = () => {
       const nextCacheKey = `${selectedAxis}_${nextIndex}`;
       
       if (!cachedData[nextCacheKey]) {
-        axios.post('/api/group-points', { 
+        axios.post('/api/point-cloud/group-points', { 
           axis: selectedAxis,
           index: nextIndex
         }).then(response => {
@@ -84,7 +84,7 @@ const LineQualityViewer = () => {
       const prevCacheKey = `${selectedAxis}_${prevIndex}`;
       
       if (!cachedData[prevCacheKey]) {
-        axios.post('/api/group-points', { 
+        axios.post('/api/point-cloud/group-points', { 
           axis: selectedAxis,
           index: prevIndex
         }).then(response => {

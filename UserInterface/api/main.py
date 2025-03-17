@@ -5,11 +5,36 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from UserInterface.api.routes import auth, settings, files, point_cloud
+from UserInterface.api.routes import  settings, files, point_cloud,temp_save
 from UserInterface.api.config import logger, RELOAD_DIRS, RELOAD_EXCLUDES, TEMP_DIR
+from UserInterface.auth.routes import router as auth_router
+from UserInterface.auth.init_db import init_database
+from UserInterface.auth.db import Database
 
 # 创建FastAPI应用
 app = FastAPI(title="圆弧工件测量系统")
+
+# 启动事件
+@app.on_event("startup")
+async def startup_event():
+    """应用启动时执行的操作"""
+    logger.info("初始化系统...")
+    
+    # 创建必要的目录
+    os.makedirs(TEMP_DIR, exist_ok=True)
+    logger.info(f"已创建临时目录: {TEMP_DIR}")
+    
+    # 检查并初始化数据库
+    logger.info("检查数据库表...")
+    db = Database()
+    if not db.check_table_exists('temp_clouds'):
+        logger.info("temp_clouds 表不存在，开始初始化数据库...")
+        if init_database():
+            logger.info("数据库初始化完成")
+        else:
+            logger.error("数据库初始化失败")
+    else:
+        logger.info("数据库表检查完成，temp_clouds 表已存在")
 
 # 配置CORS中间件
 app.add_middleware(
@@ -25,10 +50,11 @@ app.mount("/assets", StaticFiles(directory="UserInterface/assets"), name="assets
 templates = Jinja2Templates(directory="templates")
 
 # 注册路由
-app.include_router(auth.router, prefix="/auth", tags=["authentication"])
+app.include_router(auth_router, prefix="/auth", tags=["authentication"])
 app.include_router(settings.router, prefix="/api/settings", tags=["settings"])
 app.include_router(files.router, prefix="/api/files", tags=["files"])
 app.include_router(point_cloud.router, prefix="/api/point-cloud", tags=["point-cloud"])
+app.include_router(temp_save.router, prefix="/api/temp-save", tags=["temp-save"])
 
 @app.get("/")
 async def home(request: Request):

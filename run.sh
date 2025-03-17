@@ -7,8 +7,9 @@ start_frontend() {
 
 # 启动后端服务
 start_backend() {
-    uvicorn UserInterface.fastapi_test:app --reload --host 0.0.0.0 --port 9304
+    uvicorn UserInterface.api.main:app --reload --host 0.0.0.0 --port 9304
 }
+    # uvicorn UserInterface.fastapi_test1:app --reload --host 0.0.0.0 --port 9304
 
 # 设置脚本为可执行
 chmod +x "$0"

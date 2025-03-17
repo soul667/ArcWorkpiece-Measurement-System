@@ -1,42 +1,59 @@
 from .db import Database
-from .service import AuthService
+from .service import auth_service  # Use the global instance
 import logging
 
 logger = logging.getLogger(__name__)
 
 def init_database():
-    """初始化数据库和默认用户"""
+    """Initialize database and default user"""
     try:
-        # 初始化数据库连接和表
+        logger.info("开始初始化数据库...")
+        
+        # Initialize database tables using the singleton Database instance
         db = Database()
-        db.initialize_tables()
+        
+        # 检查 SQL 文件
+        sql_file = os.path.join(os.path.dirname(__file__), 'init_db_update_temp_clouds.sql')
+        if not os.path.exists(sql_file):
+            logger.error(f"SQL 文件不存在: {sql_file}")
+            return False
+        logger.info(f"找到 SQL 文件: {sql_file}")
+        
+        # 检查数据库连接
+        try:
+            with db.get_connection() as conn:
+                logger.info("数据库连接测试成功")
+        except Exception as e:
+            logger.error(f"数据库连接失败: {str(e)}")
+            return False
+            
+        # 初始化表
+        if not db.initialize_tables():
+            logger.error("表初始化失败")
+            return False
         logger.info("数据库表初始化成功")
 
-        # 创建默认管理员用户
-        auth_service = AuthService()
-        
-        # 检查admin用户是否已存在
+        # Check if admin user exists using the global auth_service instance
         query = "SELECT * FROM users WHERE username = %s"
         users = db.execute_query(query, ("admin",))
-        # print(users)
-        logger.info("默认管理员账号创建成功")
 
         if not users:
-            success = auth_service.create_user("admin", "admin123")
-            if success:
-                logger.info("默认管理员账号创建成功")
+            # Create default admin user if it doesn't exist
+            if auth_service.create_user("admin", "admin123"):
+                logger.info("Default admin account created successfully")
             else:
-                logger.error("创建默认管理员账号失败")
+                logger.error("Failed to create default admin account")
+                return False
         else:
-            logger.info("默认管理员账号已存在")
+            logger.info("Default admin account already exists")
 
         return True
     except Exception as e:
-        logger.error(f"数据库初始化失败: {str(e)}")
+        logger.error(f"Database initialization failed: {str(e)}")
         return False
 
 if __name__ == "__main__":
-    # 配置日志
+    # Configure logging
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -46,16 +63,16 @@ if __name__ == "__main__":
         ]
     )
 
-    # 初始化数据库
+    # Initialize database
     if init_database():
         print("""
-=== 认证系统初始化成功 ===
+=== Authentication System Initialized Successfully ===
 
-默认管理员账号:
-用户名: admin
-密码: admin123
+Default admin account:
+Username: admin
+Password: admin123
 
-请及时修改默认密码！
+Please change the default password!
 """)
     else:
-        print("认证系统初始化失败，请检查日志文件。")
+        print("Authentication system initialization failed. Please check the log file.")
