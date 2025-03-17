@@ -118,22 +118,22 @@ def segmentPointCloud(points, x_range=None, y_range=None, z_range=None,
        if z_range==[]:
            first_range_num=0
            second_range_num=1
+        
        # 一定有两个，之前处理过
        use_ranges_len =[len(range_) for range_ in use_ranges]
        min_len = min(use_ranges_len)
        # 开始解析filter_mask_special_use 两个use_ranges区间夹一个区间
        for i in range(min_len):
-              x_min, x_max = use_ranges[first_range_num][i]
-              y_min, y_max = use_ranges[second_range_num][i]
+              x_min, x_max = use_ranges[0][i]
+              y_min, y_max = use_ranges[1][i]
               filter_mask_special_use.append((x_min, x_max , y_min, y_max))
            
-
     if if_filter_special:
         # 特殊处理
         combined_mask = np.zeros(len(filtered_points), dtype=bool)
         for (x_min, x_max , y_min, y_max) in filter_mask_special_use:
             print(x_min, x_max , y_min, y_max)
-            mask = (filtered_points[:, 0] >= x_min) & (filtered_points[:, 0] <= x_max) & (filtered_points[:, 1] >= y_min) & (filtered_points[:, 1] <= y_max)
+            mask = (filtered_points[:, first_range_num] >= x_min) & (filtered_points[:, first_range_num] <= x_max) & (filtered_points[:, second_range_num] >= y_min) & (filtered_points[:, second_range_num] <= y_max)
             combined_mask = combined_mask | mask
         # 一次性应用所有mask
         filtered_points = filtered_points[~combined_mask]

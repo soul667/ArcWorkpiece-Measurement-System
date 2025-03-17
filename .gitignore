@@ -70,3 +70,4 @@ docs/latex/
 # System specific
 .DS_Store
 Thumbs.db
+UserInterface/fastapi.log

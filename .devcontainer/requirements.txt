@@ -10,14 +10,15 @@ py_cylinder_fitting
 scikit-spatial
 fastapi
 uvicorn
-# pyblind
-python-multipart 
+
 typst  
 PyQt5
-mysql-connector-python
 pytest
 pymysql
 dotenv
 bcrypt
 PyJWT==2.8.0
 python-multipart
+mysql-connector-python
+onnx 
+onnxruntime

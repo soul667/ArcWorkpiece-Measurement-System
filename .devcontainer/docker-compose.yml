@@ -2,9 +2,10 @@ version: '3.8'
 
 services:
   app:
-    build:
-      context: ..
-      dockerfile: .devcontainer/Dockerfile
+    image: luobaigu/arc_workpiece_measurement_system:1.0
+    # build:
+    #   context: ..
+    #   dockerfile: .devcontainer/Dockerfile
     volumes:
       - ..:/workspaces/ArcWorkpiece-Measurement-System:cached
     command: sleep infinity
