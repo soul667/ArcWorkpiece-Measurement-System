@@ -1,0 +1,17 @@
+<task>
+<相关文件介绍>
+@/UserInterface/fastapi_test.py :主要的后端文件
+@/antd-demo/src/component/UploadSection.js : 上传点云的组件
+@/UserInterface/auth/db.py @/UserInterface/auth/service.py  : 数据库的操作文件
+</相关文件介绍>
+
+<你的任务>
+我们希望在上传点云的组件中增加一个暂存功能，用户可以暂存现在系统中的点云文件。
+具体的逻辑是，用户点击暂存按钮后，将当前的点云文件保存到后端的一个临时文件夹中。
+同时数据库中会更新已经暂存的点云列列表，这个也会在前端显示出来。同时每一个暂存的点云我们都可以预览他的xy,yz,xz的投影图，同时我们有一个加载按钮，可以加载这个点云到当前系统点云。
+</你的任务>
+
+<参考>
+可以参考设置列表的做法 其UI在@/antd-demo/src/component/ParamsSettingComponent.js 
+</参考>
+</task>

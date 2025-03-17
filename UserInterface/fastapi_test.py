@@ -15,7 +15,8 @@ import onnxruntime as ort
 from scipy.interpolate import interp1d
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from datetime import datetime
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -355,6 +356,131 @@ async def generate_point_cloud(data: dict):
         
     except Exception as e:
         logger.error(f"生成点云失败: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+# 点云暂存相关接口
+@app.post("/api/clouds/store")
+async def store_cloud(current_user: dict = Depends(get_current_user)):
+    """保存当前点云到临时存储"""
+    try:
+        # 获取当前点云
+        point_cloud, success = get_point_cloud()
+        if not success:
+            raise HTTPException(status_code=400, detail="无可用点云")
+            
+        # 生成唯一文件名
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"temp_cloud_{timestamp}.ply"
+        
+        # 保存点云文件
+        temp_dir = os.path.join("UserInterface/assets", "temp")
+        os.makedirs(temp_dir, exist_ok=True)
+        cloud_path = os.path.join(temp_dir, filename)
+        o3d.io.write_point_cloud(cloud_path, point_cloud)
+        
+        # 生成三视图
+        points = np.asarray(point_cloud.points)
+        cloud_manager.generate_views(points)
+        
+        # 保存到数据库
+        db = Database()
+        query = """
+            INSERT INTO temp_clouds 
+            (user_id, filename, xy_view, yz_view, xz_view) 
+            VALUES (%s, %s, %s, %s, %s)
+        """
+        view_prefix = timestamp
+        params = (
+            current_user['id'],
+            filename,
+            f"{view_prefix}_xy.jpg",
+            f"{view_prefix}_yz.jpg",
+            f"{view_prefix}_xz.jpg"
+        )
+        db.execute_query(query, params)
+        
+        return JSONResponse(
+            status_code=200,
+            content={"status": "success", "message": "点云已暂存"}
+        )
+        
+    except Exception as e:
+        logger.error(f"点云暂存失败: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/clouds/list")
+async def list_clouds(current_user: dict = Depends(get_current_user)):
+    """获取暂存的点云列表"""
+    try:
+        db = Database()
+        query = """
+            SELECT id, filename, xy_view, yz_view, xz_view, created_at
+            FROM temp_clouds
+            WHERE user_id = %s
+            ORDER BY created_at DESC
+        """
+        results = db.execute_query(query, (current_user['id'],))
+        
+        clouds = [{
+            'id': item['id'],
+            'filename': item['filename'],
+            'views': {
+                'xy': item['xy_view'],
+                'yz': item['yz_view'],
+                'xz': item['xz_view']
+            },
+            'createdAt': item['created_at'].isoformat()
+        } for item in results]
+        
+        return JSONResponse(
+            status_code=200,
+            content={"status": "success", "data": clouds}
+        )
+        
+    except Exception as e:
+        logger.error(f"获取点云列表失败: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/clouds/{cloud_id}/load")
+async def load_cloud(cloud_id: int, current_user: dict = Depends(get_current_user)):
+    """加载指定的点云到当前系统"""
+    try:
+        # 从数据库获取点云信息
+        db = Database()
+        query = """
+            SELECT filename
+            FROM temp_clouds
+            WHERE id = %s AND user_id = %s
+        """
+        results = db.execute_query(query, (cloud_id, current_user['id']))
+        
+        if not results:
+            raise HTTPException(status_code=404, detail="未找到指定点云")
+            
+        filename = results[0]['filename']
+        temp_dir = os.path.join("UserInterface/assets", "temp")
+        cloud_path = os.path.join(temp_dir, filename)
+        
+        if not os.path.exists(cloud_path):
+            raise HTTPException(status_code=404, detail="点云文件不存在")
+            
+        # 加载点云并更新全局点云
+        point_cloud = o3d.io.read_point_cloud(cloud_path)
+        global global_source_point_cloud
+        global_source_point_cloud = point_cloud
+        
+        # 重新生成视图
+        points = np.asarray(point_cloud.points)
+        cloud_manager.generate_views(points)
+        cloud_manager.update_cloud_info(points)
+        
+        return JSONResponse(
+            status_code=200,
+            content={"status": "success", "message": "点云已加载"}
+        )
+        
+    except Exception as e:
+        logger.error(f"加载点云失败: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 # 配置CORS中间件

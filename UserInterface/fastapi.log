@@ -15454,3 +15454,277 @@
 2025-03-17 07:07:42,622 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-17.945828117438396, -14.497250802117904]], 'z_regions': [[-32.85545452680479, -25.303017597324164]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': True}}
 2025-03-17 07:07:42,706 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 586475
 2025-03-17 07:07:47,817 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-17 15:20:38,373 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:20:38,381 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-17 15:20:38,389 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 15:28:45,094 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:28:45,099 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-17 15:28:45,101 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 15:28:49,161 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:28:49,167 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-17 15:29:51,799 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:29:51,805 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-17 15:29:51,810 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 15:30:43,388 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:30:43,394 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-17 15:30:43,475 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:30:43,482 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-17 15:30:45,053 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:30:45,059 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-17 15:30:45,066 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:30:45,077 - UserInterface.auth.db - ERROR - Error executing query: 1146 (42S02): Table 'arcworkpiece.temp_clouds' doesn't exist
+2025-03-17 15:30:45,077 - UserInterface.fastapi_test - ERROR - 获取点云列表失败: 1146 (42S02): Table 'arcworkpiece.temp_clouds' doesn't exist
+2025-03-17 15:30:45,086 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:30:45,092 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-17 15:30:45,099 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:30:45,100 - UserInterface.auth.db - ERROR - Error executing query: 1146 (42S02): Table 'arcworkpiece.temp_clouds' doesn't exist
+2025-03-17 15:30:45,101 - UserInterface.fastapi_test - ERROR - 获取点云列表失败: 1146 (42S02): Table 'arcworkpiece.temp_clouds' doesn't exist
+2025-03-17 15:30:47,556 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:30:47,563 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-17 15:30:47,570 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:30:47,572 - UserInterface.auth.db - ERROR - Error executing query: 1146 (42S02): Table 'arcworkpiece.temp_clouds' doesn't exist
+2025-03-17 15:30:47,572 - UserInterface.fastapi_test - ERROR - 获取点云列表失败: 1146 (42S02): Table 'arcworkpiece.temp_clouds' doesn't exist
+2025-03-17 15:30:47,582 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:30:47,588 - UserInterface.auth.db - INFO - Database tables initialized successfully
+2025-03-17 15:30:47,595 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:30:47,597 - UserInterface.auth.db - ERROR - Error executing query: 1146 (42S02): Table 'arcworkpiece.temp_clouds' doesn't exist
+2025-03-17 15:30:47,597 - UserInterface.fastapi_test - ERROR - 获取点云列表失败: 1146 (42S02): Table 'arcworkpiece.temp_clouds' doesn't exist
+2025-03-17 15:48:36,804 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:48:36,810 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 15:48:36,813 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1061 (42000): Duplicate key name 'temp_clouds_user_id_idx'
+2025-03-17 15:48:36,816 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 15:49:41,136 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:41,141 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 15:49:41,146 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1061 (42000): Duplicate key name 'temp_clouds_user_id_idx'
+2025-03-17 15:49:41,146 - UserInterface.auth.service - WARNING - Token verification failed: token expired
+2025-03-17 15:49:41,178 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:41,183 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 15:49:41,186 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1061 (42000): Duplicate key name 'temp_clouds_user_id_idx'
+2025-03-17 15:49:41,187 - UserInterface.auth.service - WARNING - Token verification failed: token expired
+2025-03-17 15:49:42,980 - UserInterface.auth.service - INFO - User authenticated successfully: admin123
+2025-03-17 15:49:42,980 - UserInterface.auth.routes - INFO - User logged in successfully: admin123
+2025-03-17 15:49:42,992 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:42,997 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 15:49:43,000 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1061 (42000): Duplicate key name 'temp_clouds_user_id_idx'
+2025-03-17 15:49:44,523 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:44,529 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 15:49:44,532 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1061 (42000): Duplicate key name 'temp_clouds_user_id_idx'
+2025-03-17 15:49:44,538 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:44,548 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:44,553 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 15:49:44,556 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1061 (42000): Duplicate key name 'temp_clouds_user_id_idx'
+2025-03-17 15:49:44,562 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:47,665 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 15:49:47,675 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-17 15:49:47,702 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 15:49:47,711 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-17 15:49:48,259 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 15:49:48,260 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-17 15:49:48,864 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 15:49:48,864 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-17 15:49:50,039 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:50,046 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 15:49:50,051 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1061 (42000): Duplicate key name 'temp_clouds_user_id_idx'
+2025-03-17 15:49:50,059 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:50,072 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:50,077 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 15:49:50,081 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1061 (42000): Duplicate key name 'temp_clouds_user_id_idx'
+2025-03-17 15:49:50,089 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:50,969 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:50,974 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 15:49:50,978 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1061 (42000): Duplicate key name 'temp_clouds_user_id_idx'
+2025-03-17 15:49:50,995 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:51,121 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:51,127 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 15:49:51,130 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1061 (42000): Duplicate key name 'temp_clouds_user_id_idx'
+2025-03-17 15:49:51,138 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 15:49:51,195 - UserInterface.fastapi_test - INFO - 请求图片: 20250317_154950_xy.jpg, 版本: None
+2025-03-17 15:49:51,204 - UserInterface.fastapi_test - INFO - 请求图片: 20250317_154950_yz.jpg, 版本: None
+2025-03-17 15:49:51,741 - UserInterface.fastapi_test - INFO - 请求图片: 20250317_154950_xz.jpg, 版本: None
+2025-03-17 15:49:54,379 - UserInterface.fastapi_test - INFO - 请求图片: 20250317_154950_yz.jpg, 版本: None
+2025-03-17 15:49:56,088 - UserInterface.fastapi_test - INFO - 请求图片: 20250317_154950_xz.jpg, 版本: None
+2025-03-17 15:50:00,965 - UserInterface.fastapi_test - INFO - 请求图片: 20250317_154950_xy.jpg, 版本: None
+2025-03-17 16:02:06,369 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:02:06,376 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:02:06,379 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:02:06,383 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:03:15,525 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:03:15,533 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:03:15,537 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:03:15,541 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:04:31,309 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:04:31,316 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:04:31,320 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:04:31,325 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:13:21,384 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:13:21,390 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:13:21,393 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:13:21,397 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:14:07,735 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:14:07,743 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:14:07,746 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:14:07,750 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:14:27,353 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:14:27,358 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:14:27,361 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:14:27,366 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:17:08,373 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:17:08,381 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:17:08,384 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:17:08,388 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:17:36,318 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:17:36,324 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:17:36,327 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:17:36,331 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:17:59,788 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:17:59,793 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:17:59,796 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:17:59,800 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:18:27,972 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:18:27,978 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:18:27,981 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:18:27,985 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:18:48,800 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:18:48,806 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:18:48,809 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:18:48,813 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:19:13,092 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:19:13,098 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:19:13,102 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:19:13,106 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:20:03,519 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:20:03,527 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:20:03,530 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:20:03,534 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:20:36,614 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:20:36,621 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:20:36,625 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:20:36,629 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:21:55,191 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:21:55,197 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:21:55,202 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:21:55,206 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:22:18,625 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:22:18,635 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:22:18,638 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:22:18,642 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:22:38,795 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:22:38,800 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:22:38,803 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:22:38,807 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:22:58,438 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:22:58,446 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:22:58,450 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:22:58,454 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:23:17,475 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:23:17,480 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:23:17,485 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:23:17,489 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:23:37,891 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:23:37,899 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:23:37,903 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:23:37,907 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:24:10,894 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:24:10,900 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:24:10,903 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:24:10,907 - UserInterface.cylinder_processor - WARNING - 加载中文字体失败: [Errno 2] No such file or directory: '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'，将使用默认字体
+2025-03-17 16:24:18,156 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:24:18,164 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:24:18,167 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:24:18,168 - UserInterface.auth.service - WARNING - Token verification failed: token expired
+2025-03-17 16:24:18,191 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:24:18,198 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:24:18,201 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:24:18,202 - UserInterface.auth.service - WARNING - Token verification failed: token expired
+2025-03-17 16:24:19,980 - UserInterface.auth.service - INFO - User authenticated successfully: admin123
+2025-03-17 16:24:19,980 - UserInterface.auth.routes - INFO - User logged in successfully: admin123
+2025-03-17 16:24:19,992 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:24:20,003 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:24:20,007 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:24:21,270 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:24:21,276 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:24:21,281 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:24:21,287 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:24:21,299 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:24:21,304 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:24:21,307 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:24:21,314 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:24:21,372 - UserInterface.fastapi_test - INFO - 请求图片: 20250317_154950_xz.jpg, 版本: None
+2025-03-17 16:24:21,382 - UserInterface.fastapi_test - INFO - 请求图片: 20250317_154950_yz.jpg, 版本: None
+2025-03-17 16:24:21,389 - UserInterface.fastapi_test - INFO - 请求图片: 20250317_154950_xy.jpg, 版本: None
+2025-03-17 16:24:23,599 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:24:23,607 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:24:23,610 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:24:23,617 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:24:30,502 - UserInterface.point_cloud_manager - INFO - 成功读取点云文件，共 15728256 个点，文件大小为 424.37 MB。
+2025-03-17 16:24:34,725 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-17 16:24:34,732 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 16:24:34,736 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-17 16:24:34,748 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 16:24:34,756 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-17 16:24:35,177 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-17 16:24:35,178 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 16:24:35,766 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-17 16:24:35,767 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 16:24:42,112 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-9.421796701571004, -2.1844637286846265]], 'y_regions': [], 'z_regions': [[-40.383956697425226, -34.6230500813256]]}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': False}}
+2025-03-17 16:24:42,361 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 139066
+2025-03-17 16:24:42,474 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-17 16:24:45,868 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-17 16:24:45,887 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 16:24:45,960 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 16:24:45,961 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-17 16:24:46,761 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 16:24:46,762 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-17 16:25:05,445 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [], 'y_regions': [[-7.3110173856936385, -6.942024969854696], [-10.461644936318446, -10.177804616442339], [-13.924496838806977, -13.328432167067149], [-16.933204229493732, -16.5925958456424], [-20.254135972044203, -19.714839364279598], [-23.31961142670618, -22.97900304285485]], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': False}}
+2025-03-17 16:25:05,449 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 16429
+2025-03-17 16:25:06,254 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-17 16:25:08,167 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-17 16:25:08,168 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 16:25:11,491 - UserInterface.fastapi_test - INFO - 接收到裁剪请求数据: {'regions': {'x_regions': [[-8.936684865608727, -4.86372586918695]], 'y_regions': [], 'z_regions': []}, 'modes': {'x_mode': 'keep', 'y_mode': 'keep', 'z_mode': 'keep'}, 'settings': {'show': False}}
+2025-03-17 16:25:11,492 - UserInterface.point_cloud_processor - INFO - 裁剪成功，剩余点数: 9170
+2025-03-17 16:25:11,514 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-17 16:25:13,470 - UserInterface.fastapi_test - INFO - 请求图片: yz, 版本: None
+2025-03-17 16:25:13,476 - UserInterface.fastapi_test - INFO - 请求图片: xz, 版本: None
+2025-03-17 16:25:13,529 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 16:25:13,593 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 16:25:13,947 - UserInterface.fastapi_test - INFO - 请求YAML文件: info
+2025-03-17 16:25:13,948 - UserInterface.fastapi_test - INFO - 请求图片: xy, 版本: None
+2025-03-17 16:25:14,662 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:14,669 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:25:14,672 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:25:14,680 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:14,690 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:14,695 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:25:14,698 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:25:14,704 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:14,711 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:14,717 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:25:14,720 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:25:14,728 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:14,740 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:14,745 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:25:14,748 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:25:14,757 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:15,634 - UserInterface.fastapi_test - INFO - 接收到处理请求数据: {'cylinder_method': 'NormalRANSAC', 'normal_neighbors': 25, 'min_radius': 4, 'max_radius': 10, 'ransac_threshold': 0.05, 'max_iterations': 10000, 'normal_distance_weight': 0.7, 'axis_orientation': 'y', 'actual_speed': 2.5, 'acquisition_speed': 2}
+2025-03-17 16:25:15,634 - UserInterface.cylinder_processor - INFO - 开始处理点云数据: 9170 个点
+2025-03-17 16:25:15,634 - UserInterface.cylinder_processor - INFO - 计算点云法线...
+2025-03-17 16:25:15,652 - UserInterface.cylinder_processor - INFO - 法线计算完成，耗时: 0.02s
+2025-03-17 16:25:15,684 - UserInterface.cylinder_processor - INFO - RANSAC迭代次数: 10000
+2025-03-17 16:25:15,684 - UserInterface.cylinder_processor - INFO - NormalRANSAC拟合成功: 轴点=[-12.21770287  -0.11234242 -32.34501648], 方向=[-3.04223814e-05 -9.99994161e-01  3.41721671e-03], 半径=8.40928840637207
+2025-03-17 16:25:15,865 - UserInterface.cylinder_processor - INFO - 成功保存投影图像到: UserInterface/assets/temp/projection.png
+2025-03-17 16:25:17,928 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:17,934 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:25:17,937 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:25:17,945 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:17,956 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:17,961 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:25:17,964 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:25:17,970 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:17,980 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:17,986 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:25:17,989 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:25:17,997 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:18,010 - UserInterface.auth.db - INFO - Successfully connected to MySQL database
+2025-03-17 16:25:18,015 - UserInterface.auth.db - INFO - Base tables initialized successfully
+2025-03-17 16:25:18,024 - UserInterface.auth.db - ERROR - 执行SQL文件失败: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF EXISTS temp_clouds_user_id_idx ON temp_clouds' at line 2
+2025-03-17 16:25:18,032 - UserInterface.auth.db - INFO - Successfully connected to MySQL database

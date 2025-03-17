@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Card, Typography, Button, Upload, message, Progress, Spin } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Card, Typography, Button, Upload, message, Progress, Spin, Divider, List, Image, Row, Col } from 'antd';
 import { 
   InboxOutlined, 
   CloudUploadOutlined, 
@@ -15,8 +15,55 @@ const { Text } = Typography;
 const UploadSection = () => {
   const [uploadStatus, setUploadStatus] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const [tempClouds, setTempClouds] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const [isDragging, setIsDragging] = useState(false);
+
+  // 获取暂存点云列表
+  const fetchTempClouds = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get('/api/clouds/list');
+      if (response.data.status === 'success') {
+        setTempClouds(response.data.data);
+      }
+    } catch (error) {
+      message.error('获取暂存点云列表失败');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // 暂存当前点云
+  const handleStore = async () => {
+    try {
+      const response = await axios.post('/api/clouds/store');
+      if (response.data.status === 'success') {
+        message.success('点云暂存成功');
+        fetchTempClouds();
+      }
+    } catch (error) {
+      message.error('点云暂存失败');
+    }
+  };
+
+  // 加载点云
+  const handleLoad = async (cloudId) => {
+    try {
+      const response = await axios.get(`/api/clouds/${cloudId}/load`);
+      if (response.data.status === 'success') {
+        message.success('点云加载成功');
+      }
+    } catch (error) {
+      message.error('点云加载失败');
+    }
+  };
+
+  // 组件加载时获取暂存列表
+  useEffect(() => {
+    fetchTempClouds();
+  }, []);
 
   const draggerStyle = {
     background: '#fafafa',
@@ -180,6 +227,91 @@ const UploadSection = () => {
           </Text>
         )}
       </Upload.Dragger>
+
+      {/* 暂存功能 */}
+      <Divider>点云暂存</Divider>
+      
+      <div style={{ marginBottom: '16px' }}>
+        <Button 
+          type="primary" 
+          onClick={handleStore}
+          style={{ marginRight: '8px' }}
+        >
+          暂存当前点云
+        </Button>
+      </div>
+
+      <List
+        loading={loading}
+        dataSource={tempClouds}
+        renderItem={item => (
+          <List.Item
+            key={item.id}
+            style={{
+              background: '#fafafa',
+              marginBottom: '8px',
+              padding: '16px',
+              borderRadius: '4px'
+            }}
+          >
+            <div style={{ width: '100%' }}>
+              <div style={{ 
+                marginBottom: '8px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}>
+                <Typography.Text strong>
+                  {item.filename}
+                </Typography.Text>
+                <Typography.Text type="secondary">
+                  创建时间: {new Date(item.createdAt).toLocaleString()}
+                </Typography.Text>
+              </div>
+              
+              <Row gutter={16}>
+                <Col span={8}>
+                  <div style={{ textAlign: 'center' }}>
+                    <Typography.Text type="secondary">XY视图</Typography.Text>
+                    <Image
+                      src={`/img/${item.views.xy}`}
+                      alt="XY视图"
+                      style={{ width: '100%', maxHeight: '150px', objectFit: 'contain' }}
+                    />
+                  </div>
+                </Col>
+                <Col span={8}>
+                  <div style={{ textAlign: 'center' }}>
+                    <Typography.Text type="secondary">YZ视图</Typography.Text>
+                    <Image
+                      src={`/img/${item.views.yz}`}
+                      alt="YZ视图"
+                      style={{ width: '100%', maxHeight: '150px', objectFit: 'contain' }}
+                    />
+                  </div>
+                </Col>
+                <Col span={8}>
+                  <div style={{ textAlign: 'center' }}>
+                    <Typography.Text type="secondary">XZ视图</Typography.Text>
+                    <Image
+                      src={`/img/${item.views.xz}`}
+                      alt="XZ视图"
+                      style={{ width: '100%', maxHeight: '150px', objectFit: 'contain' }}
+                    />
+                  </div>
+                </Col>
+              </Row>
+
+              <div style={{ marginTop: '16px', textAlign: 'right' }}>
+                <Button type="primary" onClick={() => handleLoad(item.id)}>
+                  加载点云
+                </Button>
+              </div>
+            </div>
+          </List.Item>
+        )}
+      />
+
       <style jsx="true">{`
         .upload-card .ant-upload-drag {
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

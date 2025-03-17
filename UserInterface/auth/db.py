@@ -23,11 +23,30 @@ class Database:
             logger.error(f"Error connecting to MySQL: {e}")
             return False
             
-    def initialize_tables(self):
-        """Initialize database tables"""
-        if not self.connection or not self.connection.is_connected():
-            self.connect()
-            
+    def execute_sql_file(self, file_path):
+        """执行SQL文件中的所有语句"""
+        try:
+            with open(file_path, 'r') as f:
+                sql_content = f.read()
+                statements = sql_content.split(';')
+                
+                cursor = self.connection.cursor()
+                for statement in statements:
+                    if statement.strip():
+                        cursor.execute(statement)
+                
+                self.connection.commit()
+                logger.info(f"SQL file executed successfully: {file_path}")
+                return True
+        except Error as e:
+            logger.error(f"执行SQL文件失败: {str(e)}")
+            return False
+        finally:
+            if 'cursor' in locals():
+                cursor.close()
+                
+    def _create_base_tables(self):
+        """创建基础表(users和parameter_settings)"""
         try:
             cursor = self.connection.cursor()
             
@@ -55,13 +74,27 @@ class Database:
             """)
             
             self.connection.commit()
-            logger.info("Database tables initialized successfully")
+            logger.info("Base tables initialized successfully")
             return True
         except Error as e:
-            logger.error(f"Error initializing tables: {e}")
+            logger.error(f"创建基础表失败: {str(e)}")
             return False
         finally:
             cursor.close()
+            
+    def initialize_tables(self):
+        """Initialize database tables"""
+        if not self.connection or not self.connection.is_connected():
+            self.connect()
+            
+        # 执行基础表创建
+        base_tables_result = self._create_base_tables()
+        
+        # 执行临时点云表创建
+        temp_clouds_sql = os.path.join(os.path.dirname(__file__), 'init_db_update_temp_clouds.sql')
+        clouds_table_result = self.execute_sql_file(temp_clouds_sql)
+        
+        return base_tables_result and clouds_table_result
             
     def execute_query(self, query, params=None):
         """Execute a database query
