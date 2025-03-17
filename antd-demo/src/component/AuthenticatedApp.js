@@ -12,25 +12,6 @@ const AuthenticatedApp = () => {
     const [loading, setLoading] = useState(true);
     const [username, setUsername] = useState('');
 
-    // Setup periodic token verification
-    useEffect(() => {
-        let tokenCheckInterval;
-        if (isAuthenticated) {
-            tokenCheckInterval = setInterval(async () => {
-                try {
-                    await auth.verify();
-                } catch (error) {
-                    handleLogout();
-                }
-            }, settings.refreshTokenInterval);
-        }
-        return () => {
-            if (tokenCheckInterval) {
-                clearInterval(tokenCheckInterval);
-            }
-        };
-    }, [isAuthenticated]);
-
     // Check authentication status on component mount
     useEffect(() => {
         checkAuth();

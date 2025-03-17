@@ -31,10 +31,16 @@ class ArcFittingProcessor:
         groups = self.grouper.get_all_groups(points, axis=axis_now)
         all_lines_stats = []
         all_valid_radii = []
-
+        len_list=[len(line_points) for line_points in groups]
+        # 均值
+        mean_len=np.mean(len_list)
+        print("mean_len=", mean_len)
         # 处理每一组（每一根线）
         for line_idx, line_points in enumerate(groups):
             # 获取每个点的邻近点
+            # print("len=", len(line_points))
+            if len(line_points)<mean_len/2:
+                continue
             neighbors, _ = self.grouper.find_neighbors_kdtree(
                 line_points, 
                 settings['arcNormalNeighbors']

@@ -5,22 +5,19 @@ const config = {
         apiUrl: 'http://localhost:9304',
         authPrefix: '/auth',
         tokenKey: 'arc_workpiece_token',
-        defaultTimeout: 10000,
-        refreshTokenInterval: 25 * 60 * 1000, // 25 minutes
+        defaultTimeout: 10000
     },
     production: {
         apiUrl: process.env.REACT_APP_API_URL || 'http://localhost:9304',
         authPrefix: '/auth',
         tokenKey: 'arc_workpiece_token',
-        defaultTimeout: 10000,
-        refreshTokenInterval: 25 * 60 * 1000, // 25 minutes
+        defaultTimeout: 10000
     },
     test: {
         apiUrl: 'http://localhost:9304',
         authPrefix: '/auth',
         tokenKey: 'arc_workpiece_token_test',
-        defaultTimeout: 2000,
-        refreshTokenInterval: 1000, // 1 second for testing
+        defaultTimeout: 2000
     }
 };
 
@@ -33,8 +30,6 @@ export const settings = {
     authPrefix: currentConfig.authPrefix,
     tokenKey: currentConfig.tokenKey,
     defaultTimeout: currentConfig.defaultTimeout,
-    refreshTokenInterval: currentConfig.refreshTokenInterval,
-
     // API Endpoints
     endpoints: {
         login: '/token',

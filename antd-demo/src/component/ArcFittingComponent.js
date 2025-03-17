@@ -97,7 +97,10 @@ const ArcFittingComponent = () => {
       const response = await axios.post('/api/arc-fitting-stats', {
         ...settings.arcSettings,
         axis_now:axis_now
-      });
+      },{
+        timeout: 60000  // 60秒
+      }
+    );
       if (response.data.status === 'success') {
         setLineData(response.data.lineStats);
         setStatistics(response.data.overallStats);

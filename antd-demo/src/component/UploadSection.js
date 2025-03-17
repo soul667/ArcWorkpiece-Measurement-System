@@ -100,6 +100,7 @@ const UploadSection = () => {
                 headers: {
                   'Content-Type': 'multipart/form-data',
                 },
+                timeout: 600000,
                 onUploadProgress: (progressEvent) => {
                   const percent = Math.round(
                     (progressEvent.loaded * 100) / progressEvent.total
