@@ -154,9 +154,14 @@ class PointCloudManager:
                 os.makedirs(os.path.dirname(prefix), exist_ok=True)
             
             # 写入三视图
-            cv2.imwrite(f"{base_dir}_xy.jpg", img_xy)
-            cv2.imwrite(f"{base_dir}_yz.jpg", img_yz)
-            cv2.imwrite(f"{base_dir}_xz.jpg", img_xz)
+            if prefix:
+                cv2.imwrite(f"{base_dir}_xy.jpg", img_xy)
+                cv2.imwrite(f"{base_dir}_yz.jpg", img_yz)
+                cv2.imwrite(f"{base_dir}_xz.jpg", img_xz)
+            else:
+                cv2.imwrite(f"{base_dir}/xy.jpg", img_xy)
+                cv2.imwrite(f"{base_dir}/yz.jpg", img_yz)
+                cv2.imwrite(f"{base_dir}/xz.jpg", img_xz)
             
         except Exception as e:
             self.logger.error(f"生成三视图失败: {str(e)}")

@@ -15,8 +15,8 @@ async def get_image(path: str, v: Optional[str] = None):
         v: 版本号（用于缓存控制）
     """
     img_path = os.path.join(TEMP_DIR, path)
-    logger.info(f"请求图片: {path}, 版本: {v}")
-    
+    logger.info(f"请求图片: {img_path}, 版本: {v}")
+    img_path = img_path if img_path.endswith((".jpg", ".jpeg", ".png", ".bmp")) else img_path + ".jpg"
     # 安全检查，防止目录遍历
     if not os.path.abspath(img_path).startswith(os.path.abspath(TEMP_DIR)):
         raise HTTPException(status_code=403, detail="访问被拒绝")
@@ -39,7 +39,10 @@ async def get_yml(path: str, v: Optional[str] = None):
         v: 版本号（用于缓存控制）
     """
     yml_path = os.path.join(TEMP_DIR, path)
-    logger.info(f"请求YAML文件: {path}")
+    yml_path = yml_path if yml_path.endswith(".yml") else yml_path + ".yml"
+    # yml_path = os.path.join(yml_path, ".yml") if not yml_path.endswith(".yml") else yml_path
+
+    logger.info(f"请求YAML文件: {yml_path}")
     
     # 安全检查，防止目录遍历
     if not os.path.abspath(yml_path).startswith(os.path.abspath(TEMP_DIR)):
