@@ -15,7 +15,7 @@ const LineQualityViewer = () => {
   const [defectLines, setDefectLines] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [total, setTotal] = useState(0);
-  const [autoDetectEnabled, setAutoDetectEnabled] = useState(true);
+  const [autoDetectEnabled, setAutoDetectEnabled] = useState(false);
   const [currentProbability, setCurrentProbability] = useState(null);
 
   // const [axis,setAxis]=useState(0)

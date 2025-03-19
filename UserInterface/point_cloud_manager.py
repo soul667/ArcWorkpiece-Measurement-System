@@ -193,22 +193,25 @@ class PointCloudManager:
             self.logger.error(f"更新点云信息失败: {str(e)}")
             raise RuntimeError(f"更新点云信息失败: {str(e)}")
         
-    def get_current_cloud(self) -> Optional[o3d.geometry.PointCloud]:
+    def get_current_cloud(self) -> Tuple[Optional[o3d.geometry.PointCloud], bool]:
         """获取当前点云"""
         if self.current_cloud is None:
             # read from file
             # 从temp_dir中读取点云文件
             cloud_path = os.path.join(self.temp_dir, 'temp.ply')
             if not os.path.exists(cloud_path):
-                return None
+                 return None, False
             self.current_cloud = o3d.io.read_point_cloud(cloud_path)
             
-        return self.current_cloud
+        return self.current_cloud,True
     
     def get_points(self, point_cloud: o3d.geometry.PointCloud) -> np.ndarray:
         """获取点云的点数据"""
         return np.asarray(point_cloud.points)
     
+    def set_points(self,points: np.ndarray) -> None:
+        """设置点云的点数据"""
+        self.current_cloud.points = o3d.utility.Vector3dVector(points)
     def save_point_cloud(self, point_cloud: o3d.geometry.PointCloud, path: str):
         """保存点云到指定路径"""
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -219,4 +222,8 @@ class PointCloudManager:
         if not os.path.exists(path):
             raise FileNotFoundError(f"点云文件不存在: {path}")
         self.current_cloud = o3d.io.read_point_cloud(path)
-        return self.current_cloud
+        self.logger.info(f"成功读取点云文件，共 {len(self.current_cloud.points)} 个点，")
+        # # 更新三视图
+        # self.get_points(self.current_cloud)
+        self.generate_views(self.get_points(self.current_cloud))
+        self.update_cloud_info(self.get_points(self.current_cloud))

@@ -48,8 +48,8 @@ const LoginComponent = ({ onLoginSuccess }) => {
             margin: '100px auto', 
             padding: 24,
             boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
-            borderRadius: 8,
-            backgroundColor: '#fff'
+            borderRadius: 8
+            // backgroundColor: '#fff'
         }}>
             <h2 style={{ 
                 textAlign: 'center', 

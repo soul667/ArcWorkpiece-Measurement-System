@@ -104,3 +104,8 @@ async def get_cloud(path: str):
         )
     else:
         raise HTTPException(status_code=404, detail="未找到点云文件")
+
+# @router.get("/load_points")
+# async def load_points():
+#     """加载点云数据"""
+#     pass

@@ -19,7 +19,7 @@ const PointCloudGeneratorComponent = () => {
         }}
       >
         <div style={{ 
-          background: '#fafafa', 
+          //background: '#fafafa', 
           padding: '12px 16px', 
           borderRadius: '4px',
           marginBottom: '16px'

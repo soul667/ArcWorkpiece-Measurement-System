@@ -144,20 +144,43 @@ async def get_latest_setting(current_user: dict = Depends(get_current_user)):
 
 @router.delete("/deleteAll")
 async def delete_all_settings(current_user: dict = Depends(get_current_user)):
-    """删除当前用户的所有设置"""
+    """删除除最新一条外的所有设置"""
     try:
-        query = """
-            DELETE FROM parameter_settings 
-            WHERE user_id = %s
+        # 首先获取最新的设置的ID
+        query_latest = """
+            SELECT id 
+            FROM parameter_settings 
+            WHERE user_id = %s 
+            ORDER BY created_at DESC 
+            LIMIT 1
         """
+        
         db = Database()
-        db.execute_query(query, (current_user['id'],))
+        latest_result = db.execute_query(query_latest, (current_user['id'],))
+        
+        if not latest_result:
+            return JSONResponse(
+                status_code=200,
+                content={"status": "success", "message": "没有可删除的设置"}
+            )
+            
+        latest_id = latest_result[0]['id']
+        
+        # 删除除最新设置外的所有设置
+        query_delete = """
+            DELETE FROM parameter_settings 
+            WHERE user_id = %s 
+            AND id != %s
+        """
+        
+        db.execute_query(query_delete, (current_user['id'], latest_id))
+        
         return JSONResponse(
             status_code=200,
-            content={"status": "success", "message": "所有设置已删除"}
+            content={"status": "success", "message": "已删除除最新设置外的所有设置"}
         )
     except Exception as e:
-        logger.error(f"删除所有设置失败: {str(e)}")
+        logger.error(f"删除设置失败: {str(e)}")
         return JSONResponse(
             status_code=500,
             content={"error": f"删除失败: {str(e)}"}

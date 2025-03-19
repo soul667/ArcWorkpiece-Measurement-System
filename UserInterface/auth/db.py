@@ -129,10 +129,13 @@ class Database:
         # temp_clouds_sql = os.path.join(os.path.dirname(__file__), 'init_db_update_temp_clouds.sql')
         # clouds_table_result = self.execute_sql_file(temp_clouds_sql)
         temp_clouds_sql = os.path.join(os.path.dirname(__file__), 'init_db_update_temp_clouds.sql')
+        measurement_historysql = os.path.join(os.path.dirname(__file__), 'init_db_measurement_history.sql')
+
         logger.info(f"Loading SQL file from: {temp_clouds_sql}")
         clouds_table_result = self.execute_sql_file(temp_clouds_sql)
+        measurement_history_result = self.execute_sql_file(measurement_historysql)
         logger.info(f"Temp clouds table creation result: {clouds_table_result}")
-        return base_tables_result and clouds_table_result
+        return base_tables_result and clouds_table_result and measurement_history_result
 
     def __enter__(self):
         """Context manager entry - returns self since we're using connection pool"""

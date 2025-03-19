@@ -20,7 +20,7 @@ const FilterSection = () => {
   const [nbNeighbors, setNbNeighbors] = useState(100);
   const [stdRatio, setStdRatio] = useState(0.5);
   const [showPointCloud, setShowPointCloud] = useState(false);
-
+  // const []
   // Add new styles for fullscreen controls
   const fullscreenControlsStyle = {
     position: 'fixed',
@@ -367,7 +367,7 @@ const FilterSection = () => {
 
   const handleDenoise = async () => {
     try {
-      await axios.post('/denoise', {
+      await axios.post('/api/point-cloud/denoise', {
         nb_neighbors: nbNeighbors,
         std_ratio: stdRatio,
         settings: {
@@ -590,6 +590,34 @@ const FilterSection = () => {
   // Listen for keyboard events
   useEffect(() => {
     const handleKeyDown = async (e) => {
+      // change now view -> and <-
+      // const [currentView, setCurrentView] = useState('xy');
+      if (e.key === 'ArrowRight') {
+        if (currentView === 'xy') {
+          setCurrentView('xz');
+        }
+        if (currentView === 'xz') {
+          setCurrentView('yz');
+        }
+        if (currentView === 'yz') {
+          setCurrentView('xy');
+        }
+      }
+      if (e.key === 'ArrowLeft') {
+        if (currentView === 'xy') {
+          setCurrentView('yz');
+        }
+        if (currentView === 'yz') {
+          setCurrentView('xz');
+        }
+        if (currentView === 'xz') {
+          setCurrentView('xy');}
+      }
+      // 上下按键
+      // if (e.key === 'ArrowUp') {
+      // }
+      // if (e.key === 'ArrowDown') {
+
       // Mode switching with X/Y/Z keys
       if (e.key.toLowerCase() === 'x') {
         e.preventDefault();
@@ -640,7 +668,7 @@ const FilterSection = () => {
         setLines(prev => prev.slice(0, -1));
       }
       
-      if (e.key.toLowerCase() === 'm') {
+      if (e.key.toLowerCase() === 'm' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
         e.preventDefault();
         setDrawMode(prev => prev === 'x' ? 'y' : 'x');
         setLines([]);

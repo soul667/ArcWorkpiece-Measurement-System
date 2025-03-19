@@ -162,18 +162,27 @@ const ParamsSettingComponent = () => {
         form.validateFields(),
         arcForm.validateFields()
       ]);
-
+      console.log('圆柱轴线参数:', cylinderValues);
+      console.log('圆弧拟合参数:', arcValues);
+      const latestResponse = await axios.get('/api/settings/latest');
+      console.log('最新设置:', latestResponse.data);
+      const latestSettings = latestResponse.data.data;
       // 确保使用至少包含默认值的数据
       const mergedArcValues = {
         ...defaultArcSettings,
+        ...latestSettings.arcSettings,
         ...arcValues
       };
-
+      const mergedCylinderValues = {
+        ...defaultCylinderSettings,
+        ...latestSettings.cylinderSettings,
+        ...cylinderValues
+      };
       // 生成时间戳作为设置名称
       const timestamp = new Date().toLocaleString('zh-CN').replace(/[\/\s:]/g, '');
       const data = {
         name: `设置_${timestamp}`,
-        cylinderSettings: cylinderValues,
+        cylinderSettings: mergedCylinderValues,
         arcSettings: mergedArcValues
       };
 
@@ -341,7 +350,7 @@ const ParamsSettingComponent = () => {
       <div id="projection-container" style={{ 
         marginBottom: '24px',
         textAlign: 'center',
-        background: '#fafafa',
+        //background: '#fafafa',
         border: '1px solid #d9d9d9',
         borderRadius: '4px',
         padding: '16px',
@@ -371,7 +380,7 @@ const ParamsSettingComponent = () => {
             }}
           >
             <div style={{ 
-              background: '#fafafa', 
+              //background: '#fafafa', 
               padding: '12px 16px', 
               borderRadius: '4px',
               marginBottom: '16px'
@@ -399,7 +408,7 @@ const ParamsSettingComponent = () => {
 
             {/* 通用参数设置 */}
             <div style={{ 
-              background: '#fafafa', 
+              // //background: '#fafafa', 
               padding: '12px 16px', 
               borderRadius: '4px',
               marginBottom: '16px'
@@ -456,7 +465,7 @@ const ParamsSettingComponent = () => {
 
             {/* 点云采集参数设置 */}
             <div style={{ 
-              background: '#fafafa', 
+              //background: '#fafafa', 
               padding: '12px 16px', 
               borderRadius: '4px',
               marginBottom: '16px'
@@ -513,7 +522,7 @@ const ParamsSettingComponent = () => {
             {/* RANSAC特有参数设置 */}
             {selectedMethod === 'NormalRANSAC' && (
               <div style={{ 
-                background: '#fafafa', 
+                //background: '#fafafa', 
                 padding: '12px 16px', 
                 borderRadius: '4px',
                 marginBottom: '16px'
@@ -593,7 +602,7 @@ const ParamsSettingComponent = () => {
             }}
           >
             <div style={{ 
-              background: '#fafafa', 
+              //background: '#fafafa', 
               padding: '12px 16px', 
               borderRadius: '4px',
               marginBottom: '16px'
@@ -620,7 +629,7 @@ const ParamsSettingComponent = () => {
 
             {/* 通用圆弧拟合参数设置 */}
             <div style={{ 
-              background: '#fafafa', 
+              //background: '#fafafa', 
               padding: '12px 16px', 
               borderRadius: '4px',
               marginBottom: '16px'
@@ -677,7 +686,7 @@ const ParamsSettingComponent = () => {
 
             {/* 圆拟合迭代参数设置 */}
             <div style={{ 
-              background: '#fafafa', 
+              //background: '#fafafa', 
               padding: '12px 16px', 
               borderRadius: '4px',
               marginBottom: '16px'
@@ -720,7 +729,7 @@ const ParamsSettingComponent = () => {
             {/* 梯度下降法特有参数设置 */}
             {selectedArcMethod === 'GradientDescent' && (
               <div style={{ 
-                background: '#fafafa', 
+                //background: '#fafafa', 
                 padding: '12px 16px', 
                 borderRadius: '4px',
                 marginBottom: '16px'

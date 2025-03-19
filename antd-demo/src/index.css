@@ -22,13 +22,49 @@ time, mark, audio, video {
 
 /* Global styles */
 :root {
+  /* 基础色彩 */
   --primary-color: #1a365d;
   --secondary-color: #004599;
-  --background-color: #f0f2f5;
+  --background-color: #ffffff;
+  --component-background: #ffffff;
+  
+  /* 文本颜色 */
   --text-color: rgba(0, 0, 0, 0.85);
+  --text-color-secondary: rgba(0, 0, 0, 0.45);
+  
+  /* 边框和阴影 */
+  --border-color: #d9d9d9;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  
+  /* 滚动条 */
+  --scrollbar-track-color: #f1f1f1;
+  --scrollbar-thumb-color: #888;
+  --scrollbar-thumb-hover-color: #555;
+  
+  /* 其他 */
   --border-radius: 4px;
   --transition-duration: 0.3s;
-  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] {
+  /* 基础色彩 */
+  --primary-color: #177ddc;
+  --secondary-color: #165996;
+  --background-color: #141414;
+  --component-background: #1f1f1f;
+  
+  /* 文本颜色 */
+  --text-color: rgba(255, 255, 255, 0.85);
+  --text-color-secondary: rgba(255, 255, 255, 0.45);
+  
+  /* 边框和阴影 */
+  --border-color: #434343;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  
+  /* 滚动条 */
+  --scrollbar-track-color: #262626;
+  --scrollbar-thumb-color: #434343;
+  --scrollbar-thumb-hover-color: #555555;
 }
 
 html {
@@ -51,7 +87,7 @@ body {
 /* Selection */
 ::selection {
   background: var(--primary-color);
-  color: #fff;
+  /* color: #fff; */
 }
 
 /* Code font */
@@ -114,16 +150,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Print styles */
-@media print {
-  body {
-    background: #fff;
-  }
 
-  @page {
-    margin: 2cm;
-  }
-}
 
 /* High contrast mode */
 @media (forced-colors: active) {

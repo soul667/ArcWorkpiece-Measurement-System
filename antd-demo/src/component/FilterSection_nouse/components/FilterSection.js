@@ -126,7 +126,7 @@ const FilterSection = () => {
   // Denoise handler
   const handleDenoise = async () => {
     try {
-      await axios.post('/denoise', {
+      await axios.post('/api/point-cloud/denoise', {
         nb_neighbors: nbNeighbors,
         std_ratio: stdRatio,
         settings: {

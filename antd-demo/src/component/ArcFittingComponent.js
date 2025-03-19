@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Card, Table, Statistic, Row, Col, message, Radio, Space, Switch } from 'antd';
+import { Card, Table, Statistic, Row, Col, message, Radio, Space, Switch, Button, Tooltip } from 'antd';
+import { DownloadOutlined, CopyOutlined } from '@ant-design/icons';
 import { Line, Column, Stock, Scatter } from '@ant-design/charts';
 import { isNumber } from 'lodash';
 import axios from '../utils/axios';
@@ -324,12 +325,38 @@ const ArcFittingComponent = () => {
       {/* 统计信息展示 */}
       <Row gutter={[16, 16]} style={{ marginBottom: 16 }}>
         <Col span={6}>
-          <Statistic 
-            title="总体中位数" 
-            value={statistics.overallMedian} 
-            precision={3}
-            suffix="mm"
-          />
+          <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+            <div style={{ flex: 1 }}>
+              <Statistic 
+                title="总体中位数" 
+                value={statistics.overallMedian} 
+                precision={3}
+                suffix="mm"
+              />
+            </div>
+            <Tooltip title="复制数值">
+              <Button
+                type="default"
+                icon={<CopyOutlined style={{ fontSize: '20px' }} />}
+                onClick={() => {
+                  const value = statistics.overallMedian.toFixed(3);
+                  navigator.clipboard.writeText(value).then(() => {
+                    message.success('已复制: ' + value);
+                  });
+                }}
+                style={{ 
+                  marginLeft: 12,
+                  height: '38px',
+                  width: '38px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginTop: '8px',
+                  borderRadius: '4px'
+                }}
+              />
+            </Tooltip>
+          </div>
         </Col>
         <Col span={6}>
           <Statistic 
@@ -357,8 +384,37 @@ const ArcFittingComponent = () => {
       </Row>
 
       {/* 图表控制 */}
+      {/* 图表控制 */}
       <div style={{ marginBottom: 16 }}>
         <Space>
+          <Button
+            icon={<DownloadOutlined />}
+            onClick={() => {
+              // 创建CSV内容
+              let csvContent = `总体中位数,时间\n${statistics.overallMedian},${new Date().toLocaleString()}\n\n`;
+              csvContent += '图表数据\n序号,半径,类型,行号\n';
+              
+              // 添加当前图表数据
+              chartData.forEach(point => {
+                csvContent += `${point.index},${point.radius},${point.type},${point.lineIndex}\n`;
+              });
+              
+              // 创建Blob并下载
+              const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8' });
+              const url = URL.createObjectURL(blob);
+              const link = document.createElement('a');
+              link.href = url;
+              link.download = `圆弧拟合数据_${new Date().toLocaleString().replace(/[/:]/g, '-')}.csv`;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              URL.revokeObjectURL(url);
+              
+              message.success('导出成功');
+            }}
+          >
+            导出数据
+          </Button>
           <Radio.Group value={chartType} onChange={e => setChartType(e.target.value)}>
             <Radio.Button value="line">折线图</Radio.Button>
             <Radio.Button value="stock">K线图</Radio.Button>

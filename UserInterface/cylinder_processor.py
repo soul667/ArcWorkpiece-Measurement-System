@@ -268,8 +268,8 @@ class CylinderProcessor:
             elif cylinder_method == 'RobPCA':
                 point_on_axis, axis_direction, radius = self._fit_cylinder_robust_pca(points)
 
-            if cylinder_method == 'NormalRANSAC':
-                points = filtered_points
+            # if cylinder_method == 'NormalRANSAC':
+            #     points = filtered_points
             # 投影点云到平面
             projected_points, planar_coords = self.projector.project_points(
                 points, axis_direction, point_on_axis

@@ -69,22 +69,22 @@ def validate_json_data(data):
     else:
         return str(data)
 
-def get_point_cloud() -> tuple[o3d.geometry.PointCloud, bool]:
-    """获取当前点云数据"""
-    global global_source_point_cloud
-    if global_source_point_cloud is not None:
-        return global_source_point_cloud, True
+# def get_point_cloud() -> tuple[o3d.geometry.PointCloud, bool]:
+#     """获取当前点云数据"""
+#     # global global_source_point_cloud
+#     if global_source_point_cloud is not None:
+#         return global_source_point_cloud, True
 
-    temp_ply_path = os.path.join(TEMP_DIR, 'temp.ply')
-    if not os.path.exists(temp_ply_path):
-        return None, False
+#     temp_ply_path = os.path.join(TEMP_DIR, 'temp.ply')
+#     if not os.path.exists(temp_ply_path):
+#         return None, False
 
-    try:
-        global_source_point_cloud = o3d.io.read_point_cloud(temp_ply_path)
-        return global_source_point_cloud, True
-    except Exception as e:
-        logger.error(f"读取点云文件失败: {str(e)}")
-        return None, False
+#     try:
+#         global_source_point_cloud = o3d.io.read_point_cloud(temp_ply_path)
+#         return global_source_point_cloud, True
+#     except Exception as e:
+#         logger.error(f"读取点云文件失败: {str(e)}")
+#         return None, False
 
 @router.post("/upload")
 async def upload_file(
@@ -98,12 +98,13 @@ async def upload_file(
 
     try:
         file_content = await file.read()
-        global global_source_point_cloud
-        global_source_point_cloud, file_size_mb = cloud_manager.upload_point_cloud(
+        # global global_source_point_cloud
+        point_cloud, file_size_mb = cloud_manager.upload_point_cloud(
             file_content,
             actual_speed=actual_speed,
             acquisition_speed=acquisition_speed
         )
+        # cloud_manager.set_points(np.array(point_cloud.points))
         
         return UploadResponse(
             message=f"文件上传成功，大小: {file_size_mb:.2f} MB",
@@ -166,7 +167,7 @@ async def process_cylinder(data: Dict):
         raise HTTPException(status_code=400, detail="未接收到数据")
     
     # 获取点云数据
-    point_cloud, success = get_point_cloud()
+    point_cloud, success = cloud_manager.get_current_cloud()
     if not success:
         raise HTTPException(status_code=400, detail="无可用的点云数据")
 
@@ -203,7 +204,7 @@ async def get_arc_fitting_stats(data: dict):
         if not global_axis_direction:
             raise HTTPException(status_code=400, detail="请先完成轴线拟合")
         
-        point_cloud, success = get_point_cloud()
+        point_cloud, success = cloud_manager.get_current_cloud()
         if not success:
             raise HTTPException(status_code=400, detail="无可用的点云数据")
         # print("data",data)
@@ -220,6 +221,72 @@ async def get_arc_fitting_stats(data: dict):
         points = np.asarray(point_cloud.points)
         results = arc_fitting_processor.process_all_lines(points, settings, axis_now)
         
+        # 调用 
+# @router.post("/store")
+# async def store_record(
+#     record: MeasurementRecord,
+#     current_user: dict = Depends(get_current_user)
+# ):
+#     """存储新的测量记录"""
+#     try:
+#         db = Database()
+#         query = """
+#             INSERT INTO measurement_history (
+#                 user_id, cloud_name, timestamp, 
+#                 radius,
+#                 axis_vector_x, axis_vector_y, axis_vector_z,
+#                 axis_point_x, axis_point_y, axis_point_z,
+#                 original_projection, axis_projection
+#             ) VALUES (
+#                 %s, %s, %s, %s, 
+#                 %s, %s, %s, 
+#                 %s, %s, %s,
+#                 %s, %s
+#             )
+#         """
+#         values = (
+#             current_user['id'],
+#             record.cloud_name,
+#             record.timestamp,
+#             record.radius,
+#             record.axis_vector_x,
+#             record.axis_vector_y,
+#             record.axis_vector_z,
+#             record.axis_point_x,
+#             record.axis_point_y,
+#             record.axis_point_z,
+#             record.original_projection,
+#             record.axis_projection
+#         )
+        
+#         db.execute_query(query, values)
+#         return JSONResponse(
+#             status_code=200,
+#             content={"status": "success", "message": "记录已保存"}
+#         )
+
+#     except Exception as e:
+#         logger.error(f"保存测量记录失败: {str(e)}")
+#         raise HTTPException(status_code=500, detail=str(e))
+
+        # db = Database()
+        # query = """
+        #     INSERT INTO measurement_history (
+        #         user_id
+        #         timestamp, 
+        #         radius
+        #     ) VALUES (
+        #         %s,%s, %s
+        #     )
+        # """
+        # values = (
+            
+        #     datetime.now(),
+        #     10
+        # )
+        
+        # db.execute_query(query, values)
+
         # 验证数据确保可以JSON序列化
         validated_results = validate_json_data(results)
         return JSONResponse(
@@ -251,7 +318,7 @@ async def group_points(data: dict):
     """
     try:
         # 获取点云数据
-        point_cloud, success = get_point_cloud()
+        point_cloud, success = cloud_manager.get_current_cloud()
         if not success:
             return JSONResponse(status_code=400, content={"error": "无可用的点云数据"})
             
@@ -290,7 +357,7 @@ async def remove_defect_lines(data: DefectLinesRequest):
                 message="没有需要删除的线条"
             )
             
-        point_cloud, success = get_point_cloud()
+        point_cloud, success = cloud_manager.get_current_cloud()
         if not success:
             raise HTTPException(status_code=400, detail="无可用的点云数据")
             
@@ -364,7 +431,7 @@ async def predict_quality(data: ModelPredictionRequest):
 async def denoise_point_cloud(data: DenoiseRequest):
     """对当前点云数据进行去噪处理"""
     try:
-        point_cloud, success = get_point_cloud()
+        point_cloud, success = cloud_manager.get_current_cloud()
         if not success:
             raise HTTPException(status_code=400, detail="无可用的点云数据")
 
@@ -405,10 +472,10 @@ async def crop_point_cloud(data: dict):
     """裁剪点云数据"""
     if not data:
         raise HTTPException(status_code=400, detail="未接收到数据")
-    # out data
-    print(data)
+    # # out data
+    # print(data)
 
-    point_cloud, success = get_point_cloud()
+    point_cloud, success = cloud_manager.get_current_cloud()
     if not success:
         raise HTTPException(status_code=400, detail="无可用的点云数据")
 
@@ -433,7 +500,7 @@ async def crop_point_cloud(data: dict):
         points = np.array(cropped_pcd.points)
         cloud_manager.generate_views(points)
         cloud_manager.update_cloud_info(points)
-
+        cloud_manager.set_points(points)
         return ProcessingResponse(
             status="success",
             message="点云裁剪完成",

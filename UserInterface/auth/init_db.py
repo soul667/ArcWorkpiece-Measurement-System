@@ -1,7 +1,7 @@
 from .db import Database
 from .service import auth_service  # Use the global instance
 import logging
-
+import os
 logger = logging.getLogger(__name__)
 
 def init_database():

@@ -23,7 +23,10 @@ const ExportPanel = ({ data, defectLines, loading, total }) => {
       const exportData = {
         id: data.current_index,
         timestamp: timestamp,
-        arc_points: data.group.points.map(point => point[2]),
+        // arc_points: data.group.points.map(point => point[2]),
+        x: data.group.points.map(point => point[0]),
+        y: data.group.points.map(point => point[1]),
+        z: data.group.points.map(point => point[2]),
         label: defectLines[data.current_index] ? 1 : 0
       };
 
@@ -56,7 +59,7 @@ const ExportPanel = ({ data, defectLines, loading, total }) => {
         .replace(/[:-]/g, '')
         .replace('T', '_')
         .split('.')[0];
-
+        // /api/point-cloud/denoise
       // 获取所有线条数据
       const promises = Array.from({ length: total }, async (_, index) => {
         try {
@@ -68,7 +71,9 @@ const ExportPanel = ({ data, defectLines, loading, total }) => {
           const lineData = {
             id: index,
             timestamp: timestamp,
-            arc_points: response.data.group.points.map(point => point[2]),
+            x: response.data.group.points.map(point => point[0]),
+            y: response.data.group.points.map(point => point[1]),
+            z: response.data.group.points.map(point => point[2]),
             label: defectLines[index] ? 1 : 0
           };
           

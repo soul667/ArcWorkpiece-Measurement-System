@@ -5,7 +5,7 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from UserInterface.api.routes import  settings, files, point_cloud,temp_save
+from UserInterface.api.routes import  settings, files, point_cloud, temp_save, history
 from UserInterface.api.config import logger, RELOAD_DIRS, RELOAD_EXCLUDES, TEMP_DIR
 from UserInterface.auth.routes import router as auth_router
 from UserInterface.auth.init_db import init_database
@@ -27,7 +27,7 @@ async def startup_event():
     # 检查并初始化数据库
     logger.info("检查数据库表...")
     db = Database()
-    if not db.check_table_exists('temp_clouds'):
+    if not db.check_table_exists('temp_clouds') or not db.check_table_exists('measurement_history'):
         logger.info("temp_clouds 表不存在，开始初始化数据库...")
         if init_database():
             logger.info("数据库初始化完成")
@@ -55,6 +55,7 @@ app.include_router(settings.router, prefix="/api/settings", tags=["settings"])
 app.include_router(files.router, prefix="/api/files", tags=["files"])
 app.include_router(point_cloud.router, prefix="/api/point-cloud", tags=["point-cloud"])
 app.include_router(temp_save.router, prefix="/api/temp-save", tags=["temp-save"])
+app.include_router(history.router, prefix="/api/history", tags=["history"])
 
 @app.get("/")
 async def home(request: Request):

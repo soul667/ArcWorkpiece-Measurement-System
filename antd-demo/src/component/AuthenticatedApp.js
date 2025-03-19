@@ -7,7 +7,7 @@ import ErrorBoundary from './ErrorBoundary';
 import { auth } from '../utils/axios';
 import settings from '../config';
 
-const AuthenticatedApp = () => {
+const AuthenticatedApp = ({ toggleTheme, currentTheme }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [loading, setLoading] = useState(true);
     const [username, setUsername] = useState('');
@@ -59,6 +59,8 @@ const AuthenticatedApp = () => {
                 <IndustrialArcMeasurement 
                     username={username}
                     onLogout={handleLogout}
+                    toggleTheme={toggleTheme}
+                    currentTheme={currentTheme}
                 />
             ) : (
                 <LoginComponent onLoginSuccess={handleLoginSuccess} />

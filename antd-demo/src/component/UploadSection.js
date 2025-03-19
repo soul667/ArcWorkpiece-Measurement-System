@@ -79,7 +79,7 @@ const UploadSection = () => {
   }, []);
 
   const draggerStyle = {
-    background: '#fafafa',
+    //background: '#fafafa',
     border: `1px dashed ${isDragging ? '#1890ff' : '#d9d9d9'}`,
     borderRadius: '8px',
     padding: '24px',
@@ -261,7 +261,7 @@ const UploadSection = () => {
           <List.Item
             key={item.id}
             style={{
-              background: '#fafafa',
+              //background: '#fafafa',
               marginBottom: '8px',
               padding: '16px',
               borderRadius: '4px'
@@ -338,7 +338,6 @@ const UploadSection = () => {
         }
         .upload-card .ant-upload-drag:hover {
           border-color: #1890ff;
-          background: #f0f7ff;
         }
         .upload-card .ant-progress-bg {
           transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1);
@@ -357,14 +356,10 @@ const UploadSection = () => {
         .upload-card .ant-upload-list {
           margin-top: 16px;
           padding: 16px;
-          background: #fafafa;
           border-radius: 4px;
         }
         .upload-card .ant-upload-list-item {
           transition: all 0.3s;
-        }
-        .upload-card .ant-upload-list-item:hover {
-          background: #f0f7ff;
         }
       `}</style>
     </Card>

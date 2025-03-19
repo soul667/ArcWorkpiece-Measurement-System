@@ -9,7 +9,9 @@ from UserInterface.auth.service import get_current_user
 from UserInterface.auth.db import Database
 from UserInterface.point_cloud_manager import PointCloudManager
 from ..models.point_cloud import TempCloudResponse, TempCloudListResponse, StoreCloudResponse
-
+# from UserInterface.point_cloud_manager import generate_views
+# from 
+# generate_views(points)
 logger = logging.getLogger(__name__)
 router = APIRouter()
 
@@ -31,7 +33,7 @@ async def store_cloud(current_user: dict = Depends(get_current_user)) -> StoreCl
     """暂存当前点云"""
     try:
         # 获取当前点云
-        point_cloud = temp_storage.cloud_manager.get_current_cloud()
+        point_cloud,success = temp_storage.cloud_manager.get_current_cloud()
         if point_cloud is None:
             raise HTTPException(status_code=400, detail="无可用点云")
 
@@ -123,7 +125,8 @@ async def load_cloud(
 
         # 加载到系统
         temp_storage.cloud_manager.load_point_cloud(cloud_path)
-
+        # 更新三视图
+        # PointCloudManager.generate_views(PointCloudManager.current_cloud.points)
         return JSONResponse(
             status_code=200,
             content={"status": "success", "message": "点云已加载"}

@@ -16,33 +16,36 @@ import {
   RadarChartOutlined,
   UserOutlined,
   LogoutOutlined,
-  LineChartOutlined
+  LineChartOutlined,
+  BulbOutlined,
+  BulbFilled
 } from '@ant-design/icons';
 import FilterSection from './FilterSection';
 import ParamsSettingComponent from './ParamsSettingComponent';
 import UploadSection from './UploadSection';
 import LineQualityViewer from './LineQualityViewer';
+import HistorySection from './History';
 import ArcFittingComponent from './ArcFittingComponent';
 import PointCloudGeneratorComponent from './PointCloudGeneratorComponent';
 
 const { Header, Sider, Content } = Layout;
 const { Title, Text } = Typography;
 
-const IndustrialArcMeasurement = ({ username, onLogout }) => {
-  const [selectedKey, setSelectedKey] = useState('generate');
+const IndustrialArcMeasurement = ({ username, onLogout, toggleTheme, currentTheme }) => {
+  const [selectedKey, setSelectedKey] = useState('upload');
   const [collapsed, setCollapsed] = useState(false);
   const [logoHovered, setLogoHovered] = useState(false);
 
   return (
-    <Layout style={{ height: '100vh', background: '#f0f2f5' }}>
+    <Layout style={{ height: '100vh', background: 'var(--background-color)' }}>
       <Header 
         style={{ 
-          background: 'linear-gradient(135deg, #1a365d 0%, #004599 100%)',
+          background: 'linear-gradient(135deg, hsl(277deg 81.07% 47.65%) 0%, hsl(176deg 74.42% 33.73%) 100%)',
           padding: '0 12px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          boxShadow: '0 1px 2px rgba(0,0,0,0.08)',
+          boxShadow: 'var(--box-shadow)',
           height: '42px',
           lineHeight: '42px'
         }}
@@ -78,7 +81,17 @@ const IndustrialArcMeasurement = ({ username, onLogout }) => {
         </div>
 
         {/* User Info and Logout */}
-        <Space style={{ marginLeft: 'auto' }}>
+        <Space style={{ marginLeft: 'auto' }} size={4}>
+          <Button
+            type="text"
+            icon={currentTheme === 'dark' ? <BulbOutlined /> : <BulbFilled />}
+            onClick={toggleTheme}
+            style={{ 
+              color: '#fff',
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          />
           <Dropdown menu={{
             items: [
               {
@@ -112,8 +125,8 @@ const IndustrialArcMeasurement = ({ username, onLogout }) => {
           collapsed={collapsed}
           onCollapse={(value) => setCollapsed(value)}
           style={{ 
-            background: '#fff',
-            boxShadow: '2px 0 8px rgba(0,0,0,0.05)',
+            background: 'var(--component-background)',
+            boxShadow: 'var(--box-shadow)',
             zIndex: 10,
             transition: 'all 0.2s ease-in-out'
           }}
@@ -124,12 +137,12 @@ const IndustrialArcMeasurement = ({ username, onLogout }) => {
             onClick={({ key }) => setSelectedKey(key)}
             style={{ 
               height: '100%', 
-              borderRight: 0,
-              backgroundColor: 'transparent'
+              borderRight: 0
+              // backgroundColor: 'transparent'
             }}
-            theme="light"
+            // theme="light"
           >
-            <Menu.Item key="generate" icon={<RadarChartOutlined />}>点云生成</Menu.Item>
+            {/* <Menu.Item key="generate" icon={<RadarChartOutlined />}>点云生成</Menu.Item> */}
             <Menu.Item key="upload" icon={<UploadOutlined />}>点云上传</Menu.Item>
             <Menu.Item key="filter" icon={<FilterOutlined />}>点云预处理</Menu.Item>
             <Menu.Item key="params" icon={<SettingOutlined />}>参数设置</Menu.Item>
@@ -139,8 +152,8 @@ const IndustrialArcMeasurement = ({ username, onLogout }) => {
           </Menu>
         </Sider>
         <Layout style={{ padding: '24px' }}>
-          <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 480 }}>
-            {selectedKey === 'generate' && <PointCloudGeneratorComponent />}
+          <Content style={{padding: 5, margin: 0, minHeight: 480 }}>
+            {/* {selectedKey === 'generate' && <PointCloudGeneratorComponent />} */}
             {selectedKey === 'upload' && <UploadSection />}
             {selectedKey === 'filter' && <FilterSection />}
             {selectedKey === 'params' && <ParamsSettingComponent />}
@@ -151,14 +164,6 @@ const IndustrialArcMeasurement = ({ username, onLogout }) => {
         </Layout>
       </Layout>
     </Layout>
-  );
-};
-
-const HistorySection = () => {
-  return (
-    <Card title="历史记录" bordered={false}>
-      <Text>暂无历史记录</Text>
-    </Card>
   );
 };
 
