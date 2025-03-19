@@ -590,6 +590,31 @@ const FilterSection = () => {
   // Listen for keyboard events
   useEffect(() => {
     const handleKeyDown = async (e) => {
+      if (e.ctrlKey) {
+        if (e.key.toLowerCase() === 'x') {
+          e.preventDefault();
+          handleCrop();
+          return;
+        }
+        if (e.key.toLowerCase() === 'q') {
+          e.preventDefault();
+          handleDenoise();
+          return;
+        }
+        if (e.key.toLowerCase() === 'z') {
+          try {
+            const response = await axios.post('/api/temp-save/store');
+            if (response.data.status === 'success') {
+              message.success('点云暂存成功');
+            }
+          } catch (error) {
+            message.error('点云暂存失败');
+          }
+          // e.preventDefault();
+          // handleDenoise();
+          return;
+        }
+      }
       // change now view -> and <-
       // const [currentView, setCurrentView] = useState('xy');
       if (e.key === 'ArrowRight') {
