@@ -112,7 +112,7 @@ const LoginComponent = ({ onLoginSuccess }) => {
                 color: '#999',
                 fontSize: '13px'
             }}>
-                默认账号: admin 密码: admin123
+                默认账号: admin123 密码: admin
             </div>
         </div>
     );

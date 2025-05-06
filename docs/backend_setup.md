@@ -46,12 +46,12 @@ mkdir -p UserInterface/assets/temp
 
 1. 开发模式运行:
 ```bash
-uvicorn UserInterface.fastapi_test:app --reload --port 9304
+uvicorn UserInterface.fastapi_test:app --reload --port 12345
 ```
 
 2. 生产模式运行:
 ```bash
-uvicorn UserInterface.fastapi_test:app --host 0.0.0.0 --port 9304
+uvicorn UserInterface.fastapi_test:app --host 0.0.0.0 --port 12345
 ```
 
 ## 配置说明
@@ -133,7 +133,7 @@ pytest tests/
 2. API测试:
 可以使用FastAPI的交互式文档页面:
 ```
-http://localhost:9304/docs
+http://localhost:12345/docs
 ```
 
 ## 常见问题

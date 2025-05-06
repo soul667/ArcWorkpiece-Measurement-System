@@ -22,7 +22,7 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
     ports:
-      - "13306:3306"
+      - "13506:13306"
     networks:
       - arcworkpiece-network
 

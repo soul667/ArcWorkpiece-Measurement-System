@@ -22,7 +22,7 @@ class Settings:
 
     # Server settings
     BACKEND_HOST = os.getenv('BACKEND_HOST', '0.0.0.0')
-    BACKEND_PORT = int(os.getenv('BACKEND_PORT', 9304))
+    BACKEND_PORT = int(os.getenv('BACKEND_PORT', 12345))
     FRONTEND_PORT = int(os.getenv('FRONTEND_PORT', 3000))
 
     # CORS settings

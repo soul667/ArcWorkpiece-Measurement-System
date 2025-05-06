@@ -12,7 +12,7 @@ const defaultArcSettings = {
   arcMaxRadius: 12,
   arcMinRadius: 6,
   learningRate: 0.01,
-  gradientMaxIterations: 1000,
+  MaxIterations: 1000,
   tolerance: 1e-6,
   fitIterations: 50,      // 拟合迭代次数n
   samplePercentage: 50    // 采样百分比m
@@ -314,7 +314,7 @@ const ParamsSettingComponent = () => {
         if (values.arcMethod === 'GradientDescent') {
           arcFitData.gradient_params = {
             learning_rate: values.learningRate,
-            max_iterations: values.gradientMaxIterations,
+            max_iterations: values.MaxIterations,
             tolerance: values.tolerance
           };
         }
@@ -438,7 +438,7 @@ const ParamsSettingComponent = () => {
                     tooltip="圆柱的最小半径限制"
                   >
                     <InputNumber 
-                      min={1} 
+                      min={0.01} 
                       max={50} 
                       style={{ width: '100%' }}
                       addonAfter="mm" 
@@ -597,7 +597,7 @@ const ParamsSettingComponent = () => {
               arcMaxRadius: 12,
               arcMinRadius: 6,
               learningRate: 0.01,
-              gradientMaxIterations: 1000,
+              MaxIterations: 1000,
               tolerance: 1e-6,
             }}
           >
@@ -755,7 +755,7 @@ const ParamsSettingComponent = () => {
                     <Form.Item 
                       {...formItemLayout}
                       label="最大迭代次数" 
-                      name="gradientMaxIterations"
+                      name="MaxIterations"
                       tooltip="梯度下降的最大迭代次数"
                     >
                       <InputNumber 

@@ -147,27 +147,33 @@ class PcaAxis:
         """
         # 获取主成分轴
         axis_list = self.fit(points, model=model)
-        min_points_count = float('inf')
-        best_axis = None
+        return axis_list[0]
+        # min_points_count = float('inf')
+        # best_axis = None
+        # # 获取 axis_list中最大特征值方向的特征向量作为轴
+
         # if model == PCAMethod.FAXIAN_PCA:
         #     return axis_list[1]
         # 遍历每个主轴
-        for axis in axis_list:
-            # 归一化轴方向
-            axis = axis / np.linalg.norm(axis)
+        # for axis in axis_list:
+        #     # 归一化轴方向
+        #     axis = axis / np.linalg.norm(axis)
             
-            # 将点云对齐到当前轴
-            aligned_points = self.align_to_x_axis(points, axis)
+        #     # 将点云对齐到当前轴
+        #     # aligned_points = self.align_to_x_axis(points, axis)
             
-            # 投影到YZ平面
-            projected_points = np.stack([aligned_points[:, 1], aligned_points[:, 2]], axis=1)
+        #     # 投影到YZ平面
+        #     # projected_points = np.stack([aligned_points[:, 1], aligned_points[:, 2]], axis=1)
             
-            # 计算投影后的点数
-            points_count = self.map_points_to_image_and_find_contours(projected_points, show=False)
+        #     # # 计算投影后的点数
+        #     # points_count = self.map_points_to_image_and_find_contours(projected_points, show=False)
             
-            # 更新最佳轴（选择投影后点数最少的轴作为圆柱轴）
-            if points_count < min_points_count:
-                min_points_count = points_count
-                best_axis = axis
+        #     # # 更新最佳轴（选择投影后点数最少的轴作为圆柱轴）
+        #     # if points_count < min_points_count:
+        #     #     min_points_count = points_count
+        #     #     best_axis = axis
+            
+        #     # 返回
+
 
         return best_axis

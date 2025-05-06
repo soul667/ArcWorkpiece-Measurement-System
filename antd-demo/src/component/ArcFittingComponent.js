@@ -10,7 +10,7 @@ const defaultArcSettings = {
   arcMaxRadius: 12,
   arcMinRadius: 6,
   learningRate: 0.01,
-  gradientMaxIterations: 1000,
+  MaxIterations: 1000,
   tolerance: 1e-6,
   fitIterations: 50,      // 拟合迭代次数n
   samplePercentage: 50    // 采样百分比m

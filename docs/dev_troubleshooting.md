@@ -84,7 +84,7 @@ npm install axios @ant-design/icons antd
 后端服务器:
 ```bash
 # 检查端口占用
-lsof -i :9304
+lsof -i :12345
 # 如果端口被占用，终止相关进程
 kill -9 <PID>
 ```

@@ -129,7 +129,7 @@ npm start
 
 2. 后端开发
    - 查看fastapi.log日志文件
-   - 访问 http://localhost:9304/docs 查看API文档
+   - 访问 http://localhost:12345/docs 查看API文档
    - 使用数据库管理工具检查用户表
 
 3. 环境变量

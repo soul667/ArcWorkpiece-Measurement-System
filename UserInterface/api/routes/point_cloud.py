@@ -220,7 +220,7 @@ async def get_arc_fitting_stats(data: dict):
         print("axis_now", axis_now)
         points = np.asarray(point_cloud.points)
         results = arc_fitting_processor.process_all_lines(points, settings, axis_now)
-        
+        print("results", results)
         # 调用 
 # @router.post("/store")
 # async def store_record(

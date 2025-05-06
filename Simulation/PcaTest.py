@@ -149,13 +149,15 @@ def visualize_point_cloud(points):
 # 调用函数生成点云并可视化
 if __name__ == "__main__":
     # 可调参数
-    center = np.array([0, 0, 0])  # 圆柱的中心点
-    axis = np.array([0.99, 0.5, 0.05])  # 圆柱的轴向量
+    center = np.array([1, 40, 5])  # 圆柱的中心点
+    axis = np.array([0, 0.3, 1])  # 圆柱的轴向量
     axis_source=axis/np.linalg.norm(axis)
-    radius = 9.0  # 半径
-    height = 20.0  # 高度
-    angle_range = 30  # 圆柱面部分的角度范围，单位为度
-    resolution = 200  # 点云的分辨率，越大点云越密集
+    radius = 2.0  # 半径
+    height = 3.0  # 高度
+    angle_range = 50  # 圆柱面部分的角度范围，单位为度
+    resolution = 40  # 点云的分辨率，越大点云越密集
+    resolution_z=30
+    resolution_theta=250
     noise_stddev = 0.01  # 高斯噪声的标准差
 
     # 生成圆柱面上的部分点云

@@ -42,7 +42,7 @@ MYSQL_PASSWORD=devpass
 前端环境变量：
 ```bash
 # API配置
-REACT_APP_API_URL=http://localhost:9304
+REACT_APP_API_URL=http://localhost:12345
 REACT_APP_TOKEN_KEY=arc_workpiece_token
 ```
 

@@ -119,7 +119,10 @@ class ArcFittingProcessor:
             # 使用HyperFit方法拟合圆
             _, _, radius = self.circle_fitter.fit_circle_arc(sampled_points)
             radii.append(radius)
-
+        # 输出半径
+        # print("radii=", radii)
+        # 如果radii不是实数 那就给他为0
+        radii = [r if isinstance(r, (int, float)) else 0 for r in radii]
         # 异常值筛除
         q1 = np.percentile(radii, 25)
         q3 = np.percentile(radii, 75)

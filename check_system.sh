@@ -6,7 +6,7 @@ echo "=== 圆弧测量系统状态检查 ==="
 
 # 检查后端服务
 echo -n "检查后端服务: "
-if curl -s http://localhost:9304/docs > /dev/null; then
+if curl -s http://localhost:12345/docs > /dev/null; then
     echo "运行中 ✓"
 else
     echo "未运行 ✗"
@@ -43,7 +43,7 @@ cd ..
 
 # 验证认证服务
 echo -n "验证认证服务: "
-TOKEN=$(curl -s -X POST http://localhost:9304/auth/token \
+TOKEN=$(curl -s -X POST http://localhost:12345/auth/token \
     -H "Content-Type: application/x-www-form-urlencoded" \
     -d "username=admin&password=admin123" | grep -o '"access_token":"[^"]*' | cut -d'"' -f4)
 
@@ -60,8 +60,8 @@ echo "
 
 可用服务:
 - 前端界面: http://localhost:3000
-- 后端API: http://localhost:9304
-- API文档: http://localhost:9304/docs
+- 后端API: http://localhost:12345
+- API文档: http://localhost:12345/docs
 "
 
 exit 0

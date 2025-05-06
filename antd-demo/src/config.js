@@ -2,19 +2,19 @@ const environment = process.env.NODE_ENV || 'development';
 
 const config = {
     development: {
-        apiUrl: 'http://localhost:9304',
+        apiUrl: 'http://localhost:12345',
         authPrefix: '/auth',
         tokenKey: 'arc_workpiece_token',
         defaultTimeout: 10000
     },
     production: {
-        apiUrl: process.env.REACT_APP_API_URL || 'http://localhost:9304',
+        apiUrl: process.env.REACT_APP_API_URL || 'http://localhost:12345',
         authPrefix: '/auth',
         tokenKey: 'arc_workpiece_token',
         defaultTimeout: 10000
     },
     test: {
-        apiUrl: 'http://localhost:9304',
+        apiUrl: 'http://localhost:12345',
         authPrefix: '/auth',
         tokenKey: 'arc_workpiece_token_test',
         defaultTimeout: 2000

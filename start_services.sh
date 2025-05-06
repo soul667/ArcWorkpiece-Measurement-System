@@ -33,9 +33,9 @@ echo "
 === 服务已启动 ===
 
 前端服务: http://localhost:3000
-后端服务: http://localhost:9304
+后端服务: http://localhost:12345
 
-API文档: http://localhost:9304/docs
+API文档: http://localhost:12345/docs
 
 默认管理员账号:
 用户名: admin

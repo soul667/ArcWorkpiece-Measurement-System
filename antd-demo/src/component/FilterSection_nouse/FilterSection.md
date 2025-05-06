@@ -1174,7 +1174,7 @@ if __name__ == "__main__":
     uvicorn.run(
         "fastapi_test:app",
         host="0.0.0.0",
-        port=9304,
+        port=12345,
         reload=True,
         reload_dirs=reload_dirs,
         reload_excludes=reload_excludes
@@ -4240,7 +4240,7 @@ if __name__ == "__main__":
     uvicorn.run(
         "UserInterface.api.main:app",
         host="0.0.0.0",
-        port=9304,
+        port=12345,
         reload=True,
         reload_dirs=RELOAD_DIRS,
         reload_excludes=RELOAD_EXCLUDES
@@ -4314,7 +4314,7 @@ if __name__ == "__main__":
     uvicorn.run(
         "UserInterface.api.main:app",
         host="0.0.0.0",
-        port=9304,
+        port=12345,
         reload=True,
         reload_dirs=RELOAD_DIRS,
         reload_excludes=RELOAD_EXCLUDES

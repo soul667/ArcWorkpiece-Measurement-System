@@ -5,7 +5,7 @@
       console.log('Sending crop request:', JSON.stringify({
         regions
       }));
-      const response = await fetch('http://localhost:9304/api/point-cloud/crop', {
+      const response = await fetch('http://localhost:12345/api/point-cloud/crop', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

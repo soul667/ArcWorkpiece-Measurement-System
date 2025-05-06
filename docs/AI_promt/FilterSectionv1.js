@@ -225,7 +225,7 @@ const FilterSection = () => {
   // Every time the view changes, load image and reset regions 每次视图更改时，都会加载图像并重置区域 
   useEffect(() => {
     console.log('Loading new view:', currentView);
-    imageRef.current.src = `http://localhost:9304/api/files/img/${currentView}`;
+    imageRef.current.src = `http://localhost:12345/api/files/img/${currentView}`;
     imageRef.current.onload = () => {
       handleResize();
     };
@@ -382,7 +382,7 @@ const FilterSection = () => {
           z_mode: zMode
         }
       }));
-      const response = await fetch('http://localhost:9304/api/point-cloud/crop', {
+      const response = await fetch('http://localhost:12345/api/point-cloud/crop', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -401,7 +401,7 @@ const FilterSection = () => {
         message.success('裁剪成功');
         // Refresh image with cache busting
         const timestamp = new Date().getTime();
-        imageRef.current.src = `http://localhost:9304/api/files/img/${currentView}?t=${timestamp}`;
+        imageRef.current.src = `http://localhost:12345/api/files/img/${currentView}?t=${timestamp}`;
       } else {
         const errorData = await response.json();
         message.error(`裁剪失败: ${errorData.error || '未知错误'}`);
@@ -415,7 +415,7 @@ const FilterSection = () => {
   // Get YAML coordinate ranges and parse
   const fetchCoordinateRanges = async (view) => {
     try {
-      const response = await fetch(`http://localhost:9304/api/files/yml/info`);
+      const response = await fetch(`http://localhost:12345/api/files/yml/info`);
       if (!response.ok) return;
       const text = await response.text();
       const ranges = parseYaml(text);
