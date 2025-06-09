@@ -188,6 +188,7 @@ async def process_cylinder(data: Dict):
         # 保存轴线方向向量
         global global_axis_direction
         global_axis_direction = result.get('axis', {}).get('direction')
+        # print("axis=",global_axis_direction)
         
         return JSONResponse(status_code=200, content=result)
         
@@ -201,9 +202,18 @@ async def process_cylinder(data: Dict):
 async def get_arc_fitting_stats(data: dict):
     """获取圆弧拟合统计信息"""
     try:
+        axis_now = data.get('axis_now', 'x')  # Get axis_now from request data
+        global global_axis_direction
         if not global_axis_direction:
-            raise HTTPException(status_code=400, detail="请先完成轴线拟合")
-        
+            # axis_direction
+            if(axis_now=='x'):
+                global_axis_direction=(1,0,0)
+            else:
+                global_axis_direction=(0,1,0)
+
+
+            # raise HTTPException(status_code=400, detail="请先完成轴线拟合")
+            # global_axis_direction=np.array()
         point_cloud, success = cloud_manager.get_current_cloud()
         if not success:
             raise HTTPException(status_code=400, detail="无可用的点云数据")
@@ -213,14 +223,15 @@ async def get_arc_fitting_stats(data: dict):
             'fitIterations': data.get('fitIterations', 50),
             'samplePercentage': data.get('samplePercentage', 50),
             'axis_direction': global_axis_direction,
-            'point_on_axis': np.array([0, 0, 0])  # 可以使用任意轴上点
+            'point_on_axis': np.array([0, 0, 0]),  # 可以使用任意轴上点,
+            'min_r':data.get('arcMaxRadius', 0),
+            'max_r':data.get('arcMinRadius', 50)
         }
-        axis_now = data.get('axis_now', 'x')  # Get axis_now from request data
-        print('data', data)
-        print("axis_now", axis_now)
+        # print('data', data)
+        # print("axis_now", axis_now)
         points = np.asarray(point_cloud.points)
         results = arc_fitting_processor.process_all_lines(points, settings, axis_now)
-        print("results", results)
+        # print("results", results)
         # 调用 
 # @router.post("/store")
 # async def store_record(

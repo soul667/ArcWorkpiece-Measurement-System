@@ -1,0 +1,37 @@
+{
+  "$schema": "../../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "arc-workpiece-measurement-system",
+  "version": "0.1.0",
+  "identifier": "com.tauri.build",
+  "build": {
+    "frontendDist": "../build",
+    "devUrl": "http://localhost:12345",
+    "beforeDevCommand": "cross-env PORT=3000 REACT_APP_API_URL=http://localhost:12345 react-scripts start",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "arc-workpiece-measurement-system",
+        "width": 800,
+        "height": 600,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}

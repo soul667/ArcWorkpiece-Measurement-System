@@ -3918,7 +3918,7 @@ async def process_cylinder(data: Dict):
         logger.error(f"处理点云数据时出错: {str(e)}")
         raise HTTPException(status_code=500, detail=f"点云处理失败: {str(e)}")
 
-@router.post("/arc-fitting-stats")
+@router.post("")
 async def get_arc_fitting_stats(data: Dict):
     """获取圆弧拟合统计信息"""
     try:

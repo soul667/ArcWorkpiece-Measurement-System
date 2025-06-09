@@ -11,42 +11,22 @@ const LineQualityViewer = () => {
   const [selectedAxis, setSelectedAxis] = useState('x');
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
-  const [cachedData, setCachedData] = useState({});
   const [defectLines, setDefectLines] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [total, setTotal] = useState(0);
   const [autoDetectEnabled, setAutoDetectEnabled] = useState(false);
   const [currentProbability, setCurrentProbability] = useState(null);
 
-  // const [axis,setAxis]=useState(0)
-  // 获取分组数据
+  // 获取分组数据（不使用缓存）
   const fetchGroupedData = useCallback(async (axis, index) => {
-    const cacheKey = `${axis}_${index}`;
-    
-    // 检查缓存
-    if (cachedData[cacheKey]) {
-      setData(cachedData[cacheKey]);
-      if (!total) {
-        setTotal(cachedData[cacheKey].total_groups);
-      }
-      return;
-    }
-
     try {
       setLoading(true);
       const response = await axios.post('/api/point-cloud/group-points', { 
         axis,
         index
       });
-      
-      // 更新缓存
-      setCachedData(prev => ({
-        ...prev,
-        [cacheKey]: response.data
-      }));
-      
+
       setData(response.data);
-      console.log('response.data:', response.data);
       setTotal(response.data.total_groups);
     } catch (error) {
       console.error('获取分组数据失败:', error);
@@ -54,50 +34,14 @@ const LineQualityViewer = () => {
     } finally {
       setLoading(false);
     }
-  }, [cachedData, total]);
+  }, []);
 
-  // 预加载数据
+  // 初始加载
   useEffect(() => {
-    if (!data || loading) return;
+    fetchGroupedData(selectedAxis, 0);
+  }, [selectedAxis, fetchGroupedData]);
 
-    // 预加载下一条数据
-    if (currentIndex < total - 1) {
-      const nextIndex = currentIndex + 1;
-      const nextCacheKey = `${selectedAxis}_${nextIndex}`;
-      
-      if (!cachedData[nextCacheKey]) {
-        axios.post('/api/point-cloud/group-points', { 
-          axis: selectedAxis,
-          index: nextIndex
-        }).then(response => {
-          setCachedData(prev => ({
-            ...prev,
-            [nextCacheKey]: response.data
-          }));
-        }).catch(console.error); // 预加载失败不影响用户体验
-      }
-    }
-
-    // 预加载上一条数据
-    if (currentIndex > 0) {
-      const prevIndex = currentIndex - 1;
-      const prevCacheKey = `${selectedAxis}_${prevIndex}`;
-      
-      if (!cachedData[prevCacheKey]) {
-        axios.post('/api/point-cloud/group-points', { 
-          axis: selectedAxis,
-          index: prevIndex
-        }).then(response => {
-          setCachedData(prev => ({
-            ...prev,
-            [prevCacheKey]: response.data
-          }));
-        }).catch(console.error); // 预加载失败不影响用户体验
-      }
-    }
-  }, [currentIndex, selectedAxis, total, data, loading, cachedData]);
-
-  // 处理检测
+  // 自动检测
   const handleDetect = async (points) => {
     try {
       setLoading(true);
@@ -113,7 +57,6 @@ const LineQualityViewer = () => {
     }
   };
 
-  // 当切换线条或开关状态变化时进行检测
   useEffect(() => {
     if (autoDetectEnabled && data?.group?.points) {
       handleDetect(data.group.points);
@@ -122,7 +65,7 @@ const LineQualityViewer = () => {
     }
   }, [currentIndex, data, autoDetectEnabled]);
 
-  // 处理导航
+  // 线条切换
   const handlePrev = useCallback(() => {
     if (currentIndex > 0) {
       const newIndex = currentIndex - 1;
@@ -145,19 +88,14 @@ const LineQualityViewer = () => {
     fetchGroupedData(selectedAxis, newIndex);
   }, [total, selectedAxis, fetchGroupedData]);
 
-  // 处理轴变更
+  // 轴切换
   const handleAxisChange = useCallback((value) => {
     setSelectedAxis(value);
-    setCurrentIndex(0);  // 重置索引
+    setCurrentIndex(0);
     fetchGroupedData(value, 0);
   }, [fetchGroupedData]);
 
-  // 初始加载
-  useEffect(() => {
-    fetchGroupedData(selectedAxis);
-  }, [selectedAxis, fetchGroupedData]);
-
-  // 处理标记缺陷
+  // 标记缺陷
   const handleMarkDefect = useCallback(() => {
     setDefectLines(prev => {
       const newDefectLines = [...prev];
@@ -165,12 +103,12 @@ const LineQualityViewer = () => {
       return newDefectLines;
     });
   }, [currentIndex]);
-  
-  // 添加键盘事件监听
+
+  // 键盘快捷键
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.target.tagName === 'INPUT') return; // 如果焦点在输入框上，不处理键盘事件
-      
+      if (event.target.tagName === 'INPUT') return;
+
       switch (event.key.toLowerCase()) {
         case 'arrowleft':
           handlePrev();
@@ -256,23 +194,18 @@ const LineQualityViewer = () => {
           </Space>
         </Card>
 
-        <Card 
-          size="small" 
-          title="线质量可视化"
-        >
+        <Card size="small" title="线质量可视化">
           <center>
-          <LineChart 
-            data={data}
-            loading={loading}
-            selectedAxis={selectedAxis}
-          />
+            <LineChart 
+              key={`${selectedAxis}_${currentIndex}`} 
+              data={data}
+              loading={loading}
+              selectedAxis={selectedAxis}
+            />
           </center>
         </Card>
 
-        <Card 
-          size="small" 
-          title="数据导出"
-        >
+        <Card size="small" title="数据导出">
           <Space>
             <ExportPanel 
               data={data}

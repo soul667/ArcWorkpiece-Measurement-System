@@ -34,7 +34,7 @@ class ArcFittingProcessor:
         len_list=[len(line_points) for line_points in groups]
         # 均值
         mean_len=np.mean(len_list)
-        print("mean_len=", mean_len)
+        # print("mean_len=", mean_len)  平均每个线的点数
         # 处理每一组（每一根线）
         for line_idx, line_points in enumerate(groups):
             # 获取每个点的邻近点
@@ -50,14 +50,18 @@ class ArcFittingProcessor:
             unique_neighbors = self.grouper.remove_duplicate_neighbors(neighbors)
             
             # 投影到垂直于轴的平面上
+            # print(settings)
             line_stats = self.process_single_line(
                 unique_neighbors,
                 settings['axis_direction'],
                 settings['point_on_axis'],
                 settings['fitIterations'],
-                settings['samplePercentage']
+                settings['samplePercentage'],
+                # settings[]
             )
-            
+            # print(line_stats['radiusData'])
+            # if(line_stats['radiusData']['radius']==0):
+            #     continue
             line_stats['lineIndex'] = line_idx
             all_lines_stats.append(line_stats)
             all_valid_radii.extend([r['radius'] for r in line_stats['radiusData'] if r['isValid']])
@@ -82,7 +86,9 @@ class ArcFittingProcessor:
         axis_direction: np.ndarray,
         point_on_axis: np.ndarray,
         n_iterations: int,
-        sample_percentage: int
+        sample_percentage: int,
+        max_r=1000,
+        min_r=0
     ) -> Dict[str, Any]:
         """
         处理单根线的圆拟合
@@ -110,19 +116,25 @@ class ArcFittingProcessor:
         )
 
         # 迭代拟合
-        for _ in range(n_iterations):
-            # 随机采样m%的点
-            n_samples = int(len(planar_coords) * sample_percentage / 100)
-            sample_indices = random.sample(range(len(planar_coords)), n_samples)
-            sampled_points = planar_coords[sample_indices]
+        _, _, radius = self.circle_fitter.fit_circle_arc(planar_coords)
+        radii.append(radius)
+        # for _ in range(n_iterations):
+        #     # 随机采样m%的点
+        #     n_samples = int(len(planar_coords) * sample_percentage / 100)
+        #     sample_indices = random.sample(range(len(planar_coords)), n_samples)
+        #     sampled_points = planar_coords[sample_indices]
             
-            # 使用HyperFit方法拟合圆
-            _, _, radius = self.circle_fitter.fit_circle_arc(sampled_points)
-            radii.append(radius)
+        #     # 使用HyperFit方法拟合圆
+        #     _, _, radius = self.circle_fitter.fit_circle_arc(sampled_points)
+        #     radii.append(radius)
         # 输出半径
         # print("radii=", radii)
         # 如果radii不是实数 那就给他为0
         radii = [r if isinstance(r, (int, float)) else 0 for r in radii]
+        isValid = any(bool(use_) for use_ in radii)
+
+
+
         # 异常值筛除
         q1 = np.percentile(radii, 25)
         q3 = np.percentile(radii, 75)
@@ -140,7 +152,7 @@ class ArcFittingProcessor:
             {
                 'iteration': i + 1,
                 'radius': radius,
-                'isValid': int(lower_bound <= radius <= upper_bound)
+                'isValid': isValid and (radius>min_r) and (radius<max_r)
             } for i, radius in enumerate(radii)
         ]
 

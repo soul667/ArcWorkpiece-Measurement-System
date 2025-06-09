@@ -67,11 +67,12 @@ class PcaAxis:
         """
         # 数据中心化
 
-
+        # print(model)
         if model == PCAMethod.ORDINARY_PCA:
             center = np.mean(points, axis=0)
             centered_points = points - center
             # 使用普通PCA方法
+            # print(centered_points)
             pca = PCA(n_components=3)
             pca.fit(centered_points)
             return pca.components_
@@ -145,6 +146,7 @@ class PcaAxis:
         返回:
             ndarray: 最佳圆柱轴的方向向量
         """
+        # print(points)
         # 获取主成分轴
         axis_list = self.fit(points, model=model)
         return axis_list[0]

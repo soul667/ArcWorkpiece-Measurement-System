@@ -3,6 +3,48 @@ from typing import Dict, List, Any, Tuple
 from sklearn.neighbors import KDTree
 
 class PointCloudGrouper:
+    
+    @staticmethod
+    def get_all_groups_size(points: np.ndarray, axis: str = 'x', group_size: float = 1.0) -> List[np.ndarray]:
+        """
+        按指定轴对点云进行分组，每 group_size 的范围归为一组
+        
+        Args:
+            points (np.ndarray): 点云数据，Nx3数组
+            axis (str): 分组轴 ('x', 'y', 或 'z')
+            group_size (float): 分组的坐标跨度大小，例如 1.0 表示每 1 个单位坐标归为一组
+            
+        Returns:
+            List[np.ndarray]: 分组后的点列表，每组是一个 ndarray
+        """
+        if not isinstance(points, np.ndarray):
+            points = np.array(points)
+            
+        if points.shape[1] != 3:
+            raise ValueError("Points must be a Nx3 array")
+            
+        axis_map = {'x': 0, 'y': 1, 'z': 2}
+        if axis not in axis_map:
+            raise ValueError(f"Invalid axis: {axis}. Must be one of: x, y, z")
+        
+        axis_idx = axis_map[axis]
+        
+        # 获取该轴方向的坐标值
+        coords = points[:, axis_idx]
+        
+        # 计算每个点所属的组编号
+        min_coord = np.min(coords)
+        group_indices = np.floor((coords - min_coord) / group_size).astype(int)
+        
+        # 根据组编号分组
+        groups = []
+        for group_id in np.unique(group_indices):
+            mask = group_indices == group_id
+            group_points = points[mask]
+            groups.append(group_points)
+        
+        return groups
+
     @staticmethod
     def get_all_groups(points: np.ndarray, axis: str = 'x') -> List[np.ndarray]:
         """
@@ -24,9 +66,9 @@ class PointCloudGrouper:
         axis_map = {'x': 0, 'y': 1, 'z': 2}
         if axis not in axis_map:
             raise ValueError(f"Invalid axis: {axis}. Must be one of: x, y, z")
-            
+         
         axis_idx = axis_map[axis]
-        
+        print("分组轴", axis_map[axis])
         # 获取唯一坐标
         unique_coords = np.unique(points[:, axis_idx])
         

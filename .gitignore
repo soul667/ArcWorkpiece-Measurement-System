@@ -1,7 +1,8 @@
 # Point Cloud files
 *.ply
 *.pcd
-
+*.txt
+*.png
 # Python
 __pycache__/
 */__pycache__/

@@ -1125,7 +1125,7 @@ async def get_arc_fitting_stats(data: dict):
         point_cloud, success = get_point_cloud()
         if not success:
             raise HTTPException(status_code=400, detail="无可用的点云数据")
-        # print("data",data)
+        print("data",data)
         settings = {
             'arcNormalNeighbors': data.get('arcNormalNeighbors', 10),
             'fitIterations': data.get('fitIterations', 50),
@@ -1134,8 +1134,8 @@ async def get_arc_fitting_stats(data: dict):
             'point_on_axis': np.array([0, 0, 0])  # 可以使用任意轴上点
         }
         axis_now = data.get('axis_now', 'x')  # Get axis_now from request data
-        print('data', data)
-        print("axis_now", axis_now)
+        # print('data', data)
+        # print("axis_now", axis_now)
         points = np.asarray(point_cloud.points)
         results = arc_fitting_processor.process_all_lines(points, settings, axis_now)
         
