@@ -453,7 +453,7 @@ const ParamsSettingComponent = () => {
                     tooltip="圆柱的最大半径限制"
                   >
                     <InputNumber 
-                      min={1} 
+                      min={0.001} 
                       max={50} 
                       style={{ width: '100%' }}
                       addonAfter="mm" 
@@ -674,7 +674,7 @@ const ParamsSettingComponent = () => {
                     tooltip="圆弧的最大半径限制"
                   >
                     <InputNumber 
-                      min={1} 
+                      min={0.01} 
                       max={50} 
                       style={{ width: '100%' }}
                       addonAfter="mm" 

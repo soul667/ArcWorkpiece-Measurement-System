@@ -41,7 +41,7 @@ echo """
 === 服务已启动 ===
 
 前端服务: http://localhost:3000
-后端服务: http://localhost:12345
+后端服务: http://localhost:13456
 
 默认管理员账号:
 用户名: admin

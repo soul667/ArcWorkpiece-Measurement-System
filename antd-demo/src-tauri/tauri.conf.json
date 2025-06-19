@@ -5,8 +5,8 @@
   "identifier": "com.tauri.build",
   "build": {
     "frontendDist": "../build",
-    "devUrl": "http://localhost:12345",
-    "beforeDevCommand": "cross-env PORT=3000 REACT_APP_API_URL=http://localhost:12345 react-scripts start",
+    "devUrl": "http://localhost:13456",
+    "beforeDevCommand": "cross-env PORT=3000 REACT_APP_API_URL=http://localhost:13456 react-scripts start",
     "beforeBuildCommand": "npm run build"
   },
   "app": {

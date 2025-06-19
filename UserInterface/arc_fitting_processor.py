@@ -31,6 +31,9 @@ class ArcFittingProcessor:
         groups = self.grouper.get_all_groups(points, axis=axis_now)
         all_lines_stats = []
         all_valid_radii = []
+        all_valid_x=[]
+        all_valid_y=[]
+
         len_list=[len(line_points) for line_points in groups]
         # 均值
         mean_len=np.mean(len_list)
@@ -59,25 +62,33 @@ class ArcFittingProcessor:
                 settings['samplePercentage'],
                 # settings[]
             )
-            # print(line_stats['radiusData'])
-            # if(line_stats['radiusData']['radius']==0):
-            #     continue
+            # print(settings[''])
+            if(line_stats['radiusData'][0]['radius']>settings['max_r'] or line_stats['radiusData'][0]['radius']<settings['min_r']):
+                continue
             line_stats['lineIndex'] = line_idx
             all_lines_stats.append(line_stats)
             all_valid_radii.extend([r['radius'] for r in line_stats['radiusData'] if r['isValid']])
+            # all_valid_x
+            all_valid_x.extend([r['center_x'] for r in line_stats['radiusData'] if r['isValid']])
+            all_valid_y.extend([r['center_y'] for r in line_stats['radiusData'] if r['isValid']])
 
+        # 计算排序后的半径
         # 计算总体统计信息（仅使用有效值）
         overall_stats = {
             'overallMedian': float(np.median(all_valid_radii)),
             'overallStd': float(np.std(all_valid_radii)),
             'minValidRadius': float(np.min(all_valid_radii)),
             'maxValidRadius': float(np.max(all_valid_radii)),
-            'totalValidCount': len(all_valid_radii)
+            'totalValidCount': len(all_valid_radii),
+            'xMedian':float(np.median(all_valid_x)),
+            'yMedian': float(np.median(all_valid_y)),
+            # 'sortedRadii': all_valid_radii,
         }
 
         return {
             'lineStats': all_lines_stats,
-            'overallStats': overall_stats
+            'overallStats': overall_stats,
+            'sortedRadii': sorted(all_valid_radii),  # 排序后的半径
         }
 
     def process_single_line(
@@ -116,7 +127,7 @@ class ArcFittingProcessor:
         )
 
         # 迭代拟合
-        _, _, radius = self.circle_fitter.fit_circle_arc(planar_coords)
+        center_x, center_y, radius = self.circle_fitter.fit_circle_arc(planar_coords)
         radii.append(radius)
         # for _ in range(n_iterations):
         #     # 随机采样m%的点
@@ -152,6 +163,8 @@ class ArcFittingProcessor:
             {
                 'iteration': i + 1,
                 'radius': radius,
+                'center_x':center_x,
+                'center_y':center_y,
                 'isValid': isValid and (radius>min_r) and (radius<max_r)
             } for i, radius in enumerate(radii)
         ]

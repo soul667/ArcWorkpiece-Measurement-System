@@ -69,8 +69,8 @@ if __name__ == "__main__":
 === Authentication System Initialized Successfully ===
 
 Default admin account:
-Username: admin
-Password: admin123
+Username: admin123
+Password: admin
 
 Please change the default password!
 """)

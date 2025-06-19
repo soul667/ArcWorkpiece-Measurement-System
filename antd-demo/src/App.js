@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ConfigProvider,theme } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
 import { StyleProvider } from '@ant-design/cssinjs';
+import { CloudProvider } from './context/CloudContext';
 import AuthenticatedApp from './component/AuthenticatedApp';
 import ErrorBoundary from './component/ErrorBoundary';
 import './App.css';
@@ -78,7 +79,9 @@ const App = () => {
     <ErrorBoundary>
       <ConfigProvider locale={zhCN} {...antdConfig}>
         <StyleProvider hashPriority="high">
-          <AuthenticatedApp toggleTheme={toggleTheme} currentTheme={currentTheme} />
+          <CloudProvider>
+            <AuthenticatedApp toggleTheme={toggleTheme} currentTheme={currentTheme} />
+          </CloudProvider>
         </StyleProvider>
       </ConfigProvider>
     </ErrorBoundary>

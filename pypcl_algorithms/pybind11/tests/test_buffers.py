@@ -85,9 +85,9 @@ def test_inherited_protocol():
 def test_pointer_to_member_fn():
     for cls in [m.Buffer, m.ConstBuffer, m.DerivedBuffer]:
         buf = cls()
-        buf.value = 0x12345678
+        buf.value = 0x13456678
         value = struct.unpack("i", bytearray(buf))[0]
-        assert value == 0x12345678
+        assert value == 0x13456678
 
 
 def test_readonly_buffer():
@@ -149,7 +149,7 @@ def test_ctypes_array_2d():
     "env.PYPY and env.PY2", reason="PyPy2 bytes buffer not reported as readonly"
 )
 def test_ctypes_from_buffer():
-    test_pystr = b"0123456789"
+    test_pystr = b"0134566789"
     for pyarray in (test_pystr, bytearray(test_pystr)):
         pyinfo = m.get_buffer_info(pyarray)
 

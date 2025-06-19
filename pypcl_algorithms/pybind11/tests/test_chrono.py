@@ -189,7 +189,7 @@ def test_floating_point_duration():
     assert time.seconds == 35
     assert 525122 <= time.microseconds <= 525123
 
-    diff = m.test_chrono_float_diff(43.789012, 1.123456)
+    diff = m.test_chrono_float_diff(43.789012, 1.134566)
     assert diff.seconds == 42
     assert 665556 <= diff.microseconds <= 665557
 

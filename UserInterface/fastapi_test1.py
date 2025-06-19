@@ -1167,7 +1167,7 @@ if __name__ == "__main__":
     uvicorn.run(
         "fastapi_test:app",
         host="0.0.0.0",
-        port=12345,
+        port=13456,
         reload=True,
         reload_dirs=reload_dirs,
         reload_excludes=reload_excludes

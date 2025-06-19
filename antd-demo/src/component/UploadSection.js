@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Typography, Button, Upload, message, Progress, Spin, Divider, List, Image, Row, Col, Popconfirm } from 'antd';
+import { useCloud } from '../context/CloudContext';
 import { 
   InboxOutlined, 
   CloudUploadOutlined, 
@@ -13,6 +14,7 @@ import axios from '../utils/axios';
 const { Text } = Typography;
 
 const UploadSection = () => {
+  const { setCloudName } = useCloud();
   const [uploadStatus, setUploadStatus] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [tempClouds, setTempClouds] = useState([]);
@@ -176,6 +178,7 @@ const UploadSection = () => {
                 message.error(response.data.error);
               } else {
                 setUploadStatus('success');
+                setCloudName(file.name);
                 message.success(`${file.name} 上传成功`);
               }
             } catch (error) {

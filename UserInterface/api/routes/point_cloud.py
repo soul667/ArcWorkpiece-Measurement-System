@@ -210,8 +210,6 @@ async def get_arc_fitting_stats(data: dict):
                 global_axis_direction=(1,0,0)
             else:
                 global_axis_direction=(0,1,0)
-
-
             # raise HTTPException(status_code=400, detail="请先完成轴线拟合")
             # global_axis_direction=np.array()
         point_cloud, success = cloud_manager.get_current_cloud()
@@ -224,11 +222,13 @@ async def get_arc_fitting_stats(data: dict):
             'samplePercentage': data.get('samplePercentage', 50),
             'axis_direction': global_axis_direction,
             'point_on_axis': np.array([0, 0, 0]),  # 可以使用任意轴上点,
-            'min_r':data.get('arcMaxRadius', 0),
-            'max_r':data.get('arcMinRadius', 50)
+            'min_r':data.get('arcMinRadius', 0),
+            'max_r':data.get('arcMaxRadius', 50)
         }
+        print("settings", settings)
         # print('data', data)
         # print("axis_now", axis_now)
+        # print(settings['min_r'], settings['max_r'])
         points = np.asarray(point_cloud.points)
         results = arc_fitting_processor.process_all_lines(points, settings, axis_now)
         # print("results", results)
@@ -305,7 +305,8 @@ async def get_arc_fitting_stats(data: dict):
             content={
                 "status": "success",
                 "lineStats": validated_results['lineStats'],
-                "overallStats": validated_results['overallStats']
+                "overallStats": validated_results['overallStats'],
+                "sortedRadii": validated_results['sortedRadii']
             }
         )
         

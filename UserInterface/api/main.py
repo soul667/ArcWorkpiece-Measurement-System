@@ -81,7 +81,7 @@ if __name__ == "__main__":
     uvicorn.run(
         "UserInterface.api.main:app",
         host="0.0.0.0",
-        port=12345,
+        port=13456,
         reload=True,
         reload_dirs=RELOAD_DIRS,
         reload_excludes=RELOAD_EXCLUDES

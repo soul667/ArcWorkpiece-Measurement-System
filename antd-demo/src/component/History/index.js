@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Table, Card, Space, Button, Row, Col, 
   Image, Statistic, Typography, Drawer,
-  Descriptions, Divider
+  Descriptions, Divider, Input, message
 } from 'antd';
 import { FileOutlined } from '@ant-design/icons';
 import axios from '../../utils/axios';
@@ -13,8 +13,24 @@ const HistorySection = () => {
   const [records, setRecords] = useState([]);
   const [selectedRows, setSelectedRows] = useState([]);
   const [selectedRecord, setSelectedRecord] = useState(null);
+  const [editingRecord, setEditingRecord] = useState(null);
   const [detailVisible, setDetailVisible] = useState(false);
   const [statistics, setStatistics] = useState(null);
+
+  const handleSaveName = async (record, newName) => {
+    if (newName !== record.cloud_name) {
+      try {
+        await axios.put(`/api/history/${record.timestamp}`, {
+          cloud_name: newName
+        });
+        message.success('名称更新成功');
+        fetchRecords();
+      } catch (error) {
+        message.error('名称更新失败');
+      }
+    }
+    setEditingRecord(null);
+  };
 
   // 获取历史记录
   useEffect(() => {
@@ -83,24 +99,39 @@ const HistorySection = () => {
 
   // 导出报告
   const handleExportReport = async () => {
-    if (!selectedRows.length) return;
+    if (!selectedRows.length) {
+      message.warning('请选择要导出的记录');
+      return;
+    }
 
     try {
-      const response = await axios.post('/api/history/export', {
-        records: selectedRows.map(row => row.id)
-      }, { 
-        responseType: 'blob' 
-      });
+      const response = await axios.post('/api/history/export', 
+        { record_ids: selectedRows.map(row => row.id) },
+        { 
+          responseType: 'blob',
+          headers: {
+            'Accept': 'application/pdf'
+          }
+        }
+      );
 
-      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const blob = new Blob([response.data], { type: 'application/pdf' });
+      const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', `测量报告_${new Date().toISOString()}.pdf`);
+      link.download = `测量报告_${new Date().toLocaleString().replace(/[/:]/g, '-')}.pdf`;
       document.body.appendChild(link);
       link.click();
-      link.remove();
+      URL.revokeObjectURL(url);
+      document.body.removeChild(link);
+      message.success('导出成功');
     } catch (error) {
-      console.error('Failed to export report:', error);
+      if (error.response?.status === 401) {
+        message.error('请先登录');
+      } else {
+        message.error('导出失败: ' + (error.response?.data?.detail || error.message));
+        console.error('导出失败:', error);
+      }
     }
   };
 
@@ -111,30 +142,48 @@ const HistorySection = () => {
       sorter: true
     },
     {
-      title: '点云名称',
-      dataIndex: 'cloud_name'
+      title: '测量名称',
+      dataIndex: 'cloud_name',
+      render: (text, record) => (
+        <Space>
+          {editingRecord?.timestamp === record.timestamp ? (
+            <Input
+              value={editingRecord.newName}
+              onChange={e => setEditingRecord({
+                ...editingRecord,
+                newName: e.target.value || ''
+              })}
+              onPressEnter={() => handleSaveName(record, editingRecord.newName)}
+              onBlur={() => handleSaveName(record, editingRecord.newName)}
+              onKeyDown={e => {
+                if (e.key === 'Escape') {
+                  setEditingRecord(null);
+                }
+              }}
+              autoFocus
+            />
+          ) : (
+            <>
+              <Typography.Text>{text}</Typography.Text>
+              <Button
+                type="link"
+                size="small"
+                onClick={() => setEditingRecord({
+                  timestamp: record.timestamp,
+                  newName: text || ''
+                })}
+              >
+                修改名称
+              </Button>
+            </>
+          )}
+        </Space>
+      )
     },
     {
       title: '拟合半径',
       dataIndex: 'radius',
       render: (radius) => `${radius.toFixed(3)} mm`
-    },
-    {
-      title: '投影图',
-      render: (record) => (
-        <Space size="middle">
-          <Image 
-            width={100} 
-            src={record.original_projection}
-            alt="原始投影"
-          />
-          <Image 
-            width={100} 
-            src={record.axis_projection}
-            alt="轴向投影"
-          />
-        </Space>
-      )
     },
     {
       title: '操作',
@@ -196,14 +245,14 @@ const HistorySection = () => {
           >
             批量删除
           </Button>
-          <Button 
+          {/* <Button 
             type="primary"
             disabled={!selectedRows.length}
             icon={<FileOutlined />}
             onClick={handleExportReport}
           >
             导出报告
-          </Button>
+          </Button> */}
         </Space>
       </Card>
 
@@ -259,12 +308,15 @@ const HistorySection = () => {
         title="测量记录详情"
         width={600}
         open={detailVisible}
-        onClose={() => setDetailVisible(false)}
+        onClose={() => {
+          setDetailVisible(false);
+          setEditingRecord(null);
+        }}
       >
         {selectedRecord && (
           <Space direction="vertical" size="large" style={{ width: '100%' }}>
             <Descriptions bordered column={1}>
-              <Descriptions.Item label="点云名称">
+              <Descriptions.Item label="测量名称">
                 {selectedRecord.cloud_name}
               </Descriptions.Item>
               <Descriptions.Item label="时间戳">
@@ -296,26 +348,6 @@ const HistorySection = () => {
               </Row>
             </Card>
 
-            {selectedRecord.original_projection && selectedRecord.axis_projection && (
-              <Card title="投影图">
-                <Row gutter={16}>
-                  <Col span={12}>
-                    <Image
-                      src={selectedRecord.original_projection}
-                      alt="原始投影"
-                    />
-                    <Text>原始投影</Text>
-                  </Col>
-                  <Col span={12}>
-                    <Image
-                      src={selectedRecord.axis_projection}
-                      alt="轴向投影"
-                    />
-                    <Text>轴向投影</Text>
-                  </Col>
-                </Row>
-              </Card>
-            )}
           </Space>
         )}
       </Drawer>

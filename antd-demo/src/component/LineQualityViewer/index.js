@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Card, Space, message, Button, Input, Divider, Alert } from 'antd';
-import axios from 'axios';
+// import axios from 'axios';
+import axios from '../../utils/axios';
 import AxisSelector from './AxisSelector';
 import LineChart from './LineChart';
 import ExportPanel from './ExportPanel';

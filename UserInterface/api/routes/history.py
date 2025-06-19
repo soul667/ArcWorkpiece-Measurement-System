@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
-from fastapi.responses import JSONResponse, FileResponse
+from fastapi.responses import JSONResponse, FileResponse, Response
 from typing import List, Optional
 import logging
 import os
@@ -145,6 +145,22 @@ async def delete_record(
         logger.error(f"删除测量记录失败: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@router.put("/{timestamp}")
+async def update_record(timestamp: str, data: dict, current_user: dict = Depends(get_current_user)):
+    """更新指定记录的名称"""
+    try:
+        db = Database()
+        query = """
+            UPDATE measurement_history
+            SET cloud_name = %s
+            WHERE timestamp = %s AND user_id = %s
+        """
+        db.execute_query(query, (data['cloud_name'], timestamp, current_user['id']))
+        return {"status": "success", "message": "名称更新成功"}
+    except Exception as e:
+        logger.error(f"更新测量记录失败: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 @router.post("/export")
 async def export_report(
     request: ExportRequest,
@@ -152,12 +168,16 @@ async def export_report(
 ):
     """导出选中记录的测量报告"""
     try:
+        if not request.record_ids:
+            raise HTTPException(status_code=400, detail="请选择要导出的记录")
+
         db = Database()
-        # 获取记录数据
+        # 获取记录数据,确保只获取属于当前用户的记录
         query = """
             SELECT *
             FROM measurement_history
             WHERE id IN %s AND user_id = %s
+            ORDER BY created_at DESC
         """
         results = db.execute_query(query, (tuple(request.record_ids), current_user['id']))
         
@@ -167,11 +187,20 @@ async def export_report(
         # TODO: 生成PDF报告
         # 这里需要实现报告生成逻辑
         
-        return JSONResponse(
-            status_code=200,
-            content={"status": "success", "message": "报告已生成"}
+        # 临时返回一个空PDF作为示例
+        pdf_content = b"%PDF-1.7\n1 0 obj\n<</Type/Catalog>>\nendobj\ntrailer\n<</Root 1 0 R>>\n%%EOF"
+        
+        return Response(
+            content=pdf_content,
+            media_type="application/pdf",
+            headers={
+                "Content-Disposition": f"attachment; filename=measurement_report_{current_user['id']}.pdf"
+            }
         )
 
+    except HTTPException as he:
+        logger.warning(f"导出报告请求错误: {str(he)}")
+        raise he
     except Exception as e:
         logger.error(f"导出报告失败: {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="导出报告失败，请稍后重试")
